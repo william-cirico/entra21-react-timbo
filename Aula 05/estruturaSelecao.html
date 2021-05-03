@@ -11,17 +11,58 @@
         /* 
         Estrutura de Seleção Simples
         if (condição) {
-            <instruções para condição verdadeira>
+            <instruções>
         }
         // Resto do algoritmo
 
         Estrutura de Seleção Composta
         if (condição) {
-            <intruções para condição verdadeira>
+            <intruções>
         } else {
-            <instruções para condição falsa>
+            <instruções>
         }
+
+        Estrutura de seleção múltipla
+        if (condicao) {
+            <instruções>
+        } else if (condicao) {
+            <instruções>
+        } else {
+            <intruções>
+        }
+
+        Operador Condicional Ternário
+        condicao ? <instruções caso verdadeiro> : <instruções caso falso>
+
+        
         */
+
+        // Exemplo 01
+        let numero = 10        
+        if (numero === 10) {
+            console.log("O número é igual a 10!")
+        }
+        console.log(`O valor do número é ${numero}`)
+
+        // Exemplo 02
+        if (numero > 10) {
+            console.log("O número é maior que 10!")
+        } else {
+            console.log("O número é menor ou igual a 10")
+        }
+
+        // Exemplo 03
+        numero > 10 ? console.log("O número é maior que 10!") : console.log("O número é menor ou igual a 10")
+
+        // Exemplo 04
+        if (numero < 10) {
+            console.log("O número é menor que 10!")
+        } else if (numero === 10) {
+            console.log("O número é igual à 10")
+        } else {
+            console.log("O número é maior que 10")
+        }
+
     </script>
 </body>
 </html>

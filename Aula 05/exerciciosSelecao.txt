@@ -48,3 +48,34 @@ Entrada:        Saída:
 20              O número está fora da faixa
 
 90              O número está fora da faixa
+
+7) Considerando o valor de A = 10 e B = 20, responda a saída das seguintes expressões:        
+Boolean(A > 10 && B <= 20) // ?
+Boolean(A > 10 || B <= 20) // ?
+Boolean((A === 10 || B > 20) && B === 20) // ?
+console.log(null || 2 || undefined) // ?
+Boolean(0 && 1) // ?
+
+8) Escreva um script que receba três valores A, B, C. Faça as comparações necessárias para exibir
+na tela o maior valor entre os três.
+Entrada:         Saída:
+10, 12, 2        O maior número é 12
+
+12, 2, 10        O maior número é 12
+
+2, 10, 12        O maior número é 12
+
+9) Reescreva o script abaixo utilizando o operador ternário:
+let resultado;
+
+if (a + b < 4) {
+    resultado = "Abaixo"
+} else {
+    resultado = "Acima"
+}
+
+10) Escreva	um programa que	leia as	medidas	dos	lados de um	triângulo e	
+escreva	se ele é Equilátero, Isósceles ou Escaleno.	Sendo que:	
+− Triângulo	Equilátero:	possui os 3 lados iguais.	
+− Triângulo	Isósceles: possui 2	lados iguais.	
+− Triângulo	Escaleno: possui 3 lados diferentes.
