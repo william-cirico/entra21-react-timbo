@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        Regras de Nomenclatura das variáveis:
+            - Não pode iniciar com símbolos (com exceção do $ e _);
+            - Não pode iniciar com números;
+            - Não pode ser uma palavra-chave;
+            - Devem ser escritas em camelCase:
+                Ex.: numeroTelefone.
+        */
+
+        // Declaração de uma variável
+        let indefinido
+        console.log(typeof indefinido) 
+
+        let nomeDaVariavel = "Valor"
+        console.log(typeof nomeDaVariavel)
+
+        // Trocando o valor de uma variável
+        let a = 1 // a = 1
+        let b = 2 // a = 1, b = 2
+        let aux = a // a = 1, b = 2, aux = 1
+        console.log(a, b)        
+        a = b // a = 2, b = 2, aux = 1
+        b = aux // a = 2, b = 1, aux = 1
+        console.log(a, b)
+    </script>
+</body>
+</html>

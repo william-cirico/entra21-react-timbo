@@ -1,0 +1,96 @@
+1) Mostrar a mensagem "Oi, meu nome é <seu_nome>!" na tela. 
+
+2) Mostre na tela um menu para um sistema de cadastro de funcionários. O menu deve ser impresso 
+com a função console.log() 
+O menu deve estar no seguinte formato: 
+
+
+Cadastro de Funcionários:
+1) Cadastrar funcionário 
+2) Listar funcionários 
+3) Editar funcionário 
+4) Deletar funcionário 
+5) Sair 
+
+------------------------------------------------------------------------------------------------
+
+3) Crie um script que: 
+    1 Declare duas variáveis admin e nome 
+    2 Atribua o valor "João" para nome 
+    3 Copie o valor da variável nome para admin 
+    4 Mostre o valor de nome 
+
+4) Crie um script que receba o nome, idade, peso, altura e telefone de vocês e mostra essas informações na tela do console. 
+Nome: <nome>
+Idade: <idade>
+Peso: <peso>
+Altura: <altura>
+Telefone: <telefone>
+
+5) Armazene em variáveis as seguintes informações sobre o último livro que você leu: 
+    * Título 
+    * Edição 
+    * Autor 
+    * Data de publicação 
+Após isso mostre na tela do console essas informações. 
+Título: <Título>
+Edição: <Edição>  
+Autor: <Autor>
+Data de publicação: Data de publicação
+
+6) Seguindo os padrões de nomeação, crie variáveis que guardem as seguintes informações: 
+    * Uma data de nascimento 
+    * Quantidade de filhos que uma pessoa possui 
+    * O usuário que está logado no seu sistema 
+
+7) Qual é a saída de dados(output) do seguinte script:
+    let nome = "João"
+    console.log(`Olá ${1}`) // ?
+    console.log(`Olá ${"nome"}`) // ?
+    alert(`Olá ${nome}`) // ?
+
+-----------------------------------------------------------------------------
+
+8) Considerando o seguinte script:
+    let x = 10
+    let y = 8
+    let area = (x * y) / 2 + 3 ** 4
+    console.log(area)
+Qual é a saida de dados (output)?
+
+9) Quais são os valores de a e x que serão exibidos no console
+let a = 2
+let x = 1 + (a *= 2)
+console.log(a, x)
+
+10) Qual é o resultado de cada operação? 
+    A) "" + 1 + 0 // ?
+    B) "" - 1 + 0 // ?
+    C) 6 / "3" // ?
+    D) "2" * "3" // ?
+    E) 4 + 5 + "px" // ?
+    F) "$" + 4 + 5 // ?
+    G) "4" - 2 // ?
+
+11) Crie um script que:  
+    1 Receba a altura e a largura de um retângulo
+    2 Calcule a área e o perímetro do retângulo 
+    3 Mostre a área e o perímetro calculados 
+
+12) Crie um script que receba dois números e mostre na tela o resultado da soma entre esses dois números. 
+
+13) Faça um programa que receba duas notas do usuário, calcule a média e mostre o resultado na tela. 
+ 
+14) Faça um programa que receba 3 números, calcule o quadrado de cada um deles e mostre o resultado na tela. 
+
+15) Escreva um algoritmo que armazene o valor 10 em uma variável A e o valor 20 em uma variável B. A seguir (utilizando apenas atribuições entre variáveis) 
+troque os seus conteúdos fazendo com que o valor que está em A passe para B e vice-versa. Ao final, mostrar na tela os valores que ficaram armazenados nas variáveis. 
+
+16) Considerando que cada mês possui 30 dias, faça um algoritmo que: 
+    * Receba uma quantidade n de meses do usuário. 
+    * Calcule o total de dias com base nessa quantidade n de meses. 
+    * Mostre o resultado na tela. 
+
+ 
+
+

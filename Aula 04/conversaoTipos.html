@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Convertendo um valor para Number
+        let numero = "1234"
+        console.log(typeof numero)
+        numero = Number(numero)
+        console.log(typeof numero)
+
+        // Converção Implicita
+        console.log(+"10" + 10)
+
+        let numero2 = "a"
+        numero2 = Number(numero2)
+        console.log(numero2) // NaN (Not a Number)
+
+        // Exemplo
+        let numero = Number(prompt("Digite um número"))
+        console.log(numero)
+        let soma = numero + 10
+        console.log(soma)
+
+        // Convertendo um valor para String
+        let outroNumero = 20
+        let outroNumero = String(outroNumero)
+        console.log(typeof outroNumero)
+        
+        let resultado = 2 / 3
+        console.log(resultado.toFixed(2)) // Arredondar
+    </script>
+</body>
+</html>
