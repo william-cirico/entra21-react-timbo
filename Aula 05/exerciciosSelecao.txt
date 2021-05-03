@@ -1,0 +1,50 @@
+1) Qual é a saída dos seguintes comandos
+console.log(!10) // ?
+console.log(!!"String") // ?
+console.log(!!2.3) // ?
+console.log(Boolean(null)) // ?
+
+2) Qual é a saída das seguintes instruções
+console.log(10 > 2) // ?
+console.log(5 >= "5") // ?
+console.log(5 >== "5") // ?
+console.log("apple" > "pineapple")
+console.log("2" > "12")
+console.log(undefined == null)
+console.log(undefined === null)
+console.log(null == "\n0\n")
+console.log(null === +"\n0\n")
+
+
+3) Escreva um script que receba uma valor A, verifique se o valor A é maior que 10 e
+mostre na tela "O valor A é maior que 10". 
+Entrada:            Saída:
+11                  O valor A é maior que 10
+                    Programa finalizado...
+ 
+9                   Programa finalizado...                   
+
+4) Escreva um script que receba um número, se esse número for par mostre na tela
+a metade do número digitado. No final do script mostrar na tela "Programa finalizado..."
+Entrada:         Saída:
+10               5
+                 Programa finalizado...
+
+9                Programa finalizado...
+
+5) Escreva um script que receba um número, se esse número for par mostre na tela
+"O número é par" senão mostre "O número é ímpar".
+Entrada:         Saída:
+10               O número é par
+
+9                O número é ímpar
+
+6) Escreva um script que receba um número, se esse número estiver entre 20 e 90 
+mostre na tela "O número está na faixa entre 20 e 90" senão mostre "O número
+está fora da faixa".
+Entrada:        Saída:
+21              O número está na faixa entre 20 e 90
+
+20              O número está fora da faixa
+
+90              O número está fora da faixa

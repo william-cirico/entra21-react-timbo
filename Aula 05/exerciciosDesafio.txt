@@ -1,0 +1,30 @@
+17) Elabore um script que leia um número e apresente o antecessor, o número e o sucessor.
+
+18) Faça um programa que calcule e mostre o volume de uma esfera sendo fornecido o valor de seu raio (R). 
+A fórmula para calcular o volume é: (4/3) * pi * R3. Considere (atribua) para pi o valor 3.14159.
+
+19) Escreva um script que receba a base e altura de triângulo e calcule a sua área.
+Entrada:       Saida:
+10             ÁREA = 100
+20
+
+20) Construa um script que leia o preço de um produto, o percentual de desconto e calcule 
+o valor a pagar e o valor do desconto.
+Entrada:       Saida:
+10             TOTAL = 9 
+10             DESCONTO = 10
+
+100            TOTAL = 80
+20             DESCONTO = 20
+
+21) Faça um programa que leia o nome de um vendedor, o seu salário fixo e o total de vendas efetuadas por ele no mês (em dinheiro). 
+Sabendo que este vendedor ganha 15% de comissão sobre suas vendas efetuadas, informar o total a receber no final do mês, com duas casas decimais.
+Entrada:             SAIDA:
+JOAO                 TOTAL = R$ 684.54
+500.00
+1230.30
+
+PEDRO                SAIDA:
+700.00               TOTAL = R$ 700.00
+0.00
+
