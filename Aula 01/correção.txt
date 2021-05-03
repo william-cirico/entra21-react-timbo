@@ -1,0 +1,31 @@
+1)
+1. Desligar a energia
+2. Pegar uma lâmpada nova e uma escada
+3. Posicionar a escada
+4. Subir na escada
+5. Remover a lâmpada antiga do bocal
+6. Colocar a lâmpada nova no bocal
+7. Descer da escada
+8. Ligar a luz
+
+2)
+1. Pegar uma panela, ovo, sal e óleo
+2. Posicionar a penal no fogão
+3. Colocar óleo na panela
+4. Ligar o fogão
+5. Quebrar o ovo
+6. Despejar o ovo na frigideira
+7. Acrescentar sal
+8. Esperar o ovo terminar de fritar
+9. Desligar o fogão
+10. Servir o ovo frito
+
+3)
+1. Receber os dois números
+2. Verificar qual dos dois números é o maior
+3. Mostrar qual dos dois números é o maior
+
+4)
+1. Receber os dois números
+2. Dividir o primeiro número pelo segundo
+3. Mostrar o resultado da divisão
