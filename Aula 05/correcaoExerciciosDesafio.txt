@@ -1,0 +1,37 @@
+17)
+let y = Number(prompt("Digite o número")) // 1
+let x = y //y = 1; x = 1;
+let z = y //y = 1; x = 1; z = 1
+y++ // y = 2; x = 1; z = 1
+z-- // y = 2; x = 1; z = 0
+console.log(z, x, y)
+
+18)
+let raio = Number(prompt("digite o raio da esfera"))
+const PI = 3.14159
+let vEsfera = (4*PI*raio**3)/3      
+        
+console.log(`informações\nRaio = ${raio}\n pi = ${PI}\nFormula = (4*pi*raio³)/3\nResultado = ${vEsfera.toFixed(2)}m³`)
+
+19)
+let base = Number(prompt("Qual é a base do triângulo? "))
+let altura = Number(prompt("E a altura? "))
+let area = base * altura / 2
+
+console.log(`Área: ${area.toFixed(2)}`)
+
+20)
+let preco = Number(prompt("Digite o preço do produto:"))
+let desconto = Number(prompt("Digite o percentual de desconto do produto:"))        
+let valorDesconto = (desconto / 100) * preco
+let valorPagar = preco - valorDesconto
+
+console.log(`O valor total a pagar é de R$${valorPagar.toFixed(2)}\nO desconto de ${desconto}% resultou em R$${valorDesconto.toFixed(2)}\n\n`)
+
+21)
+let nomeVendedor = prompt("Informe o nome do vendedor");
+let salario = Number(prompt("Informe o salário do vendedor"));
+let vendas = Number(prompt("Informe o valor das vendas do vendedor"));
+let total = (vendas * 0.15) + salario;
+
+console.log(`O salário de ${nomeVendedor} é ${salario}, com um total de ${vendas} em vendas, seu salário total é: ${total.toFixed(2)}`);
