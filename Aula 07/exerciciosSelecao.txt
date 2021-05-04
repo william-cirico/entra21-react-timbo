@@ -79,3 +79,21 @@ escreva	se ele é Equilátero, Isósceles ou Escaleno.	Sendo que:
 − Triângulo	Equilátero:	possui os 3 lados iguais.	
 − Triângulo	Isósceles: possui 2	lados iguais.	
 − Triângulo	Escaleno: possui 3 lados diferentes.
+
+11) Leia um numero fornecido pelo usuário. Se esse número for positivo, calcule a raiz
+quadrada do numero. Se o número for negativo, mostre uma mensagem dizendo que o
+numero é inválido.
+
+12) Leia um numero real. Se o numero for positivo imprima a raiz quadrada. Do contrário,
+imprima o numero ao quadrado.
+
+13) Leia o salario de um trabalhador e o valor da prestação de um empréstimo. Se a prestaçao
+for maior que 20% do salário imprima: “empréstimo não concedido”, caso contrario imprima:
+“empréstimo concedido”.
+
+14) Usando o comando switch, escreva um programa que leia um inteiro entre 1 e 7 e
+imprima o dia da semana correspondente a este numero. Isto é, domingo se for 1, segundafeira se for 2, e assim por diante.
+
+15) Usando o comando switch, escreva um programa que leia um inteiro entre 1 e 12 e
+imprima o mês correspondente a este numero. Isto é, Janeiro se for 1, Fevereiro se 2, e
+assim por diante.
