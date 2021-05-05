@@ -7,7 +7,7 @@ console.log(Boolean(null)) // ?
 2) Qual é a saída das seguintes instruções
 console.log(10 > 2) // ?
 console.log(5 >= "5") // ?
-console.log(5 >== "5") // ?
+console.log(5 >= "5") // ?
 console.log("apple" > "pineapple")
 console.log("2" > "12")
 console.log(undefined == null)
