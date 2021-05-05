@@ -8,19 +8,32 @@
 </head>
 <body>
     <script>
-        /* 
+        /*
+        Escopo -> O que determina quais são os dados que podem ser acessados em uma determinada parte do código é o escopo.
+        let valor1 = "Teste1"
+        {
+            valor1 = "Modificando o valor1"
+            let valor2 = "Teste2"
+        }
+
+        console.log(valor1)
+        console.log(valor2)
+
+
         Estrutura de Seleção Simples
         if (condição) {
-            <instruções>
+            <instruções caso a condição seja verdadeira>
         }
         // Resto do algoritmo
 
+
         Estrutura de Seleção Composta
         if (condição) {
-            <intruções>
+            <intruções caso a condição seja verdadeira>
         } else {
-            <instruções>
+            <instruções caso a condição seja falsa>
         }
+
 
         Estrutura de seleção múltipla
         if (condicao) {
@@ -30,6 +43,7 @@
         } else {
             <intruções>
         }
+
 
         Operador Condicional Ternário
         condicao ? <instruções caso verdadeiro> : <instruções caso falso>

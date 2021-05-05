@@ -84,16 +84,31 @@ escreva	se ele é Equilátero, Isósceles ou Escaleno.	Sendo que:
 quadrada do numero. Se o número for negativo, mostre uma mensagem dizendo que o
 numero é inválido.
 
-12) Leia um numero real. Se o numero for positivo imprima a raiz quadrada. Do contrário,
+12) Escreva um script para ler um número e informar se ele é divisível por 5.
+
+13) Leia um numero. Se o numero for positivo imprima a raiz quadrada desse número. Do contrário,
 imprima o numero ao quadrado.
 
-13) Leia o salario de um trabalhador e o valor da prestação de um empréstimo. Se a prestaçao
+14) Leia o salario de um trabalhador e o valor da prestação de um empréstimo. Se a prestaçao
 for maior que 20% do salário imprima: “empréstimo não concedido”, caso contrario imprima:
 “empréstimo concedido”.
 
-14) Usando o comando switch, escreva um programa que leia um inteiro entre 1 e 7 e
-imprima o dia da semana correspondente a este numero. Isto é, domingo se for 1, segundafeira se for 2, e assim por diante.
+15) Desenvolva um programa que recebe do usuário o placar de um jogo de futebol (os gols de cada time) e 
+informe se o resultado foi um empate, a vitória do primeiro time ou do segundo time.
 
-15) Usando o comando switch, escreva um programa que leia um inteiro entre 1 e 12 e
+16) Desenvolva um programa que receba do usuário a sua idade e informe a situação de voto dele ("Não precisa votar", "Voto opcional", "Voto obrigatório").
+
+17) Faça um script que leia três números e mostre-os em ordem decrescente.
+
+18) Usando o comando switch, escreva um programa que leia um inteiro entre 1 e 7 e
+imprima o dia da semana correspondente a este numero. Isto é, domingo se for 1, segunda-feira se for 2, e assim por diante.
+
+19) Para doar sangue é necessário ter entre 18 e 67 anos. Faça um script que pergunte a idade de uma pessoa e diga se ela pode doar sangue ou não. 
+Use o operador lógicos OU (||).
+
+20) Usando o comando switch, escreva um programa que leia um inteiro entre 1 e 12 e
 imprima o mês correspondente a este numero. Isto é, Janeiro se for 1, Fevereiro se 2, e
 assim por diante.
+
+21) Usando o comando switch, faça um script que pergunte em que turno você estuda. Peça para digitar M-matutino ou V-Vespertino ou N- Noturno. 
+Imprima a mensagem "Bom Dia!", "Boa Tarde!" ou "Boa Noite!" ou "Valor Inválido!", conforme o caso.
