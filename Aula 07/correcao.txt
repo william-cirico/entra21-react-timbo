@@ -290,4 +290,19 @@ switch(numero){
 }
 
 21)
+let turno = prompt("Digite o turno em que você estuda: M-matutino ou V-Vespertino ou N- Noturno").toUpperCase();
+switch(turno){
+    case "M":
+        console.log("Bom dia!");
+        break;
+    case "V":
+        console.log("Boa tarde!");
+        break;
+    case "N":
+        console.log("Boa noite");
+        break;
+    default:
+        console.log("Valor inválido.");
+        break;
+}
 
