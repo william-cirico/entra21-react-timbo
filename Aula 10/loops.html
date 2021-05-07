@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        Loops ou Estruturas de Repetição
+
+        Loops são um modo de repetir o mesmo código muitas vezes. 
+        Em JavaScript existem três estruturas de seleção:
+            - while
+            - do/while
+            - for
+
+        Variáveis contadoras são variáveis que guardam valores inteiros (0, 1, 2) 
+        e são utilizadas pelos laços de repetição para saber quando eles devem parar 
+        de repetir. Geralmente o identificador dessas variáveis será: i, j ou x.
+
+        O while irá repetir enquanto a condição definida for verdadeiro.
+        Sintaxe de declaração:
+
+        while (condição) {
+            // código que irá repetir
+        }
+
+        */
+
+        let i = 0
+        while (i < 3) {
+           console.log(i)
+           i++ // O que acontece se essa linha for removida?
+        }
+
+        
+        // Chamamos cada execução do loop de iteração.        
+        // Quantas iterações possuem o loop acima?
+    
+        /*
+        O do/while é similar ao while, porém ele irá checar a condição só
+        depois que executar o código e, portanto, sempre irá executar ao 
+        menos uma vez.
+        Sintaxe de declaração:
+
+        do {
+            // código que irá repetir
+        } while (condição)
+
+        */
+
+        let i = 0
+        do {
+            console.log(i)
+            i++
+        } while (i < 3)
+        
+        /*
+        A estrutura de repetição mais utilizada é o for. Ela é utilizada
+        quando sabemos exatamente a quantidade de vezes que precisamos 
+        repetir um código.
+        Sintaxe de declaração:
+
+        for (começo; condição; passo) {
+            // código que irá repetir
+        }
+        */
+
+        for (let i = 0; i < 3; i++) {
+            console.log(i)
+        }
+        
+        /*
+        Break
+        Normalmente um loop termina quando a sua condição se torna falsa. Porém
+        nós conseguimos forçar o seu fim através do uso do break.
+        
+        Por exemplo, o loop abaixo pede para o usuário uma série de números e termina
+        quando nenhum número for digitado:
+        */
+
+        let soma = 0 // Variável acumuladora
+        while (true) {
+            let valor = Number(prompt("Digite um número"))
+            
+            if (!valor) {
+                break
+            }
+
+            soma += valor
+        }
+        console.log(`Soma: ${soma}`)
+
+        /*
+        Continue
+
+        O continue é similar ao break, porém, quando ele é utilizado ele para a iteração
+        atual e força o loop a começar a próxima iteração.
+        */
+
+        for (let i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
+                continue
+            }
+
+            console.log(i)
+        }
+        
+        /*
+        É possível aninhar estruturas de repetição:        
+        */
+
+        let contador = 0
+        for (let i = 0; i < 2; i++) {
+            for (let j = 0; j < 2; j++) {
+                console.log(`Executando pela ${++contador} vez...`)
+            }
+        }
+
+        /*
+        Uso do operador ++ ou --
+        prefixo = ++variavel
+        sufixo = variavel++
+        */
+       
+        let teste = 0
+        console.log(teste++)
+        console.log(++teste)
+    </script>
+</body>
+</html>

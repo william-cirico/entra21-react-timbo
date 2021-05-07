@@ -1,0 +1,174 @@
+Como fazer um teste de mesa:
+
+1. Identifique todas as variáveis no seu programa;
+2. Crie uma tabela onde a primeira coluna se chama "Passo", a segunda de chama "Linha". 
+   A partir disto, crie uma coluna para cada variável do programa;
+3. Na primeira linha da tabela, preencha a coluna "Passo" com "Início", pode deixar a coluna "Linha" em 
+   branco e preencha cada coluna das variáveis com os respectivos valores iniciais;
+4. Percorra seu código linha a linha, preenchendo a tabela. A coluna "Passo" deverá ser incrementada a 
+   cada nova linha na tabela; a coluna "Linha" deve indicar o número da linha no código que está sendo analisada 
+   e em cada coluna das variáveis deve constar o respectivo valor para cada variável após a linha de código ser executada;
+5. Execute o passo 4 até o programa finalizar;
+
+Por exemplo, vamos considerar um programa que praticamente todos os iniciantes fazem no início dos 
+estudos: cálculo do fatorial. Um algoritmo para pseudocódigo de cálculo do fatorial é:
+
+ 1    let numero = 0
+ 2    let resultado = 1
+ 3
+ 4    numero = Number(prompt("Digite um número"))
+ 5
+ 6    if (numero < 0) {
+ 7        console.log("O número não pode ser negativo")
+ 8    } else {
+ 9        while (numero > 0) {
+10            resultado = resultado * numero;
+11            numero = numero - 1;
+12        }
+13
+14        console.log(`O fatorial do número digitado vale: ${resultado}`)
+15   }
+
+Passo 1: Identificar todas as variáveis do programa;
+
+As variáveis do programa são numero, que receberá o valor do qual desejamos calcular o fatorial, e resultado, que armazenará o resultado do cálculo.
+
+Passo 2: Criar a tabela;
+
+Lembrando que a primeira coluna se chama "Passo", a segunda "Linha" e as outras representam as variáveis do programa.
+
++-----------+-----------+------------+---------------+
+|   Passo   |   Linha   |   numero   |   resultado   |
++-----------+-----------+------------+---------------+
+|           |           |            |               |
++-----------+-----------+------------+---------------+
+Passo 3: Preencher a primeira linha da tabela;
+
+Na coluna "Passo" coloque "Início", na coluna "Linha" não precisa valor e nas colunas das variáveis os valores iniciais de cada.
+
++-----------+-----------+------------+---------------+
+|   Passo   |   Linha   |   numero   |   resultado   |
++-----------+-----------+------------+---------------+
+|   Início  |     -     |     0      |       1       |
++-----------+-----------+------------+---------------+
+Passo 4: percorrer cada linha do programa, preenchendo a tabela;
+
+As linhas de definição das variáveis já foram consideradas no passo 3, quando já preenchemos a tabela com os valores iniciais. 
+Portanto, começamos analisar o programa a partir da linha 4. Vamos supor que desejamos calcular o fatorial de 3, portanto, quando 
+a função prompt() solicitar ao usuário um número, ele entrará com o valor 3, sendo armazenado na variável numero. 
+A variável resultado não varia, então mantemos o seu valor.
+
++-----------+-----------+------------+---------------+
+|   Passo   |   Linha   |   numero   |   resultado   |
++-----------+-----------+------------+---------------+
+|   Início  |     -     |     0      |       1       |
++-----------+-----------+------------+---------------+
+|     1     |     4     |     3      |       1       |
++-----------+-----------+------------+---------------+
+Na linha 6 é verificado se o valor entrado pelo usuário é menor do que zero. Como 3 é maior que zero, a condição 
+é falsa e, assim, pulamos para a linha 8. Na linha 9, criamos um laço de repetição que durará enquanto o valor 
+de numero for maior que zero. Neste momento o valor é 3 (veja a tabela acima), então devemos executar o laço, 
+partindo para a linha 10. Nesta linha, o valor de resultado é atualizado para o valor resultado * numero, ou seja, o novo 
+valor de resultado será o valor atual multiplicado pelo valor de numero. Então:
+
++-----------+-----------+------------+---------------+
+|   Passo   |   Linha   |   numero   |   resultado   |
++-----------+-----------+------------+---------------+
+|   Início  |     -     |     0      |       1       |
++-----------+-----------+------------+---------------+
+|     1     |     4     |     3      |       1       |
++-----------+-----------+------------+---------------+
+|     2     |    10     |     3      |   1 * 3 = 3   |
++-----------+-----------+------------+---------------+
+Naturalmente passamos para a linha 11, onde o valor de numero passa a ser o seu valor atual decrementado em uma unidade, então:
+
++-----------+-----------+------------+---------------+
+|   Passo   |   Linha   |   numero   |   resultado   |
++-----------+-----------+------------+---------------+
+|   Início  |     -     |     0      |       1       |
++-----------+-----------+------------+---------------+
+|     1     |     4     |     3      |       1       |
++-----------+-----------+------------+---------------+
+|     2     |    10     |     3      |   1 * 3 = 3   |
++-----------+-----------+------------+---------------+
+|     3     |    11     | 3 - 1 = 2  |       3       |
++-----------+-----------+------------+---------------+
+Terminado o código dentro do laço de repetição devemos voltar a linha 9 e verificar novamente a condição para determinar se o laço de repetição deve 
+continuar ou não. Neste momento, numero vale 2 e, portanto, ainda é maior que 0, então partimos para a linha 10 novamente. O valor de resultado será 
+o atual multiplicado pelo valor de numero, então:
+
++-----------+-----------+------------+---------------+
+|   Passo   |   Linha   |   numero   |   resultado   |
++-----------+-----------+------------+---------------+
+|   Início  |     -     |     0      |       1       |
++-----------+-----------+------------+---------------+
+|     1     |     4     |     3      |       1       |
++-----------+-----------+------------+---------------+
+|     2     |    10     |     3      |   1 * 3 = 3   |
++-----------+-----------+------------+---------------+
+|     3     |    11     | 3 - 1 = 2  |       3       |
++-----------+-----------+------------+---------------+
+|     4     |    10     |     2      |   3 * 2 = 6   |
++-----------+-----------+------------+---------------+
+Na linha 11, novamente o valor de numero receberá o valor atual decrementado em uma unidade, então:
+
++-----------+-----------+------------+---------------+
+|   Passo   |   Linha   |   numero   |   resultado   |
++-----------+-----------+------------+---------------+
+|   Início  |     -     |     0      |       1       |
++-----------+-----------+------------+---------------+
+|     1     |     4     |     3      |       1       |
++-----------+-----------+------------+---------------+
+|     2     |    10     |     3      |   1 * 3 = 3   |
++-----------+-----------+------------+---------------+
+|     3     |    11     | 3 - 1 = 2  |       3       |
++-----------+-----------+------------+---------------+
+|     4     |    10     |     2      |   3 * 2 = 6   |
++-----------+-----------+------------+---------------+
+|     5     |    11     | 2 - 1 = 1  |       6       |
++-----------+-----------+------------+---------------+
+Voltamos para a linha 9, analisando novamente a condição do laço. Como 1 ainda é maior que zero, então passamos 
+para a linha 10, onde novamente o valor de resultado será modificado:
+
++-----------+-----------+------------+---------------+
+|   Passo   |   Linha   |   numero   |   resultado   |
++-----------+-----------+------------+---------------+
+|   Início  |     -     |     0      |       1       |
++-----------+-----------+------------+---------------+
+|     1     |     4     |     3      |       1       |
++-----------+-----------+------------+---------------+
+|     2     |    10     |     3      |   1 * 3 = 3   |
++-----------+-----------+------------+---------------+
+|     3     |    11     | 3 - 1 = 2  |       3       |
++-----------+-----------+------------+---------------+
+|     4     |    10     |     2      |   3 * 2 = 6   |
++-----------+-----------+------------+---------------+
+|     5     |    11     | 2 - 1 = 1  |       6       |
++-----------+-----------+------------+---------------+
+|     6     |    10     |     1      |   6 * 1 = 6   |
++-----------+-----------+------------+---------------+
+E na linha 11 o valor de numero será atualizado:
+
++-----------+-----------+------------+---------------+
+|   Passo   |   Linha   |   numero   |   resultado   |
++-----------+-----------+------------+---------------+
+|   Início  |     -     |     0      |       1       |
++-----------+-----------+------------+---------------+
+|     1     |     4     |     3      |       1       |
++-----------+-----------+------------+---------------+
+|     2     |    10     |     3      |   1 * 3 = 3   |
++-----------+-----------+------------+---------------+
+|     3     |    11     | 3 - 1 = 2  |       3       |
++-----------+-----------+------------+---------------+
+|     4     |    10     |     2      |   3 * 2 = 6   |
++-----------+-----------+------------+---------------+
+|     5     |    11     | 2 - 1 = 1  |       6       |
++-----------+-----------+------------+---------------+
+|     6     |    10     |     1      |   6 * 1 = 6   |
++-----------+-----------+------------+---------------+
+|     7     |    11     | 1 - 1 = 0  |       6       |
++-----------+-----------+------------+---------------+
+Após, voltamos a linha 9 para verificar novamente a condição do laço, 
+mas agora o valor de numero é 0 e não satisfaz a condição de ser maior que zero, 
+portanto passamos para a linha 14, onde é exibida a mensagem "O fatorial vale 6", 
+pois o valor atual de resultado é 6.
