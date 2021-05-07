@@ -1,0 +1,293 @@
+1)
+console.log(!10) // false
+console.log(!!"String") // true
+console.log(!!2.3) // true
+console.log(Boolean(null)) // false
+
+2)
+console.log(10 > 2) // true
+console.log(5 >= "5") // true
+console.log("apple" > "pineapple") // false
+console.log("2" > "12") // true
+console.log(undefined == null) // true
+console.log(undefined === null) // false
+console.log(null == "\n0\n") // false
+console.log(null === +"\n0\n") // false
+
+3)
+let numero = Number(prompt("Digite o numero"))
+if (numero > 10) {
+    console.log("O valor A é maior que 10")
+}
+console.log("Programa finalizado...")
+
+4)
+let numero = Number(prompt("Digite um número"))
+if (numero % 2 === 0) {
+    numeroMetade = numero / 2
+    console.log(numeroMetade)
+}
+console.log("Programa finalizado...")
+
+5)
+let numero = +prompt("Digite o numero")
+if (numero % 2 == 0) {
+    alert("O numero é par")
+} else {
+    alert("O numero é impar")
+}
+
+6)
+// Forma 1
+let valorA = Number(prompt("Digite um número "))
+        
+if (20 < valorA > 90) {
+    console.log("O número está na faixa entre 20 e 90!")
+} else {
+    console.log("O numero esta fora da faixa")
+}
+
+// Forma 2
+let valorA = Number(prompt("Digite um número "))
+        
+if (valorA > 20 && valorA < 90) {
+    console.log("O número está na faixa entre 20 e 90!")
+} else {
+    console.log("O numero esta fora da faixa")
+}
+
+7)
+Boolean(A > 10 && B <= 20) // false
+Boolean(A > 10 || B <= 20) // true
+Boolean((A === 10 || B > 20) && B === 20) // true
+console.log(null || 2 || undefined) // 2
+Boolean(0 && 1) // false
+
+8)
+// Forma 1
+let valor1 = Number(prompt("digite o numero1"))
+let valor2 = Number(prompt("digite o numero2"))
+let valor3 = Number(prompt("digite o numero3"))
+    
+if (valor1 > valor2 && valor1 > valor3){
+    console.log (`o valor ${valor1} é o maior valor`)
+} else if (valor2 > valor1 && valor2 > valor3){
+    console.log (`o valor ${valor2} é maior valor`)  
+} else {
+    console.log (`o valor ${valor3} é o maior valor`)
+}
+
+// Forma 2
+let numero1 = +prompt("Digite o primeiro numero")
+let numero2 = +prompt("Digite o segundo número")
+let numero3 = +prompt("Digite o terceiro número")
+
+let maior = numero1
+if (numero2 > maior) maior = numero2
+if (numero3 > maior) maior = numero3
+
+console.log(`O maior número é ${maior}`)
+
+9)
+// Forma 1
+let a = 2
+let b = 5
+a + b < 4 ? console.log("abaixo") : console.log("acima")
+
+// Forma 2
+a + b < 4 ? resultado = "Abaixo" : resultado = "Acima"
+
+10)
+let ladoA = +prompt("Digite o ladoA do triângulo")
+let ladoB = +prompt("Digite o ladoB do triângulo")
+let ladoC = +prompt("Digite o ladoC do triângulo")
+
+if (ladoA == ladoB && ladoA == ladoC) {
+    console.log("O triângulo é Equilátero")
+} else if (ladoA != ladoB && ladoA != ladoC && ladoB != ladoC) {
+    console.log("O triângulo é Escaleno")
+} else {
+    console.log("O triângulo é Isósceles")
+} 
+
+11)
+let valor1 = Number(prompt("digite um numero"))
+if (valor1 > 0) {
+    let raiz = Math.sqrt(valor1)
+    console.log(raiz)
+} else {
+    console.log("Numero invalido")
+}
+
+12)
+let n1 = Number(prompt("insira número"))
+if (n1 % 5 == 0) {
+    console.log("é divisível por 5")
+} else {
+    console.log("não é divisível por 5")
+}
+
+13)
+let number = Number(prompt("Número desejado"))
+if (number > 0) {
+    let raiz = Math.sqrt(number)
+    console.log(raiz.toFixed(2))
+} else {
+    let quadrado = number ** 2
+    console.log(quadrado)
+}
+
+14)
+let salario = Number(prompt("Informe o salário do trabalhador:"))
+let prestacaoEmprestimo = Number(prompt("Informe o valor da prestação do empréstimo:"))
+
+if (prestacaoEmprestimo > ((20 / 100) * salario)) {
+    console.log("Empréstimo não concedido.\n\n")
+} else {
+    console.log("Empréstimo concedido.\n\n")
+}
+
+15)
+let golsPrimeiroTime = Number(prompt("Quantidade de gols do primeiro time."),0)
+let golsSegundoTime = Number(prompt("Quantidade de gols do segundo time."),0)
+
+if (golsPrimeiroTime === golsSegundoTime){
+    alert("Empate")
+} else if (golsPrimeiroTime > golsSegundoTime){
+    alert("Vitória do PRIMEIRO time!")
+} else {
+    alert("Vitória do SEGUNDO time!")
+}
+
+16)
+let idade = Number(prompt("diga sua idade"))
+if ((idade >= 16 && idade < 18) || idade >= 70) {
+    console.log("pode votar mas nao é obrigatorio")
+} else if (idade < 16) {
+    console.log("nao pode votar")
+} else {
+    console.log("obrigatorio")
+}
+
+17)
+// Forma 01
+let a = +prompt("Digite o primeiro número")
+let b = +prompt("Digite o segundo número")
+let c = +prompt("Digite o terceiro número")
+
+if (a > b && a > c) {
+    if (b > c) console.log(a, b, c)
+    else console.log(a, c, b)
+} else if (b > c) {
+    if (a > c) console.log(b, a, c)
+    else console.log(b, c, a)
+} else if (b > a && b > c){
+    if (a > c) console.log(b, a, c)
+    else console.log(b, c, a)
+} else {
+    if (a > b) console.log(c, a, b)
+    else console.log(c, b, a)
+}
+
+// Forma 02
+let a = Number(prompt("Insira o primeiro número:"))
+let b = Number(prompt("Insira o segundo número:"))
+let c = Number(prompt("Insira o terceiro número:"))
+
+if (a > b && b > c) {
+    console.log(a, b, c)
+} else if (a > c && c > b) {
+    console.log(a, c, b)
+} else if (b > a && a > c) {
+    console.log(b, a, c)
+} else if (b > c && c > a) {
+    console.log(b, c, a)
+} else if (c > a && a > b) {
+    console.log(c, a, b)
+} else {
+    console.log(c, b, a)
+}
+
+18)
+let valor = Number(prompt("Digite um número de 1 a 7"))
+
+switch (valor){
+    case 1:
+        console.log("Domingo")
+        break;
+    case 2:
+        console.log("Segunda-Feira")
+        break;
+    case 3:
+        console.log("Terça-Feira")
+        break;
+    case 4:
+        console.log("Quarta-Feira")
+        break;
+    case 5:
+        console.log("Quinta-Feira")
+        break;
+    case 6:
+        console.log("Sexta-Feira")
+        break;
+    case 7:
+        console.log("Sábado")
+        break;
+    default:
+        console.log("Valor inválido")
+}
+
+19)
+let idade = +prompt("Digite a sua idade")
+
+if ((idade > 18 || idade === 18) && (idade < 67 || idade === 67)) {
+    console.log("Pode doar sangue")            
+} else {
+    console.log("Não pode doar sangue")
+}
+
+20)
+let numero = Number(prompt("insira o numero"))
+switch(numero){
+    case 1: 
+        console.log("janeiro") 
+        break
+    case 2:
+        console.log("fevereiro")
+        break
+    case 3:
+        console.log("março")
+        break
+    case 4:
+        console.log("abril") 
+        break
+    case 5:
+        console.log("maio") 
+        break
+    case 6:
+        console.log("junho") 
+        break
+    case 7:
+        console.log("julho") 
+        break
+    case 8:
+        console.log("agosto") 
+        break
+    case 9:
+        console.log("setembro") 
+        break
+    case 10:
+        console.log("outubro") 
+        break
+    case 11:
+        console.log("novembro") 
+        break
+    case 12:
+        console.log("dezembro") 
+        break
+    default:
+        console.log("invalido")
+}
+
+21)
+
