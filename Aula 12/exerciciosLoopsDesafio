@@ -1,0 +1,30 @@
+1) Faça um script que peça dois números, base e expoente, calcule e mostre o 
+primeiro número elevado ao segundo número. 
+Não utilize o operador de potenciação nem a função de potência da linguagem. 
+
+2) A série de Fibonacci é formada pela seqüência 1,1,2,3,5,8,13,21,34,55,... 
+Faça um programa que paça um número N e mostre na tela a sequência de fibonacci até o N-ésimo termo.
+Entrada:              Saída:
+2                     1, 1
+----------------------------
+5                     1, 1, 2, 3, 5
+
+3) Faça um programa que leia uma quantidade indeterminada de números positivos e conte quantos 
+deles estão nos seguintes intervalos: [0-25], [26-50] e [51-75]. 
+A entrada de dados deverá terminar quando for lido um número negativo. 
+Entrada:              Saída:
+10                    Quantidade de números no intervalo [0-25]: 2
+11                    Quantidade de números no intervalo [26-50]: 3
+27                    Quantidade de números no intervalo [51-75]: 3
+26
+30
+51
+52
+75
+-1
+
+4) Faça um programa que peça um numero inteiro positivo e em seguida mostre este numero invertido.
+Entrada:              Saída:
+12376489              98467321
+------------------------------
+654321                123456
