@@ -45,6 +45,13 @@
 }
 
 3)
+{
+    for (let i = 10; i >= 0; i--) {
+        console.log(i)
+    }
+
+    console.log("Fim!")
+}
 
 4)
 for (let i = 0; i < 3; i++){
@@ -241,7 +248,6 @@ console.log(`O menor valor digitado foi ${menor}\nO maior valor digitado foi ${m
 
 17)
 // Forma 01
-let totalVotos = 0
 let votosJose = 0
 let votosMaria = 0
 let votosJoao = 0
@@ -250,10 +256,11 @@ let votosBranco = 0
 
 while (true) {
     let voto = +prompt("1 - José Bolinha\n2 - Maria Nascimento\n3 - João da Silva\n4 - Voto nulo\n5 - Voto em branco\nDigite seu voto:")
-    teste = voto
+    
     if (teste < 1) {
         break 
     }
+
     if (teste === 1) {
         votosJose++
     } if (teste === 2) {
