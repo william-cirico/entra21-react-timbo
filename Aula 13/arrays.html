@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        /* Arrays ou Vetores são um estrutura de dados indexada que 
+        pode armazenar vários valores.
+
+        Podemos dizer que os vetores são uma evolução das variáveis. As variáveis
+        nos permitem armazenar uma informação, já os vetores nos permitem armazenar
+        diversas informações.
+
+        Os dados armazenados dentro de um vetor são chamados de itens.
+
+        Sintaxe de declaração de um vetor:
+        */
+        let vetor1 = []
+        let vetor2 = new Array()
+
+        /*
+        Em JavaScript é possível atribuir qualquer tipo de dado a um vetor. Também
+        é possível incluir diferentes tipos de dados no mesmo vetor:
+        */
+        // let variosTipos = ["string", 10, true, null, undefined]
+        let variosTipos = [
+            "string", 
+            10, 
+            true, 
+            null, 
+            undefined
+        ]
+        
+        /*
+        Para acessar um item em especifíco do vetor é necessário informar o índice do item.
+        
+        **Obs.: Os índices de um vetor sempre começam em 0, portanto, um vetor com 5 
+        posições/itens vai ter os índices: 0, 1, 2, 3, 4.
+        */
+        console.log(variosTipos[1])
+
+        // Para modificar um item do array
+        variosTipos[2] = "mudou"
+
+        console.log(variosTipos)
+        
+        // Para saber o tamanho do vetor:
+        console.log(vetorTipos.length)
+
+        /* Obs.: A propriedade length nem sempre é o tamanho do array. 
+        Para ser mais preciso, ela é o índice mais alto do array + 1.
+        */
+
+        /*
+        Para entender os vetores imagine o seguinte problema: Você precisa de um
+        algoritmo que lê 10 números e mostre na tela os valores digitados nos dois
+        sentidos (em que foram digitados).
+        */
+        let numeros = []
+        
+        // Armazenando os números no vetor
+        for (let i = 0; i < 10; i++) {
+            numeros[i] = +prompt("Digite um número")
+        }
+
+        // Iterando sobre o vetor (Mostrando o que está armazenado dentro do vetor)
+        for (let i = 0, tamanhoVetor = numeros.length; i < tamanhoVetor; i++) {
+            console.log(numeros[i])
+        }
+
+        // Na ordem inversa
+        for (let i = numeros.length - 1; i >= 0; i--) {
+            console.log(numeros[i])
+        }
+
+        // Iterando sobre um vetor com for..of
+        let vetorLetras = ["a", "b", "c"]
+
+        for (let letra of vetorLetras) {
+            console.log(letra)
+        }
+
+        // Uma forma de iterar quando todos os valores do vetor são positivos
+        let vetorTrue = ["1", 2, true]
+        for (let i = 0, item; item = vetorTrue[i++]; ) {
+            console.log(item)
+        }
+
+        // Convertendo um array para String
+        let teste = [1, 2, 3, 4]
+        console.log(String(teste))
+        console.log(teste.toString())
+
+        /*
+        Alguns métodos de array:
+
+        vetor.push(x) -> Adiciona o elemento x no final do vetor.
+        vetor.pop() -> Remove e retorna o último elemento do vetor.
+
+        vetor.unshift(x) -> Adiciona o elemento x no começo do vetor e retorna
+        o novo tamanho do vetor.
+        vetor.shift() -> Remove e retorna o primeiro elemento do vetor.
+
+        Esses métodos são utilizados para trabalhar com filas (Queue) e
+        pilhas (Stack). A junção dessas duas estruturas de dados forma 
+        uma fila duplamente terminada (Deque)
+
+        Queue: https://www.treinaweb.com.br/blog/o-que-e-e-como-funciona-a-estrutura-de-dados-fila/
+        Stack: https://www.treinaweb.com.br/blog/o-que-e-e-como-funciona-a-estrutura-de-dados-pilha/
+        Deque: https://www.mundojs.com.br/2018/02/05/deque-estrutura-de-dados/
+        */
+        
+    </script>
+</body>
+</html>

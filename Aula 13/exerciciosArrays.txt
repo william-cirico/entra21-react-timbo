@@ -1,0 +1,21 @@
+1) Leia um vetor de 10 posicões. Calcule e escreva quantos valores pares ele possui.
+
+2) Escreva um programa que leia 5 numeros e os armazene em um vetor. Mostre o vetor, o 
+maior elemento e a posição que ele se encontra.
+
+3) Faça um programa que receba do usuario um vetor com 5 posições. Em seguida, mostre
+o maior e o menor elemento do vetor.
+
+4) Ler um vetor de 5 elementos. Crie um segundo vetor, com todos os elementos na ordem 
+inversa, ou seja, o último elemento passará a ser o primeiro, o penúltimo será o segundo 
+e assim por diante. Mostre os dois vetores. 
+
+5) Ler um vetor com 5 nomes de pessoas, após pedir que o usuário digite um nome qualquer 
+de pessoa. Escrever a mensagem “ACHEI”, se o nome estiver armazenado no vetor de nomes ou 
+“NÃO ACHEI” caso contrário. 
+
+
+
+
+
+
