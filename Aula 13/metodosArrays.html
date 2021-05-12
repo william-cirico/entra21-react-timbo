@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = [1, 2, 3, 4]
+
+        // splice(pos, quantidade, novosItems) -> Deleta a quantidade de elementos informada a partir do index pos. Insere novos itens no lugar.
+        array.splice(1, 2, 6, 5, 7)
+
+        // slice(começo, fim) -> Cria um novo array, copia os elementos do índice começo até o fim (fim não incluso).
+        let novoArray = array.slice(1, 4)  // Para copiar todo o array -> array.slice()
+
+        // concat(...novosItems) -> Retorna um novo array. Junta o array atual com os novos items.
+        let arrayConcatenado = novoArray.concat(9, 10, 11)
+
+        // reverse() -> Reverte o array e então o retorna
+        console.log(novoArray.reverse())
+
+
+        // MÉTODOS PARA BUSCA EM ARRAYS
+
+        // indexOf(item, pos) -> Procuro pelo item a partir da posição informada, se o item não for encontrado retorna -1
+        console.log(array.indexOf(1))
+
+        // lastIndexOf(item, pos) -> Mesma coisa que o indexOf, porém, procura pelo item da direita para a esquerda.
+
+        // includes(value) -> Retorna true se o array possui o valor, falso em caso contrário.
+        console.log(array.includes(100))
+
+
+        // CONVERTENDO PARA STRING
+        
+        // split(separador, limite) -> Retorna uma string convertida em vetor.
+        let string = "1, 2, 3, 4"
+        let vetor = string.split(", ")
+        console.log(vetor)
+        
+        // join(separador) -> Junta os elementos de um array em uma string. 
+        console.log(vetor.join("-"))
+
+        // RECONHECENDO UM ARRAY
+
+        // Array.isArray(n) -> Retorna true se n for um array, false em caso contrário.
+        console.log(Array.isArray(vetor))
+
+        // n instanceof Array -> Retorna true se n for um array, false em caso contrário.
+        console.log(vetor instanceof Array)
+
+
+        // MÉTODOS QUE VAMOS ESTUDAR DEPOIS**
+
+        // find()
+        // filter()
+        // findIndex()
+        // forEach()
+        // map()
+        // sort()
+        // reduce()
+
+    </script>
+</body>
+</html>
