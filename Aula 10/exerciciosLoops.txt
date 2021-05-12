@@ -208,9 +208,9 @@ Entrada:            Saída:
 10                  Multiplicação dos ímpares: 945
 
 
-21) Faça um algoritmo que calcule e mostre os 20 primeiros números primos, dados os tres primeiros 2 e 3.
+21) Faça um algoritmo que calcule e mostre os 20 primeiros números primos, dados os tres primeiros 2, 3 e 5.
 Saída:
-2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 
 
 
 
