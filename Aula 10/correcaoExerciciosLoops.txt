@@ -361,6 +361,7 @@ for (let i = menorNumero; i <= maiorNumero; i++) {
 console.log(`Soma dos pares: ${somaPar}\nMultiplição dos Impares: ${multiplicaImpar}`)
 
 21)
+// Forma 01
 let contadorNumerosPrimos = 0
 let numeroAtual = 2    
 let flag = false
@@ -384,3 +385,16 @@ while (contadorNumerosPrimos < 20) {
 }
 
 console.log(primos)
+
+// Forma 02
+// Forma 03
+numerosPrimos:
+for (let i = 2; i < 20; i++) {
+
+    // checando se i é um número primo
+    for (let j = 2; j < i; j++) {
+        if (i % j == 0) continue numerosPrimos
+    }
+
+    console.log(i)
+}
