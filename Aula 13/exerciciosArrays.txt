@@ -1,21 +1,156 @@
-1) Leia um vetor de 10 posicões. Calcule e escreva quantos valores pares ele possui.
+1) Leia um vetor de 10 posições. Calcule e escreva quantos valores pares ele possui.
+
 
 2) Escreva um programa que leia 5 numeros e os armazene em um vetor. Mostre o vetor, o 
 maior elemento e a posição que ele se encontra.
 
+
 3) Faça um programa que receba do usuario um vetor com 5 posições. Em seguida, mostre
 o maior e o menor elemento do vetor.
+
 
 4) Ler um vetor de 5 elementos. Crie um segundo vetor, com todos os elementos na ordem 
 inversa, ou seja, o último elemento passará a ser o primeiro, o penúltimo será o segundo 
 e assim por diante. Mostre os dois vetores. 
+
 
 5) Ler um vetor com 5 nomes de pessoas, após pedir que o usuário digite um nome qualquer 
 de pessoa. Escrever a mensagem “ACHEI”, se o nome estiver armazenado no vetor de nomes ou 
 “NÃO ACHEI” caso contrário. 
 
 
+6) Faça um programa que possua um vetor denominado A que armazene 6 numeros inteiros.
+O programa deve executar os seguintes passos:
+
+(a) Atribua os seguintes valores a esse vetor: 1, 0, 5, -2, -5, 7.
+(b) Armazene em uma variavel a soma entre os valores das posições A[0], 
+A[1] e A[5] do vetor e mostre na tela esta soma.
+(c) Modifique o vetor na posição 4, atribuindo a esta posição o valor 100.
+(d) Mostre na tela cada valor do vetor A, um em cada linha.
 
 
+7) Ler um conjunto de numeros, armazenando-os em vetor e calcular o quadrado dos
+componentes deste vetor, armazenando o resultado em outro vetor. Os conjuntos tem 5
+elementos cada. Imprimir todos os conjuntos.
+
+
+8) Crie um programa que leia 6 valores inteiros pares (GARANTA QUE ELES SEJAM PARES) e, em
+seguida, mostre na tela os valores lidos na ordem inversa.
+
+
+9) Faça um programa que leia um vetor de 8 posições e, em seguida, leia também dois
+valores X e Y quaisquer correspondentes a duas posições no vetor. Ao final seu programa
+deverá escrever a soma dos valores encontrados nas respectivas posições X e Y. Se o usuário
+digitar valores inválidas para X ou Y mostre uma mensagem de erro e peça novos valores até 
+que ambos os valores sejam válidos.
+
+
+10) Faça um programa que leia 10 números e preencha um vetor, calcule e
+mostre a quantidade de numeros negativos e a soma dos números positivos desse vetor.
+
+
+11) Fazer um programa para ler 5 valores e, em seguida, mostrar a posição onde se
+encontram o maior e o menor valor.
+
+
+12) Faça um programa que simule o lançamento de 100 dados (Utilize a função Math.random()). Armazene Os
+lançamentos em um vetor e mostre a quantidade de vezes que cada número (1..6) apareceu.
+
+
+13) Faça um programa para ler a nota da prova de alunos e armazene num vetor, calcule e
+mostre a média geral da turma e também a maior nota da turma. O programa deve parar de armazenar
+as notas quando uma nota negativa for digitada.
+Entrada:             Saída:
+10                   Média da turma: 9.20
+9                    Maior nota: 10.00
+9
+9
+9
+-1
+
+
+14) Escreva um programa que leia dois vetores com 5 posições e mostre se eles são iguais ou diferentes
+Entrada:             Saída:
+1                    Os vetores são iguais
+2
+3
+4
+5
+1
+2
+3
+4
+5
+
+-------------------------------------------
+Entrada:             Saída:
+1                    Os vetores são diferentes
+2
+3
+4
+5
+1
+2
+2
+3
+3
+
+
+15) Escreva um script que leia 2 vetores com 5 posições. Verifique a intersecção
+dos vetores (valores que aparecem em ambos) e armazene esses valores em um terceiro vetor.
+Ao final, mostra na tela os 3 vetores.
+Entrada:              Saída:
+a                     Vetor 1: ["a", "b", "c", "d", "e"]
+b                     Vetor 2: ["f", "g", "h", "i", "a"]
+c                     Intersecção: ["a"]
+d
+e
+f
+g
+h
+i
+a
+
+
+16) Escreva um script que leia 2 números e crie um vetor que armazene os valores presentes 
+no intervalo entre os 2 números com o passo 2. Após isso, mostre na tela o vetor.
+Entrada:              Saída:
+1                     1
+10                    3
+                      5
+                      7
+                      9
+-----------------------------
+2                     2
+10                    4
+                      6
+                      8
+                      10
+
+
+17) Crie um script que armazene 10 números aleatórios dentro de um vetor (utilize a função Math.random()),
+ordene o vetor de forma crescente. (**NÃO UTILIZAR A FUNÇÃO SORT**)
+
+
+18) Crie um script que preencha um vetor com 10 números aleatórios entre 1..10 (utilizar a função Math.random()),
+após isso mostre:
+a) Os números presentes no vetor
+b) A soma dos números pares
+c) A multiplicação dos números ímpares
+
+19) Faça um script que:
+a) Crie uma variável com o texto: "Sem trocar que o espinho é seco.\n Sem trocar que seco é ser sol.\n Sem trocar que algum espinho seco secará."
+b) Mostre na tela a variável
+c) Substitua as palavras "trocar" por "sacar" na String (**NÃO UTILIZAR O MÉTODO REPLACE**)
+d) Mostre na tela a String com os valores trocados
+
+20) Faça um programa que receba 10 notas de uma turma e armazene em um vetor. Depois disso, calcule a média de notas
+da turma e mostre na tela as notas que estão acima da média.
+
+21) Faça um script que receba o nome de cinco produtos e seus respectivos preços, armazene­-os em dois vetores separados, 
+um para os produtos e outro para os preços. O programa deve calcular e mostrar:
+a) A quantidade de produtos com preço inferior a R$ 50,00;
+b) O nome dos produtos com preço entre R$ 50,00 e R$ 100,00;
+c) A média dos preços dos produtos com preço superior a R$ 100,00.
 
 
