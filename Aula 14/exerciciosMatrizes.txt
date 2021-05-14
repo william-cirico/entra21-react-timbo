@@ -1,0 +1,57 @@
+1. Leia uma matriz 3 x 3, conte e escreva quantos valores maiores que 10 ela possui.
+
+
+2. Declare uma matriz 5 x 5. Preencha com 1 a diagonal principal e com 0 os demais
+elementos (Matriz Identtidade). Escreva ao final a matriz obtida.
+Saída:
+1 0 0 0 0
+0 1 0 0 0
+0 0 1 0 0
+0 0 0 1 0
+0 0 0 0 1
+
+3. Leia uma matriz 3 x 3. Leia tambem um valor X. O programa devera fazer uma busca
+desse valor na matriz e, ao final, escrever a localização (linha e coluna) ou uma mensa-
+gem de “não encontrado”.
+
+4. Leia duas matrizes 3 x 3 e escreva uma terceira com os maiores valores de cada posiçãp
+das matrizes lidas.
+Entrada:          Saída:
+1 2 3             1 3 3
+4 5 6             5 5 6
+7 8 9             7 9 9
+
+0 3 2
+5 4 5
+6 9 8
+
+5. Leia uma matriz de 3 x 3 elementos. Calcule a soma dos elementos que estão acima da
+diagonal principal.
+
+6. Faça um script que leia o nome e as notas de 3 alunos e armazene essas informações em
+uma matriz no seguinte formato:
+João   10   9   8
+Maria  7    7   7   
+Pedro  8    8   8
+
+Após isso calcule a média de cada aluno e adicione a média na linha correspondente ao aluno
+da matriz:
+João   10   9   8   9
+Maria  5    5   5   5
+Pedro  8    8   8   8
+
+Ao final mostre a matriz no formato abaixo e informe a situação dos alunos ("Aprovado" se a média for maior ou igual a 6
+ou reprovado se for menor que 6).
+Entrada:                  Saída:
+João                      João   10   9   8   9  Aprovado
+10                        Maria  5    5   5   5  Reprovado
+9                         Pedro  8    8   8   8  Aprovado
+8                         
+Maria
+5
+5
+5
+Pedro
+8
+8
+8

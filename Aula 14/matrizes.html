@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* Matrizes são vetores bidimensionais que possuem linhas (i) e colunas (j). 
+        
+        Em JavaScript uma matriz é representada como um vetor de vetores:
+        */
+        {
+            let matriz = [
+                [1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]
+            ]
+
+            // Para acessar um elemento dentro da matriz
+            console.log(matriz[0][0]) // 1
+            console.log(matriz[1][2]) // ?
+            console.log(matriz[2][1]) // ?
+            console.log(matriz[3][1]) // ?
+        }
+        
+        
+        {
+            // Para cadastrar informações em uma matriz:
+            let matriz = []
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = []
+                for (let j = 0; j < 3; j++) {
+                    matriz[i][j] = +prompt("Digite um número")
+                }
+            }
+            console.log(matriz)
+
+            // Mostrando a matriz na tela:
+            let mostrandoMatriz = ""
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    mostrandoMatriz += matriz2[i][j] + "\t"
+                }
+                mostrandoMatriz += "\n"
+            }
+            console.log(mostrandoMatriz)
+        }
+        
+        {
+            // Resolução do exercício 01)
+
+
+        }
+    </script>
+</body>
+</html>
