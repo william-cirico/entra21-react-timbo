@@ -1,0 +1,14 @@
+Passos para utilizar o debugger no Google Chrome :
+
+O debugger **só funciona quando você está executando o seu script através de um arquivo .html.** 
+
+1) Abra o arquivo .html.
+2) Clique com o botão direito e selecione a opção: Inspecionar. 
+3) Clique na aba Sources. 
+4) Selecione o seu arquivo .html.
+5) Adicione o breakpoint na linha em que você deseja parar a execução do programa. 
+Para fazer isso clique no número da linha.
+6) Recarregue a página.
+7) Para executar o próximo passo pressione F9 ou utilize o botão indicado na imagem.
+
+A Imagem ilustrativa se chama debugger.png 

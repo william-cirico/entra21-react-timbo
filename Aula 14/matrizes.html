@@ -21,19 +21,19 @@
 
             // Para acessar um elemento dentro da matriz
             console.log(matriz[0][0]) // 1
-            console.log(matriz[1][2]) // ?
-            console.log(matriz[2][1]) // ?
-            console.log(matriz[3][1]) // ?
+            console.log(matriz[1][2]) // 6
+            console.log(matriz[2][1]) // 8
+            // console.log(matriz[3][1]) // Erro
         }
         
         
         {
             // Para cadastrar informações em uma matriz:
             let matriz = []
-            for (let i = 0; i < 3; i++) {
-                matriz[i] = []
-                for (let j = 0; j < 3; j++) {
-                    matriz[i][j] = +prompt("Digite um número")
+            for (let linha = 0; linha < 3; linha++) {
+                matriz[linha] = []
+                for (let coluna = 0; coluna < 3; coluna++) {
+                    matriz[linha][coluna] = +prompt("Digite um número")
                 }
             }
             console.log(matriz)
@@ -42,7 +42,7 @@
             let mostrandoMatriz = ""
             for (let i = 0; i < 3; i++) {
                 for (let j = 0; j < 3; j++) {
-                    mostrandoMatriz += matriz2[i][j] + "\t"
+                    mostrandoMatriz += matriz[i][j] + "\t"
                 }
                 mostrandoMatriz += "\n"
             }
@@ -51,8 +51,19 @@
         
         {
             // Resolução do exercício 01)
+            let matriz = []
+            let quantidadeMaior10 = 0
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = []
+                for (let j = 0; j < 3; j++) {
+                    matriz[i][j] = +prompt("Digite um número")
 
-
+                    if (matriz[i][j] > 10) {
+                        quantidadeMaior10++
+                    }
+                }
+            }
+            console.log(`A quantidade de elementos digitados que são maiores que 10 é: ${quantidadeMaior10}`)
         }
     </script>
 </body>
