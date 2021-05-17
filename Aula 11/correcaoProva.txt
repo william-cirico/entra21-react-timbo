@@ -1,0 +1,92 @@
+1)
+B) entrada de dados (input), processamento, saída de dados (output)
+
+2)
+D) É um espaço na memória do computador (RAM) que armazena um dado mutável durante a execução do algoritmo. 
+
+3)
+let raio = +prompt("Digite o valor do raio da circunferência")            
+const PI = 3.14159
+let area = PI * raio ** 2
+
+console.log(`A área da circunferência de raio ${raio} é ${area.toFixed(2)}`)
+
+4) Imagem
+
+5)
+let nome = prompt("Digite seu nome"),
+    nota1 = +prompt("Digite a primeira nota"),
+    nota2 = +prompt("Digite a segunda nota")
+
+let media = (nota1 + nota2) / 2
+
+if (media >= 6) {
+    console.log("Aprovado")
+} else {
+    console.log("Reprovado")
+}
+
+6)
+let numero1 = +prompt("Digite o primeiro numero"),
+    numero2 = +prompt("Digite o segundo numero")
+
+if (numero1 > numero2) {
+    console.log(numero1)
+} else if (numero2 > numero1) {
+    console.log(numero2)
+} else {
+    console.log("Os números são iguais")
+}
+
+7)
+let numero1 = +prompt("Digite o primeiro número"),
+    numero2 = +prompt("Digite o segundo número"),
+    numero3 = +prompt("Digite o terceiro número")
+
+let maior = numero1
+if (numero2 > maior) maior = numero2            
+if (numero3 > maior) maior = numero3            
+
+console.log(maior)
+
+8)
+let numero = +prompt("Digite um número")
+
+if (numero >= 20 && numero <= 50) {
+    console.log("O número está dentro do intervalo")
+} else {
+    console.log("O número está fora do intervalo")
+}
+
+9)
+let altura = +prompt("Digite sua altura"),
+                sexo = prompt("Digite seu sexo (F - Feminino | M - Masculino)").toUpperCase()
+
+switch (sexo) {
+    case "F":
+        pesoIdeal = (62.1 * altura) - 44.7
+        console.log(pesoIdeal.toFixed(2))
+        break
+    case "M":
+        pesoIdeal = (72.7 * altura) - 58
+        console.log(pesoIdeal.toFixed(2))
+        break
+    default:
+        console.log("Você digitou um sexo inválido")
+} 
+
+10)
+let peso = +prompt("Digite o seu peso"),
+    altura = +prompt("Digite sua altura")
+    
+let imc = peso / (altura * altura)
+
+if (imc < 18.5) {
+    console.log("Abaixo do peso")
+} else if (imc < 25) {
+    console.log("Peso normal")
+} else if (imc < 30) {
+    console.log("Acima do peso")
+} else {
+    console.log("Obeso")
+}
