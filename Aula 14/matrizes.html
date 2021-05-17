@@ -64,6 +64,45 @@
                 }
             }
             console.log(`A quantidade de elementos digitados que são maiores que 10 é: ${quantidadeMaior10}`)
+
+            // Resolução do exercício 03)
+            let matriz = []
+            for (let linha = 0; linha < 3; linha++) {
+                matriz[linha] = []
+                for (let coluna = 0; coluna < 3; coluna++) {
+                    matriz[linha][coluna] = prompt("Digite um número")
+                }
+            }
+
+            let mostrandoMatriz = ""
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    mostrandoMatriz += matriz[i][j] + "\t"
+                }
+                mostrandoMatriz += "\n"
+            }
+            console.log(mostrandoMatriz)
+
+            let X = prompt("Digite o valor de X")
+            
+            let posicaoLinha, posicaoColuna
+            
+            percorreLinhas: 
+            for (let linha = 0; linha < 3; linha++) {
+                for (let coluna = 0; coluna < 3; coluna++) {
+                    if (matriz[linha][coluna] === X) {
+                        posicaoLinha = linha
+                        posicaoColuna = coluna
+                        break percorreLinhas
+                    }
+                }                
+            }
+
+            if (posicaoLinha) {
+                console.log(`O valor ${X} foi encontrado na posição: [${posicaoLinha}][${posicaoColuna}]`)
+            } else {
+                console.log("O valor não foi encontrado na matriz")
+            }
         }
     </script>
 </body>
