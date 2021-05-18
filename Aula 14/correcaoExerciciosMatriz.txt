@@ -1,0 +1,200 @@
+{
+    // 1            
+    let matriz = [],
+        quantidadeMaior10 = 0
+
+    for (let i = 0; i < 3; i++) {
+        matriz[i] = []
+        for (let j = 0; j < 3; j++) {
+            matriz[i][j] = +prompt(`Digite o valor da ${i + 1}a linha na ${j + 1} coluna`)
+
+            if (matriz[i][j] > 10) quantidadeMaior10++
+        }
+    }
+
+    console.log(`A matriz possui ${quantidadeMaior10} valores maiores que 10`)
+}
+
+{
+    // 2
+    let matrizIdentidade = []
+
+    for (let i = 0; i < 5; i++) {
+        matrizIdentidade[i] = []
+        for (let j = 0; j < 5; j++) {
+            i === j ? matrizIdentidade[i][j] = 1 : matrizIdentidade[i][j] = 0
+        }    
+    }
+
+    let mostrarMatriz = ""
+    for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5; j++) {
+            mostrarMatriz += matrizIdentidade[i][j] + "\t"
+        }
+        mostrarMatriz += "\n"
+    }
+
+    console.log(mostrarMatriz)
+}
+
+{
+    // 3
+    let matriz = []
+
+    for (let i = 0; i < 3; i++) {
+        matriz[i] = []
+        for (let j = 0; j < 3; j++) {
+            matriz[i][j] = prompt(`Digite o valor da ${i + 1}a linha na ${j + 1} coluna`)
+        }
+    }
+
+    let mostrarMatriz = ""
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            mostrarMatriz += matriz[i][j] + "\t"
+        }
+        mostrarMatriz += "\n"
+    }
+
+    console.log(mostrarMatriz)
+
+    let X = prompt("Digite um valor a ser encontrado")                
+    let linha, coluna
+
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (matriz[i][j] === X) {
+                linha = i
+                coluna = j
+                break
+            }
+        }
+    }            
+
+    linha ? 
+        console.log(`Valor encontrado na posição: [${linha}][${coluna}]`) 
+    : 
+        console.log("Valor não encontrado")            
+}
+
+{
+    // 4
+    let matriz1 = [],
+        matriz2 = [],
+        matriz3 = []
+
+    for (let i = 0; i < 3; i++) {
+        matriz1[i] = []
+        for (let j = 0; j < 3; j++) {
+            matriz1[i][j] = +prompt(`Digite o valor da ${i + 1}a linha na ${j + 1} coluna da primeira matriz`)
+        }                
+    }
+
+    for (let i = 0; i < 3; i++) {
+        matriz2[i] = []
+        matriz3[i] = []
+        for (let j = 0; j < 3; j++) {
+            matriz2[i][j] = +prompt(`Digite o valor da ${i + 1}a linha na ${j + 1} coluna da segunda matriz`)
+
+            if (matriz1[i][j] > matriz2[i][j]) {
+                matriz3[i][j] = matriz1[i][j]
+            } else {    
+                matriz3[i][j] = matriz2[i][j]
+            }
+        }                
+    }                                   
+
+    let mostrarMatriz = ""
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            mostrarMatriz += matriz1[i][j] + "\t"
+        }
+        mostrarMatriz += "\n"
+    }
+
+    console.log(mostrarMatriz)
+
+    mostrarMatriz = ""
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            mostrarMatriz += matriz2[i][j] + "\t"
+        }
+        mostrarMatriz += "\n"
+    }
+
+    console.log(mostrarMatriz)
+    
+    
+    mostrarMatriz = ""
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            mostrarMatriz += matriz3[i][j] + "\t"
+        }
+        mostrarMatriz += "\n"
+    }
+
+    console.log(mostrarMatriz)
+}
+
+{
+    // 5
+    let matriz = [],
+        somaAcimaDiagonal = 0
+
+    for (let i = 0; i < 3; i++) {
+        matriz[i] = []
+        for (let j = 0; j < 3; j++) {
+            matriz[i][j] = +prompt(`Digite o valor da ${i + 1}a linha na ${j + 1} coluna`)                    
+            
+            if (j > i) somaAcimaDiagonal += matriz[i][j]
+        }                
+    }
+
+    mostrarMatriz = ""
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            mostrarMatriz += matriz[i][j] + "\t"
+        }
+        mostrarMatriz += "\n"
+    }
+
+    console.log(mostrarMatriz)
+    console.log(`A soma dos elementos acima da diagona principal é: ${somaAcimaDiagonal}`)
+}
+
+{
+    // 6
+    let matriz = []
+    for (let i = 0; i < 3; i++) {
+        matriz[i] = []
+        for (let j = 0; j < 4; j++) {
+            if (j === 0) {
+                matriz[i][j] = prompt(`Digite o nome do ${i + 1} aluno`)
+            } else {
+                matriz[i][j] = +prompt(`Digite a nota do ${i + 1}o aluno`)
+            }                    
+        }
+    }
+    
+    for (let i = 0; i < 3; i++) {                
+        let acumuladorNotas = 0
+        for (let j = 1; j < 4; j++) {
+            acumuladorNotas += matriz[i][j]
+        }
+
+        let media = acumuladorNotas / 3
+        matriz[i].push(media)
+
+        media >= 6 ? matriz[i].push("Aprovado") : matriz[i].push("Reprovado")
+    }
+
+    let mostrarMatriz = ""
+    for (let i = 0, tamanhoLinhaMatriz = matriz.length; i < tamanhoLinhaMatriz; i++) {
+        for (let j = 0, tamanhoColunaMatriz = matriz[i].length; j < tamanhoColunaMatriz; j++) {
+            mostrarMatriz += matriz[i][j] + "\t"
+        }
+        mostrarMatriz += "\n"
+    }
+
+    console.log(mostrarMatriz)
+}
