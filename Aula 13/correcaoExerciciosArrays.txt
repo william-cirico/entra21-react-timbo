@@ -135,14 +135,12 @@
 }
 
 {
-    // 9
-    "use strict"
+    // 9    
     let numeros = []
     for (let i = 0; i < 8; i++) {
         numeros[i] = +prompt("Digite um número")
     }
-    
-    let x, y
+        
     while (true) {
         x = +prompt("Digite o valor de X")                
 
@@ -323,9 +321,12 @@
         numero2 = aux
     }            
 
+    let vetor = []
     for (let i = numero1; i <= numero2; i += 2) {
-        console.log(i)
+        vetor.push(i)
     }
+
+    console.log(String(vetor))
 }
         
 {

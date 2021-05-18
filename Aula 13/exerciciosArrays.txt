@@ -61,7 +61,7 @@ lançamentos em um vetor e mostre a quantidade de vezes que cada número (1..6) 
 mostre a média geral da turma e também a maior nota da turma. O programa deve parar de armazenar
 as notas quando uma nota negativa for digitada.
 Entrada:             Saída:
-10                   Média da turma: 9.20
+10                   Média da turma: 9.25
 9                    Maior nota: 10.00
 9
 9
