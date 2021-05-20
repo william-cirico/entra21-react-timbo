@@ -14,7 +14,7 @@ Saída:
 desse valor na matriz e, ao final, escrever a localização (linha e coluna) ou uma mensa-
 gem de “não encontrado”.
 
-4. Leia duas matrizes 3 x 3 e escreva uma terceira com os maiores valores de cada posiçãp
+4. Leia duas matrizes 3 x 3 e escreva uma terceira com os maiores valores de cada posição
 das matrizes lidas.
 Entrada:          Saída:
 1 2 3             1 3 3

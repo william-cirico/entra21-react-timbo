@@ -61,12 +61,13 @@
     let X = prompt("Digite um valor a ser encontrado")                
     let linha, coluna
 
+    externo:
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             if (matriz[i][j] === X) {
                 linha = i
                 coluna = j
-                break
+                break externo
             }
         }
     }            
