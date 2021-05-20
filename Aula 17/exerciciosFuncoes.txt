@@ -80,7 +80,7 @@ Gere 50 valores aleatórios com a função Math.random(), adicione-os em um veto
 ordenação e após a ordenação.
 
 
-18) Faça uma função que recebe por parâmetro os valores necessários para o cálculo da fórmula de báskara e 
+18) Faça uma função que recebe por parâmetro os valores necessários para o cálculo da fórmula de bhaskara e 
 retorna as suas raízes, caso seja possível calcular. Peça os valores necessários para o usuário e teste a função.
 
 
