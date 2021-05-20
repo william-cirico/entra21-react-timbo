@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Declaração de função
+        {
+            function dizOi() {
+                alert("Oi")                
+            }
+
+            dizOi()
+        
+        }
+        // Expressão de função -> Salvando uma função dentro de uma variável
+        {
+            let dizOi = function() { // -> Função anônima
+                alert("Oi")                
+            }
+
+            dizOi()
+        }  
+        
+        /*
+        A diferença entra declaração de funções e expressões de função é o momento em
+        que elas são criadas pela engine do JS. Uma expressão de função só é criada 
+        quando a execução do algoritmo alcança a linha da expressão. Já uma declaração
+        de função é criada no momento em que o código é executado. 
+
+        Devemos levar em consideração o escopo quando criamos funções:        
+        */
+        {
+            "use strict"
+            let idade = +prompt("Qual é a sua idade?", 18)
+
+            if (idade < 18) {
+                function mostraAcesso() {
+                    alert("Acesso negado")
+                }
+            } else {
+                function mostraAcesso() {
+                    alert("Acesso permitido")
+                }
+            }
+
+            mostraAcesso() // ?
+        }
+
+        // Para o código anterior funcionar:
+        {
+            let idade = +prompt("Qual é a sua idade", 18)
+
+            let mostraAcesso
+            if (idade < 18) {
+                mostraAcesso = function() {
+                    alert("Acesso negado")
+                }
+            } else {
+                mostraAcesso = function() {
+                    alert("Acesso permitido")
+                }
+            }
+
+            mostraAcesso()
+        }
+
+        // Hoisting: https://developer.mozilla.org/pt-BR/docs/Glossary/Hoisting
+
+        // É possível passar funções como parâmetro para outra função (Função callback)
+        {
+            let mostraMensagem = function(mensagem) {
+                alert(mensagem)
+            }
+
+            function recebeMensagem(mensagem, funcao) {
+                funcao(mensagem)
+            }
+
+            let mensagem = "Estou aparecendo através da função mostraMensagem"
+            recebeMensagem(mensagem, mostraMensagem)
+        }
+
+        {
+            function perguntar(pergunta, sim, nao) {
+                if (confirm(pergunta)) sim()
+                else nao()
+            }
+
+            function mostrarSim() {
+                alert("Você concorda")
+            }
+
+            function mostrarNao() {
+                alert("Você discorda")
+            }
+
+            perguntar("A terra é plana?", mostrarSim, mostrarNao)
+        }
+
+        // Existe uma forma mais moderna de utilizar Expressões de função: Arrow Functions.
+        {
+            let obtemNomeCompleto = (nome, sobrenome) => {
+                return `${nome} ${sobrenome}`
+            }
+
+            alert(obtemNomeCompleto("João", "da Silva"))
+        }
+
+        // Quando a função tem apenas o retorno podemos omitir as chaves e a palavra-chave return:
+        {
+            let obtemNomeCompleto = (nome, sobrenome) => `${nome} ${sobrenome}`
+
+            alert(obtemNomeCompleto("João", "da Silva"))
+        }
+
+        // Quando a função recebe apenas um parâmetro é possível omitir os parentêses:
+        {
+            let mostraMensagem = mensagem => alert(mensagem)
+
+            mostraMensagem("Olá mundo!")
+        }
+
+        // Quando a função não possui parâmetros:
+        {
+            let dizOi = () => alert("Oi")
+
+            dizOi()
+        }
+
+        // Arrow functions: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+    </script>
+</body>
+</html>

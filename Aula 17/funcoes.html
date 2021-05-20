@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Função é um pedaço de código que faz alguma tarefa específica e pode ser chamado 
+        de qualquer parte do programa quantas vezes desejarmos.
+
+        Utilizamos funções para:
+            - Clareza do código: separando pedaços do nosso código, podemos entender mais facilmente
+            o que cada parte do código faz.
+
+            - Reutilização: muitas vezes queremos executar uma certa tarefa várias vezes ao longo do
+            programa. Repetir esse código (CTRL+V e CTRL+C) é trabalhoso e torna mais difícil a
+            manutenção do programa.        
+            
+        Nós já vimos exemplos de funções built-in (Integradas):
+            - console.log()
+            - alert()
+            - prompt()
+
+        Declarando uma função:        
+
+        function nomeDaFuncao() {
+            // tarefas que a função irá executar
+        }
+        */
+        {
+            function dizOi() {
+                alert("Oi!")
+            }
+
+            // Para chamar uma função, ou seja, executar as intruções que ela possui:
+            dizOi()
+        }   
+        /*
+        Uma função pode receber parâmetros (Variáveis contendo valores que ela irá usar para 
+        executar suas tarefas):
+        */
+        {
+            function mostraMensagem(mensagem) {
+                alert(mensagem)
+            }
+
+            // Para chamar esse função é necessário passar o parâmetro:
+            mostraMensagem("Essa mensagem está sendo passada como parâmetro para a função")
+        }
+        // É possível passar quantos parâmetros nós quisermos. Para isso separe cada parâmetro com uma vígula:
+        {
+            function somaDoisNumeros(numero1, numero2) {
+                let resultado = numero1 + numero2  // Obedece a regra de escopo
+
+                alert(resultado)
+            }
+
+            // Chamando a função:
+            somaDoisNumeros(5, 5)
+        }
+
+        {
+            // As funções geralmente retornam um valor. Para isso utilize a palavra-chave return
+            function somaDoisNumerosComRetorno(numero1, numero2) {
+                return numero1 + numero2
+            }
+
+            // Para mostrar o resultado temos que armazenar o valor retornado em uma variável
+            let resultado = somaDoisNumerosComRetorno(10, 10)
+            alert(resultado)
+        }
+
+        // É possível ter vários retornos em uma mesma função:
+        {
+            function checarIdade(idade) {
+                if (idade >= 18) {
+                    return true
+                } 
+                return confirm("Você tem permissão dos seus pais?")
+            }
+
+            let idade = +prompt("Qual é a sua idade?")
+
+            if (checarIdade(idade)) {
+                alert("Acesso permitido!")
+            } else {
+                alert("Acesso negado!")
+            }
+        }
+        // Considerando que o return sai da função existe uma forma de melhorar o código acima?
+        
+        
+        // Se quisermos retornar uma expressão em múltiplas linhas temos que usar ():
+        {
+            function retornoMuitasLinhas() {
+                return (
+                    10
+                    +
+                    10
+                )
+            }
+
+            alert(retornoMuitasLinhas())
+        }
+        /*
+        Quando uma função não possui retorno ela é chamada de procedimento.
+        */
+
+        // Uma função pode modificar o valor de uma variável externa
+        {
+            let texto = "Olá mundo!"        
+            console.log(texto)
+
+            function modificandoTexto() {
+                texto = "Hello World!"
+            }
+
+            modificandoTexto()
+            console.log(texto)
+        }        
+        // Porém, quando essa variável é passada como parâmetro o valor não é modificado
+        {
+            let texto = "Não vou mudar"
+            console.log(texto)
+
+            function semModificar(texto) {
+                texto = "Mudou"        
+            }
+
+            semModificar(texto)
+            console.log(texto)
+        }
+
+        /*
+        Variáveis declaradas fora de funções são chamadas de GLOBAIS. É uma boa prática
+        minimizar o uso de variáveis globais. Mas, algumas vezes elas são úteis para 
+        armazernar informações a nível de projeto.
+        */
+
+        /*
+        Quando não passamos os parâmetros que a função pede eles ficam definidos como 
+        undefined. Porém podemos estabelecer valores padrões:
+        */
+        {
+            function cumprimentar(nome = "William") {
+                alert(`Olá, ${nome}`)
+            }
+
+            cumprimentar()
+        }
+
+        /* 
+        NOMEANDO AS FUNÇÕES
+
+        Funções são ações. Então, o seu nome geralmente é um verbo. Deve ser breve
+        e descrever precisamente o que a função faz. 
+
+        Exemplos:
+        obtemValor(..)
+        mostraMensagem(..)
+        criaFormulario(..)
+        checaPermissao(..)
+
+
+        UMA FUNÇÃO - UMA AÇÃO
+        Uma função deve fazer exatamente o que o seu nome sugere, nada mais.
+
+        Duas ações independentes devem ser separadas em duas funções.
+
+        Alguns exemplos que quebram essa regra:
+        ObtemValor(..) -> Se essa função também mostrasse o valor.
+        criaFormulario(..) -> Se essa função modificasse o formulário.
+        checaPermissao(..) -> Se essa função mostrasse se o acesso foi permitido ou não.        
+        */
+
+        function mostraNumerosPrimos(n) {
+            for (let i = 2; i < n; i++) {
+                if (!ehPrimo(i)) continue
+
+                console.log(i)
+            }
+        }
+
+        function ehPrimo(n) {
+            for (let i = 2; i < n; i++) {
+                if (n % i == 0) return false
+            }
+            return true
+        }        
+    </script>
+</body>
+</html>
