@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>        
+        {
+            // 1
+            function ehPositivo(numero) {
+                return numero > 0
+            }
+
+            let numero = +prompt("Digite um número")
+            console.log(ehPositivo(numero))
+        }
+
+        
+        {
+            // 2
+            function minimo(a, b) {
+                return a > b ? a : b
+            }
+
+            let a = +prompt("Digite o valor de a")
+            let b = +prompt("Digite o valor de b")
+
+            console.log(minimo(a, b))
+        }
+
+        
+        {
+            // 3
+            function potencia(a, b) {
+                return a ** b
+            }
+
+            let a = +prompt("Digite o valor de a")
+            let b = +prompt("Digite o valor de b")
+
+            console.log(potencia(a, b))
+        }
+
+        
+        {
+            // 4
+            function calculaMedia(nota1, nota2, nota3) {
+                return (nota1 + nota2 + nota3) / 3
+            }
+
+            let nota1 = +prompt("Digite a primeira nota")
+            let nota2 = +prompt("Digite a segunda nota")
+            let nota3 = +prompt("Digite a terceira nota")
+
+            console.log(calculaMedia(nota1, nota2, nota3))
+        }
+
+        
+        {
+            // 5
+            function obtemConceito(media) {
+                let conceito
+                if (media < 5) {
+                    conceito = "D"
+                } else if (media < 7) {
+                    conceito = "C"
+                } else if (media < 9) {
+                    conceito = "B"
+                } else {
+                    conceito = "A"
+                }
+                return conceito 
+            }            
+        }
+
+        
+        {
+            // 6
+            function calculaPesoIdeal(altura, sexo) {
+                let pesoIdeal
+
+                switch(sexo) {
+                    case "M":
+                        pesoIdeal = 62.1 * altura - 44.7
+                        break
+                    case "F":
+                        pesoIdeal = 72.7 * altura - 58
+                        break
+                    default:
+                        throw TypeError("Valor de sexo é inválido!")
+                }
+
+                return pesoIdeal
+            }
+
+            let altura = +prompt("Digite a altura")
+            let sexo = prompt("Digite seu sexo").toUpperCase()
+
+            try {
+                console.log(calculaPesoIdeal(altura, peso))
+            } catch(e) {
+                console.log("Erro: " + e)
+            }
+        }
+
+        
+        {
+            // 7
+            function maiorMenor(numeros) {
+                let menor = numeros[0], maior = numeros[0]
+                for (let numero of numeros) {
+                    if (numero > maior) maior = numero
+                    if (numero < menor) menor = numero
+                }
+
+                return [maior, menor]
+            }            
+
+            function cadastraNumeros() {
+                let numeros = []
+                for (let i = 0; i < 50; i++) {
+                    numeros[i] = Math.floor(Math.random() * 1000) + 1
+                }
+
+                return numeros
+            }
+
+            let numeros = cadastraNumeros()
+            let [maior, menor] = maiorMenor(numeros)
+
+            console.log(numeros)
+            console.log(`Maior: ${maior}\nMenor: ${menor}`)
+        }
+        
+        
+        {
+            // 8
+            let calculaDias = (anos, meses, dias) => anos * 365 + meses * 30 + dias
+            
+            let anos = +prompt("Digite quantidade de anos"),
+                meses = +prompt("Digite a quantidade de meses"),
+                dias = +prompt("Digite a quantidade de dias")                        
+
+            console.log(calculaDias(anons, meses, dias))
+        }
+
+        
+        {
+            // 9
+            function quantidadeDivisores(numero) {
+                let quantidade = 0
+                for (let i = 1; i <= numero; i++) {
+                    if (numero % i === 0) quantidade++
+                }
+
+                return quantidade
+            }
+
+            let numero = +prompt("Digite um número")
+
+            console.log(quantidadeDivisores(numero))
+        }
+        
+        
+        {
+            // 10
+            function fatorial(numero) {
+                let resultado = 1
+                for (let i = numero; i > 0; i--) {
+                    resultado *= i
+                }
+
+                return resultado
+            }
+
+            let numero = +prompt("Digite um número")
+
+            console.log(fatorial(numero))
+        }
+
+        
+        {
+            // 11
+            function ehPerfeito(numero) {
+                let divisores = obtemDivisores(numero)
+
+                let somaDivisores = 0
+                for (let divisor of divisores) {
+                    somaDivisores += divisor
+                }
+
+                return somaDivisores === numero
+            }
+
+            function obtemDivisores(numero) {
+                let divisores = []
+
+                for (let i = 1; i < numero; i++) {
+                    if (numero % i === 0) divisores.push(i)
+                }
+
+                return divisores
+            }
+
+            let numero = +prompt("Digite um número")
+            console.log(ehPerfeito(numero))
+        }
+
+        
+        {
+            // 12
+            function cadastraNumeros() {
+                let numeros = []
+                for (let i = 0; i < 50; i++) {
+                    numeros[i] = Math.floor(Math.random() * 1000) + 1
+                }
+
+                return numeros
+            }        
+
+            let numeros = cadastraNumeros()
+            console.log(numeros)
+
+            numeros.sort((a, b) => b - a)
+
+            console.log(numeros)
+        }
+        
+        
+        {
+            // 13
+            let calculaDelta = (a, b, c) => b ** 2 - 4 * a * c
+            let calculaRaiz1 = (a, b, delta) => (-b + Math.sqrt(delta)) / (2 * a)
+            let calculaRaiz2 = (a, b, delta) => (-b - Math.sqrt(delta)) / (2 * a)
+
+            function calculaBhaskara(a, b, c) {
+                let delta = calculaDelta(a, b, c)
+
+                let raizes
+                if (delta < 0) {
+                    raizes = false
+                } else if (delta === 0) {
+                    raizes = calculaRaiz1(a, b, delta)
+                } else {                
+                    raizes = [calculaRaiz1(a, b, delta), calculaRaiz2(a, b, delta)]
+                }            
+                
+                return raizes
+            }
+
+            let a = +prompt("Digite o valor de a"),
+                b = +prompt("Digite o valor de b"),
+                c = +prompt("Digite o valor de c")
+
+            console.log(calculaBhaskara(a, b, c))  
+        }          
+    </script>
+</body>
+</html>
