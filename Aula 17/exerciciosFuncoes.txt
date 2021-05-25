@@ -32,6 +32,7 @@ Utilize as fórmulas:
 Mulher: 62.1 x altura - 44.7
 Homem: 72.7 x altura - 58
 
+
 7) Crie uma função que receba uma array e retorne o primeiro e o último elemento desse array como um novo.
 O array pode ter qualquer tamanho.
 
@@ -56,7 +57,7 @@ idade.
 Ao final mostre na tela o vetor original e o vetor modificado.
 
 
-12) Faça um procedimento que lê 50 valores inteiros e retorna o maior e o menor deles. 
+12) Faça uma função que lê 50 valores inteiros e retorna o maior e o menor deles. 
 Utilize a função Math.random() para gerar valores aleatórios entre 1-1000.
 
 
