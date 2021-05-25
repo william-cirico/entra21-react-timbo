@@ -1,0 +1,16 @@
+Em um grupo de 4 pessoas:
+
+1)
+- Crie um repositório no github com o nome de "treinando-git".
+- Implemente o seguinte script em conjuto (branches):
+
+O script deve cadastrar três notas de um aluno e mostrar a média dessas notas.
+Para isso, o script deve implementar as seguintes funções:
+
+1) cadastrarNotas() -> Retorna um vetor com 3 notas
+2) calculaMedia(notas) -> Retorna a média de um vetor de notas
+3) mostraMedia(media) -> Mostrar a média (com arredondamento de duas casas decimais) em um alert.
+
+Ao final, faça o merge das três branches.
+
+2) Crie um segundo repositório "treinando-git2" e faça a mesma coisa que o exercício anterior utilizando o fork.
