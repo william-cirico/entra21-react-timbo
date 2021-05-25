@@ -72,7 +72,11 @@
                     conceito = "A"
                 }
                 return conceito 
-            }            
+            }  
+
+            let media = +prompt("Digite uma média")
+
+            console.log(obtemConceito(media))          
         }
 
         
@@ -89,7 +93,7 @@
                         pesoIdeal = 72.7 * altura - 58
                         break
                     default:
-                        throw TypeError("Valor de sexo é inválido!")
+                        pesoIdeal = "Sexo inválido"
                 }
 
                 return pesoIdeal
@@ -98,16 +102,101 @@
             let altura = +prompt("Digite a altura")
             let sexo = prompt("Digite seu sexo").toUpperCase()
 
-            try {
-                console.log(calculaPesoIdeal(altura, peso))
-            } catch(e) {
-                console.log("Erro: " + e)
+            console.log(pesoIdeal(altura, sexo))
+        }
+
+        {
+            // 7
+            let primeiroUltimoElemento = (vetor) => [vetor[0], vetor[vetor.length - 1]]
+
+            function cadastraNumeros() {
+                let numeros = []
+                for (let i = 0; i < 50; i++) {
+                    numeros[i] = Math.floor(Math.random() * 1000) + 1
+                }
+
+                return numeros
+            }   
+
+            let numeros = cadastraNumeros()
+            console.log(numeros)
+            console.log(primeiroUltimoElemento(numeros))
+        }
+
+        {
+            // 8
+            function mostraSimbolo(numero) {
+                let resultado = ""
+                for (let i = 0; i < numero; i++) {
+                    resultado += "#"
+                }
+
+                return resultado
             }
+
+            let numero = +prompt("Digite um número")
+            console.log(mostraSimbolo(numero))
+        }
+
+        {
+            // 9
+            function repetirElemento(elemento, quantidadeVezes) {
+                let vetor = []
+                for (let i = 0; i < quantidadeVezes; i++) {
+                    vetor[i] = elemento
+                }
+
+                return vetor
+            }
+        
+            let elemento = prompt("Digite alguma coisa")
+            let quantidadeVezes = +prompt("Digite a quantidade de vezes que o elemento irá repetir")
+
+            console.log(`[${repetirElemento(elemento, quantidadeVezes)}]`)
+        }
+
+        {
+            // 10
+            function calculaIdade(anoNascimento) {
+                const anoAtual = 2021
+
+                return anoAtual - anoNascimento
+            }
+
+            let anoNascimento = +prompt("Digite o ano em que você nasceu")        
+
+            console.log(calculaIdade(anoNascimento))
+        }
+
+        {
+            // 11
+            function cadastraVetor() {
+                let vetor = []
+
+                for (let i = 0; i < 5; i++) {
+                    vetor[i] = +prompt(`Digite o ${i + 1} valor do vetor`)
+                }
+
+                return vetor
+            }
+
+            function modificaVetor(vetor) {
+                vetor[1] = 10
+                vetor[2] = 30
+
+                return vetor
+            }
+
+            let vetor = cadastraVetor()
+            let vetorModificado = modificaVetor(vetor.slice())
+
+            console.log(vetor)
+            console.log(vetorModificado)
         }
 
         
         {
-            // 7
+            // 12
             function maiorMenor(numeros) {
                 let menor = numeros[0], maior = numeros[0]
                 for (let numero of numeros) {
@@ -136,7 +225,7 @@
         
         
         {
-            // 8
+            // 13
             let calculaDias = (anos, meses, dias) => anos * 365 + meses * 30 + dias
             
             let anos = +prompt("Digite quantidade de anos"),
@@ -148,7 +237,7 @@
 
         
         {
-            // 9
+            // 14
             function quantidadeDivisores(numero) {
                 let quantidade = 0
                 for (let i = 1; i <= numero; i++) {
@@ -165,7 +254,7 @@
         
         
         {
-            // 10
+            // 15
             function fatorial(numero) {
                 let resultado = 1
                 for (let i = numero; i > 0; i--) {
@@ -182,7 +271,7 @@
 
         
         {
-            // 11
+            // 16
             function ehPerfeito(numero) {
                 let divisores = obtemDivisores(numero)
 
@@ -210,7 +299,7 @@
 
         
         {
-            // 12
+            // 17
             function cadastraNumeros() {
                 let numeros = []
                 for (let i = 0; i < 50; i++) {
@@ -230,7 +319,7 @@
         
         
         {
-            // 13
+            // 18
             let calculaDelta = (a, b, c) => b ** 2 - 4 * a * c
             let calculaRaiz1 = (a, b, delta) => (-b + Math.sqrt(delta)) / (2 * a)
             let calculaRaiz2 = (a, b, delta) => (-b - Math.sqrt(delta)) / (2 * a)
@@ -255,7 +344,52 @@
                 c = +prompt("Digite o valor de c")
 
             console.log(calculaBhaskara(a, b, c))  
-        }          
+        }       
+
+        {
+            // 19
+            function verificaParesVetor(vetor) {
+                let vetorPares = []
+
+                for (let i = 0; i < vetor.length; i++) {
+                    if (vetor[i] % 2 === 0 && i % 2 === 0) vetorPares.push(vetor[i])
+                }
+
+                return vetorPares
+            }
+
+            let vetor = [0, 1, 2, 5, 7]
+            console.log(vetor)
+            console.log(verificaParesVetor(vetor))
+        }   
+
+        {
+            // 20
+            function verificaNumero(numero) {
+                let numeroSorteado = Math.floor(Math.random() * 10) + 1
+
+                return numeroSorteado === numero ? 
+                    `Parabéns! O número sorteado foi o ${numeroSorteado}`
+                :
+                    `Que pena! O número sorteado foi o ${numeroSorteado}`
+            }
+
+            let numero = +prompt("Digite um número")
+            console.log(verificaNumero(numero))
+        }
+
+        {
+            // 21
+            let ehBissexto = ano => (ano % 4 === 0 && ano % 100 != 0) || ano % 400 === 0
+            
+            let ano = +prompt("Digite um ano")
+
+            if (ehBissexto(ano)) {
+                console.log(`O ano ${ano} é bissexto`)
+            } else {
+                console.log(`O ano ${ano} não é bissexto`)
+            }
+        }
     </script>
 </body>
 </html>
