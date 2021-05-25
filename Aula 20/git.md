@@ -1,5 +1,6 @@
 # GIT - Principais comandos
 
+**git config** // Configurar o git  
 **git init** // Inicia a linha do tempo  
 **git add** // Adiciona ou atualiza mudanças na área de staging  
 **git commit** // Adiciona um ponto na linha do tempo  
