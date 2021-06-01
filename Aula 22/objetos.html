@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* Objetos são utilizados para armazenar coleções de dados e/ou funcionalidades
+           relacionadas.
+
+           Os dados armazenados em um objeto são chamados de: propriedades
+           As funções armazenadas em um objeto são chamadas de: métodos
+        */
+
+        {
+            // Para criar um objeto:
+            let objeto1 = {}
+            let objeto2 = new Object()
+
+            console.log(objeto1, objeto2)
+        }
+
+        {
+            // Podemos inserir propriedades diretamente no objeto no formato "chave: valor"
+            let aluno = {
+                matricula: 123, // A chave "matricula" armazena o valor 123
+                nome: "William", // A chave "nome" armazena o valor "William"
+                notas: [10, 8, 9], // A chave "notas" armazena o valor [10, 8, 9]
+                media: 9 // A chave "media" armazena o valor 9
+            }
+
+            // O acesso as propriedades de um objeto pode ser feito de duas formas:
+
+            // Notação ponto
+            console.log(aluno.matricula)
+
+            // Notação de colchetes
+            console.log(aluno["matricula"])            
+        }
+
+        {
+            // Podemos adicionar propriedades a um objeto após a sua declaração:
+            let aluno = {}
+            aluno.matricula = 123,
+            aluno.nome = "William",
+            aluno.notas = [10, 8, 9],
+            aluno.media = 9
+
+            console.log(aluno)
+        }
+
+        {
+            // Uma propriedade pode ter um nome com várias palavras:
+            let pessoa = {
+                "nome completo": "João da Silva",  // Nesse caso a chave tem que estar entre ""
+                idade: 23
+            }
+
+            // Acessar essa propriedade através da notação ponto não irá funcionar:
+            console.log(pessoa."nome completo")
+
+            // É necessário acessar através da notação de colchetes
+            console.log(pessoa["nome completo"])
+        }
+
+        {
+            // Um objeto pode ter objetos dentro dele:
+            let pessoa = {
+                nome: {
+                    primeiro: "João",
+                    ultimo: "da Silva"
+                },
+                idade: 23
+            }
+
+            // Para acessar essas propriedades:
+            console.log(pessoa.nome.primeiro)
+
+            // Ou
+            console.log(pessoa["nome"]["ultimo"])
+        }
+
+        {
+            // Se queremos acessar a propriedade de um objeto através de uma variável:
+            let pessoa = {
+                nome: "João",
+                idade: 23
+            }
+            
+            let nomePropriedade = "idade"
+
+            // Só conseguimos fazer isso através da notação de chaves
+            console.log(pessoa[nomePropriedade])
+            console.log(pessoa.nomePropriedade)
+        }
+
+        {
+            // Para modificarmos a propriedade de um objeto:
+            let pessoa = {
+                nome: "João",
+                idade: 23
+            }
+
+            pessoa.nome = "Maria"
+
+            console.log(pessoa)
+            
+            // Ou
+            pessoa["nome"] = "Pedro"
+            
+            console.log(pessoa)
+        }
+
+        {
+            // Se quisermos deletar uma propriedade de um objeto:
+            let pessoa = {
+                nome: "João",
+                idade: 23
+            }
+
+            delete pessoa.idade
+
+            console.log(pessoa)
+        }
+
+        {
+            // Computed properties -> definir o nome de uma propriedade através de uma variável
+            let fruta = prompt("Qual fruta você deseja comprar?")
+
+            let carrinho = {
+                [fruta]: 5,  // O nome da propriedade será o valor que o usuário digitou
+            }
+
+            console.log(carrinho[fruta])
+        }
+
+        {
+            // Property Shorthand
+            let nome = "João",
+                sobrenome = "da Silva"
+            
+            let pessoa = {
+                nome,
+                sobrenome
+            }
+
+            console.log(pessoa)
+
+
+            function criaUsuario(nome, sobrenome) {
+                return {
+                    nome,
+                    sobrenome,
+                    idade: 20
+                }
+            }
+
+            console.log(criaUsuario("João", "da Silva"))
+        }
+
+        {
+            // Para percorrer todas as chaves de um objeto:
+            let objeto = {
+                nome: "João da Silva",
+                idade: 23
+            }
+
+            for (let chave in objeto) {
+                console.log(`Chave: ${chave} | Valor: ${objeto[chave]}`)                
+            }
+
+            console.log(Object.keys(objeto))
+            console.log(Object.values(objeto))
+        }
+
+        {
+            // Ordem das propriedades em um objeto:
+            let objeto1 = {
+                1: "Cadastrar aluno",
+                2: "Editar aluno",
+                3: "Cadastrar notas",
+                4: "Mostrar aluno",
+                0: "Sair"
+            }
+
+            console.log(objeto1)
+
+
+            let objeto2 = {
+                "+1": "Cadastrar aluno",
+                "+2": "Editar aluno",
+                "+3": "Cadastrar notas",
+                "+4": "Mostrar aluno",
+                "+0": "Sair"
+            }
+
+            for (let chave in objeto2) {
+                console.log(+chave)
+            }
+        }
+
+        {
+            // Para fazer o merge (Juntar) de dois objetos:
+            let pessoa = {
+                nome: "João",
+                sobrenome: "da Silva"
+            }
+
+            let informacoesAdicionais = {
+                idade: 23,
+                gostaGato: false
+            }
+        
+            // {
+            //     nome: "João",
+            //     sobrenome: "da Silva",
+            //     idade: 23,
+            //     gostaGato: false
+            // }
+            
+            console.log(Object.assign({}, pessoa, informacoesAdicionais))
+
+            Object.assign(pessoa, informacoesAdicionais)
+            console.log(pessoa)
+
+            // Conseguimos fazer a mesma coisa utilizando a spread syntax (...)
+            // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+            let novoObjeto = {
+                ...pessoa,
+                ...informacoesAdicionais
+            }
+
+            console.log(novoObjeto)
+
+            // Spread Syntax é o oposto de Rest Parameters
+            // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/rest_parameters
+        }
+
+        {
+            // Destructuring assignment -> Extrair dados de arrays ou objetos
+            // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+            let pessoa = {
+                nome: "João",
+                idade: 23
+            }
+            
+            let {nome, idade} = pessoa
+            console.log(nome, idade)
+
+
+            // Destructuring de objeto dentro de objeto
+            let pessoa2 = {
+                nome: {
+                    primeiro: "João",
+                    ultimo: "da Silva"
+                },
+                idade: 23
+            }
+
+
+            let {nome: {primeiro}} = pessoa2
+            console.log(primeiro)
+
+
+            // Destructuring em função            
+            {
+                let pessoa = {
+                    nome: "João",
+                    idade: 23
+                }
+
+                function mostraPessoa(objeto) {
+                    console.log(objeto.nome || "William", objeto.idade)
+                }
+
+                function mostraPessoa({nome = "William", idade}) {
+                    console.log(nome, idade)
+                }
+
+
+                mostraPessoa(pessoa)
+            }
+        }
+
+        // Gerenciamento de memória
+        // https://medium.com/reactbrasil/como-o-javascript-funciona-gerenciamento-de-mem%C3%B3ria-como-lidar-com-4-vazamentos-comuns-de-5cfa341b9e39#:~:text=As%20linguagens%20de%20alto%20n%C3%ADvel,caso%2C%20ela%20ser%C3%A1%20automaticamente%20liberada.
+
+        // Exercícios 
+        /*
+        1) Escreva a função estaVazio(objeto) que retorna true se o objeto não possuir 
+        propriedades, falso em caso contrário.
+
+        2) Dado o objeto:
+        let objeto = {
+            p1: 20,
+            p2: 50,
+            p3: 85,
+            p4: "Olá",
+            p5: "Teste",
+            p6: "string",
+            p7: 10 
+        }
+
+        let objeto2 ={
+            p1: 20,
+            p2: 30,
+            p3: "Oi"
+        }
+
+        Construir uma função que some todas as propriedades númericas do objeto.
+        E as mostre na tela.
+
+        3) Adapte o trabalho de funções para armazenar as informações em um objeto.
+        */
+
+        function estaVazio(objeto) {
+            for (let chave in objeto) {
+                return false
+            }
+            return true
+
+            // return !Object.keys(objeto).length
+        }
+
+        objeto = {nome: "William"}
+        estaVazio(objeto)
+
+        function somaPropriedades(objeto) {
+            let soma = 0
+            for (let chave in objeto) {
+                if (typeof objeto[chave] === "number") {
+                    soma += objeto[chave]
+                }
+                // if (isFinite(objeto[chave])) {
+                //     soma += +objeto[chave]
+                // }                
+            }
+            
+            alert(soma)
+        }
+
+        let objeto = {
+            p1: 20,
+            p2: "50",
+            p3: 85,
+            p4: "Olá",
+            p5: "Teste",
+            p6: "string",
+            p7: 10 
+        }
+
+        somaPropriedades(objeto)
+    </script>
+</body>
+</html>

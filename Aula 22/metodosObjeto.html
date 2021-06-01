@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		/*Objetos geralmente são criados para representar
+		entidades do mundo real como usuários, pedidos, etc.*/
+		{
+			let usuario = {
+				nome: "José",
+				idade: 26
+			}
+		}
+		/* No mundo real usuários podem executar ações
+		como fazer login, adicionar produtos no carrinho, etc.
+		no JS essas ações são representadas através de funções
+		dentro do objeto.
+		*/
+		{
+			let usuario = {
+				nome: "José",
+				idade: 26,
+				dizOi() {  // Método
+					alert("Oi!")
+				}
+			}
+
+			usuario.dizOi()
+		}
+
+		/*
+		THIS
+	
+		O this em métodos é utilizado para acessar
+		propriedades daquele objeto.
+		*/
+		{
+			let usuario = {
+				nome: "José",
+				idade: 26,
+				dizOi() {
+					console.log(`Oi, meu nome é ${this.nome}`)
+				}
+			}
+
+			usuario.dizOi()
+		}
+
+		// Exercícios
+		/*
+		1) Crie o objeto contador com 5 métodos:
+		incrementa() -> Incrementa o contador em 1
+		decrementa() -> Decrementa o contador em 1
+		incrementaEm(quantidade) -> Incrementa o contador na quantidade especificada
+		decrementaEm(quantidade) -> Decrementa o contador na quantidade especificada
+		mostraContador() -> Mostra o valor do contador
+		O contador inicia em 0.
+	
+		2) Crie o objeto calculadora com três métodos:
+		lerValores() -> pede dois valores ao usuário e os salva como
+		propriedades.
+		soma() -> retorna a soma dos valores salvos
+		multiplicacao() -> retorna a multiplicação dos valores salvos.
+		*/
+
+		let contador = {
+			atual: 0,
+			incrementa() {
+				this.atual++
+			},
+			decrementa() {
+				this.atual--
+			},
+			incrementaEm(quantidade) {
+				this.atual += quantidade
+			},
+			decrementaEm(quantidade) {
+				this.atual -= quantidade
+			},
+			mostraContador() {
+				alert(this.atual)
+			}
+		}
+
+		contador.incrementa()
+		contador.mostraContador()
+
+
+		let calculadora = {
+			valor1: 0,
+			valor2: 0,			
+			lerValores() {
+				this.valor1 = +prompt("Digite o valor 1")
+				this.valor2 = +prompt("Digite o valor 2")
+			},
+			soma() {
+				return this.valor1 + this.valor2
+			},
+			multiplicacao() {
+				return this.valor1 * this.valor2
+			}
+		}
+
+		calculadora.lerValores()
+		console.log(calculadora.soma())
+		console.log(calculadora.multiplicacao())
+	</script>
+</body>
+
+</html>

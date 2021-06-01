@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // isFinite() -> Determina se o valor passado é um número finito.
+        {
+            let numero = "a"
+            console.log(isFinite(numero))
+        }
+
+        // isInteger() -> Determina se o valor passado é inteiro.
+        {
+            let numero = 10.2
+            console.log(Number.isInteger(numero))
+        }
+
+        // isNaN() -> Verifica se o valor passado é NaN.
+        {
+            let valor = NaN
+            console.log(isNaN(valor))
+        }
+
+        // toFixed() -> Formata um número utilizando notação ponto.
+        {
+            let valor = 2.35475675
+            console.log(valor.toFixed(2))
+        }
+
+        // Math.random() -> Retorna um valor aleatório entre 0 e 1
+        {
+            console.log(Math.random())
+        }
+
+        // Math.max() -> Retorna o maior valor dos valores passados
+        {
+            console.log(Math.max(10, 5, 2, 1))
+        }
+
+        // Math.min() -> Retorna o menor valor dos valores passados
+        {
+            console.log(Math.min(10, -1, 20, 30))
+        }
+
+        // Exercícios
+        /*
+            1) Crie uma função lerNumero() que vai pedir um número até que
+            o usuário informe um valor númerico.        
+
+            2) Crie uma função que vai gerar um valor aleatório com base
+            nos limites minimo e máximo passados como parâmetro.
+            random(minimo, maximo)
+
+            3)
+            let i = 0;
+            while (i < 10) {
+                i += 0.2;
+                console.log(i)
+            }
+
+            Porque esse código irá criar um looping infinito?
+        */
+
+        function lerNumero() {
+            while (true) {
+                let numero = prompt("Digite um número")
+
+                if (isFinite(numero)) return
+            }
+        }
+
+        function random(minimo, maximo) {
+            return Math.floor(Math.random() * (maximo - minimo)) + minimo
+        }
+
+        let i = 0;
+        while (i < 10) {
+            i += 0.2;
+            console.log(i)
+        }
+    </script>
+</body>
+</html>

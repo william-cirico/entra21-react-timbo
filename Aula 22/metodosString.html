@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Métodos de String
+
+        // endsWith() -> Indica se a string termina com os caracteres informados
+        {
+            let nome = "Pedro"
+            console.log(nome.endsWith("ro"))
+        }
+
+        // startsWith() -> Indica se a string começa com os caracteres informados
+        {
+            let nome = "João"
+            console.log(nome.startsWith("Jo"))
+        }
+
+        // includes() -> Determina se um conjunto de caracteres pode ser encontrado dentro
+        // de outra string
+        {
+            let palavras = "lorem ipsum dolor..."
+            console.log(palavras.includes("ipsum"))
+        }
+
+        // padEnd() -> Preenche a string original com um determinado caractere até que ela
+        // alcance o comprimento determinado. Preenche no final da string
+        {
+            let teste = "Nome"
+            console.log(teste.padEnd(25, "."))
+        }
+
+        // padStart() -> Preenche a string original com um determinado caractere até que ela
+        // alcance o comprimento determinado. Preenche no começo da string 
+        {
+            let teste = "Nome"
+            console.log(teste.padStart(25, "."))
+        }
+
+        // repeat() -> Repete a mesma string pelo número de vezes especificado
+        {
+            let cumprimentar = "oi"
+            console.log(cumprimentar.repeat(3))
+        }
+
+        // replace() -> Retorna uma string com os caracteres escolhidos substituídos pelos novos
+        // caracteres especificados.
+        {
+            let nomes = "João, Pedro, Pedro"
+            console.log(nomes.replace("Pedro", "Maria"))
+        }
+
+        // replaceAll() -> Retorna uma string com os caracteres escolhidos substituídos pelos novos
+        // caracteres especificados. (Substitui todos os caracteres escolhidos da string)
+        {
+            let nomes = "João, Pedro, Pedro"
+            console.log(nomes.replaceAll("Pedro", "Maria"))
+        }
+
+        // toLowerCase() -> Retorna a string com todos os caracteres em minusculo
+        {
+            let palavras = "LOREM IPSUM DOLOR..."
+            console.log(palavras.toLowerCase())
+        }
+
+        // toUpperCase() -> Retorna a string com todos os caracteres em maiusculo
+        {
+            let palavras = "lorem ipsum dolor..."
+            console.log(palavras.toUpperCase())
+        }
+
+        // trim() -> Remove os espaços do começo e do final da string
+        {
+            let teste = "  com espaços  "
+            console.log(teste.trim())
+        }   
+
+
+        // Métodos que utilizam expressões regulares
+        // match()
+        // matchAll()        
+        // search()
+
+
+        // Exercícios
+        /*
+        1) Escreva uma função capitalize(string) que retorna uma string com o primeiro caractere de 
+           cada palavra em maiúsculo.
+
+        2) Escreva uma função checaSpam(string) que retorna um booleano indicando se a string contém 
+        as palavras "jequiti" ou "day trading".
+
+        3) Escreva uma função truncar(string, tamanhoMaximo) que checa o tamanho de um string e se ela
+        excede o tamanhoMaximo substitui o final da string com "..."
+        Exemplo:
+        truncar("teste teste teste teste", 10) -> "teste test..."
+        */
+        function capitalize(string) {            
+            let palavras = string.split(" ")
+            for (let i = 0, tamanhoVetor = palavras.length; i < tamanhoVetor; i++) {
+                palavras[i] = palavras[i][0].toUpperCase() +  palavras[i].slice(1)
+            }            
+            return palavras.join(" ")
+        }
+        
+        function checaSpam(string) {
+            let lowerCaseString = string.toLowerCase()
+
+            return lowerCaseString.includes("jequiti") || lowerCaseString.includes("day trading")
+        }
+
+        function truncar(string, tamanhoMaximo) {
+            return tamanhoMaximo < string.length ?
+                string.slice(0, tamanhoMaximo) + "..." 
+            : 
+                string        
+        }
+
+    </script>
+</body>
+</html>
