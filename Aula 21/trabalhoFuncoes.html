@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let alunos = []
+
+          
+        function mostraMenu() {
+            while (true) {
+                let opcao = +prompt("1) Cadastrar aluno\n2) Editar informações do aluno\n3) Cadastrar notas de um aluno\n4) Listar alunos\n0) Sair")
+
+                switch (opcao) {
+                    case 0:
+                        return alert("Finalizando o programa...")
+                    case 1:
+                        cadastrarAluno()
+                        break
+                    case 2:
+                        editarNomeAluno()
+                        break
+                    case 3:
+                        cadastrarNotas()
+                        break
+                    case 4:
+                        listarAluno()
+                        break
+                    default:
+                        alert("Opção inválida!")
+                }
+            }                                            
+        }
+
+
+        function obtemPosicaoAluno(matricula) {
+            for (let i = 0; i < alunos.length; i++) {
+                if (alunos[i].matricula === matricula) return i
+            }                
+        }
+
+
+        function cadastrarAluno() {
+            let matricula = +prompt("Digite o número da matrícula do aluno")
+            let nome = prompt("Digite o nome do aluno")
+            
+            !obtemPosicaoAluno(matricula) >= 0 ? 
+                alunos.push({
+                    matricula, 
+                    nome, 
+                    nota1: "--",
+                    nota2: "--",
+                    nota3: "--",
+                    media: "--"
+                })                
+            :
+                alert("Matrícula já cadastrada!")                
+        }
+
+
+        function editarNomeAluno() {
+            let matricula = +prompt("Digite o número da matrícula do aluno")
+
+            let posicaoAluno = obtemPosicaoAluno(matricula)
+            if (posicaoAluno >= 0) {
+                let novoNome = prompt("Digite o nome do aluno")                    
+                alunos[posicaoAluno].nome = novoNome
+            } else {
+                alert(`Não existe nenhum aluno cadastrado com a matrícula ${matricula}`)
+            }
+        }                        
+
+        
+        let calculaMedia = (nota1, nota2, nota3) => (nota1 + nota2 + nota3) / 3
+
+
+        function cadastrarNotas() {
+            let matricula = +prompt("Digite o número da matrícula do aluno")
+            
+            posicaoAluno = obtemPosicaoAluno(matricula)                
+            if (posicaoAluno >= 0) {
+                let nota1 = +prompt("Digite o valor da primeira nota"),
+                    nota2 = +prompt("Digite o valor da segunda nota"),
+                    nota3 = +prompt("Digite o valor da terceira nota")
+
+                let media = calculaMedia(nota1, nota2, nota3).toFixed(2)
+
+                alunos[posicaoAluno] = {
+                    ...alunos[posicaoAluno],
+                    nota1: nota1,
+                    nota2: nota2,
+                    nota3: nota3,
+                    media: media
+                }
+            } else {
+                alert(`Não existe nenhum aluno cadastrado com a matrícula ${matricula}`)
+            }                
+        }
+
+
+        function listarAluno() {
+            console.table(alunos)           
+        }
+
+        mostraMenu()
+    </script>
+</body>
+</html>
