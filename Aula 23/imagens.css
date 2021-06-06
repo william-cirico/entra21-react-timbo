@@ -1,0 +1,8 @@
+img {
+    max-width: 100%;
+    height: auto;    
+    border-width: 4px;
+    border-style: solid;
+    border-color: darkslategrey;
+    margin-right: 50px;
+}
