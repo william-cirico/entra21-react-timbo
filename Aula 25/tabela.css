@@ -1,0 +1,21 @@
+table, th, td {
+    border: 4px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+thead {
+    background-color: #A3CDD9;
+}
+
+tbody {
+    background-color: #FFFCE6;
+}
+
+tfoot {
+    background-color: #F2CC39;
+}
