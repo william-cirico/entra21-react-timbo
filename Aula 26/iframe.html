@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        iframe {
+            width: 50%;
+            height: 700px;                  
+        }
+
+        a {                        
+            width: fit-content;
+            margin: 10px auto;
+            display: block;
+            padding: 20px;
+            background-color: black;
+            color: white;            
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 1px solid black;
+        }
+
+        a:hover {
+            color: black;
+            background-color: white;            
+        }
+    </style>
+</head>
+<body>
+    <!-- Iframe é utilizado para mostrar um site dentro de um site -->
+    <iframe src="https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:P%C3%A1gina_principal" title="Wikipedia"></iframe>    
+    <!-- Podemos abrir um link dentro de um Iframe -->    
+    <a href="https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:P%C3%A1gina_principal" target="iframe_link" title="Iframe de um link">Carregar iframe</a>
+    <iframe src="" name="iframe_link"></iframe>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.6244881447124!2d-49.27464448432113!3d-26.820082895808323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94defc084476abcd%3A0x50677002f0dd9da4!2sSenac%20Timb%C3%B3!5e0!3m2!1spt-BR!2sbr!4v1623001014006!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</body>
+</html>
