@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards CSS</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .card {
+            min-width: 30%;
+            box-sizing: border-box;
+            padding: 20px;
+            margin: 1%;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;                        
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            flex: 1;
+        }
+
+        .card button {                     
+            margin-top: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cards</h1>
+    <div class="card-container">
+        <div class="card">
+            <h2>titulo 1</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo blanditiis quae, repellat placeat in vitae voluptas illum? </p>
+            <p>Porro pariatur dolor ipsam tempora, qui aliquid delectus corporis accusamus, molestias in sit.</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo blanditiis quae, repellat placeat in vitae voluptas illum? </p>
+            <p>Porro pariatur dolor ipsam tempora, qui aliquid delectus corporis accusamus, molestias in sit.</p>
+            <button>Saiba mais</button>
+        </div>
+        <div class="card">
+            <h2>titulo 2</h2>
+            <p>lorem ipsum dolor...</p>
+            <button>Saiba mais</button>
+        </div>
+        <div class="card">
+            <h2>titulo 3</h2>
+            <p>lorem ipsum dolor...</p>
+            <button>Saiba mais</button>
+        </div>
+    </div>
+</body>
+</html>
