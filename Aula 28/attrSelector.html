@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attr Selector</title>
+    <style>
+        [src] {
+            position: absolute;
+            right: 0;
+        }
+
+        input[type="text"] {
+            background-color: black;
+            color: white;
+        }
+
+        /* Termina com */
+        a[href$=".com"] {
+            color: pink;
+        }
+
+        /* Começa com */
+        [class^="exemplo"] {
+            color: green;
+        }
+
+        /* Contém */
+        [class*="to"] {
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <a href="www.google.com">Google</a><br><br>
+
+    <input type="text" placeholder="Digite algo">
+
+    <img src="img/small_cat.jpg" alt="gato" title="teste">
+
+    <p class="exemplo">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum ipsam consequatur sapiente. Ullam perferendis repellendus odio esse exercitationem earum sequi iste aliquam adipisci quis, ducimus delectus excepturi ex dolorum possimus.</p>
+    <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, aspernatur? Deleniti voluptas quibusdam consectetur neque rerum ad asperiores numquam temporibus ipsam? Dolor consequuntur tempore iste officiis veritatis illo error incidunt.</p>
+    <p class="to">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit soluta nemo dolores ipsa quas praesentium. Dolorem voluptas id aperiam totam ut natus vel, ex minima iusto modi consectetur ea amet.</p>
+</body>
+</html>
