@@ -1,0 +1,6 @@
+Construa um site utilizando HTMl e CSS que apresente 5 lugares que você já visitou ou gostaria de visitar.
+Para isso escolha 5 cidades e apresente uma descrição e imagens (3 imagens no mínimo) dos pontos turísticos de cada cidade.
+Também faça uma página com 5 itens que você considera essenciais para uma viagem e 
+mostre o preço e a loja em que esse item pode ser comprado (mínimo de 3 lojas para cada produto).
+
+
