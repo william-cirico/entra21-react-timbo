@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obtendo elementos no DOM</title>
+</head>
+<body>
+    <h1>Obtendo elementos no DOM</h1>
+
+    <div id="elem">
+        <div id="elem-content">Elemento</div>
+    </div>
+
+    <h2>Lista 1</h2>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+
+    <h2>Lista 2</h2>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+
+    <script>
+        {
+            // Selecionar o elemento pelo Id:
+            let elemento = document.getElementById("elem")
+            console.log(elemento)
+
+            // Sempre que criamos um id no HTML existe uma variável global
+            // que faz referência para aquele elemento (NUNCA ACESSAR DIRETAMENTE!):
+            console.log(elem)
+        }
+
+        {
+            // querySelectorAll -> Seleciona todos os elementos que correspondem ao seletor CSS
+            let elementos = document.querySelectorAll("ul > li:first-child")
+
+            for (let elemento of elementos) {
+                elemento.style.backgroundColor = "red"
+            }
+        }
+
+        {
+            // querySelector -> Seleciona o primeiro elemento que corresponde ao seletor CSS
+            let elemento = document.querySelector("#elem")
+            elemento.style.backgroundColor = "blue"
+        }
+
+        /*
+        Exercício:
+
+        Dado o seguinte HTML:
+        <html>
+        <body>
+            <form name="search">
+                <label>Search the site:
+                    <input type="text" name="search">
+                </label>
+                <input type="submit" value="Search!">
+            </form>
+
+            <hr>
+
+            <form name="search-person">
+                Search the visitors:
+                <table id="age-table">
+                    <tr>
+                        <td>Age:</td>
+                        <td id="age-list">
+                        <label>
+                            <input type="radio" name="age" value="young">less than 18</label>
+                        <label>
+                            <input type="radio" name="age" value="mature">18-50</label>
+                        <label>
+                            <input type="radio" name="age" value="senior">more than 50</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Additionally:</td>
+                        <td>
+                        <input type="text" name="info[0]">
+                        <input type="text" name="info[1]">
+                        <input type="text" name="info[2]">
+                        </td>
+                    </tr>
+                </table>
+
+                <input type="submit" value="Search!">
+            </form>
+        </body>
+        </html>
+
+        Diga como acessar:
+        1. A <table> com o id="age-table". -> let table = document.querySelector("#age-table")
+        2. Todos os elementos <label> dentro da <table> (3 elementos). -> table.querySelectorAll("label")
+        3. O primeiro <td> na tabela (com a palavra "Age"). -> table.querySelector("td")
+        4. O <form> com name="search". -> let form = document.querySelector("form[name=search]")
+        5. O primeiro <input> nesse form. -> form.querySelectorAll("input")[0]
+        6. O último <input> nesse form.  ->form.querySelectorAll("input")[1]
+        */
+    </script>
+</body>
+</html>

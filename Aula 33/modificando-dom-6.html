@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificando o DOM</title>
+    <style>
+        .alert {
+            padding: 1em 1em;
+            margin-bottom: 1em;
+            border: 1px solid #b6d4fe;
+            background-color: #cfe2ff;
+            color: #084298;
+            border-radius: .25em;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        // Criando um elemento
+        let div = document.createElement("div")
+
+        // Adicionando a classe ao elemento
+        div.className = "alert"
+
+        // Preenchendo a div com o texto
+        div.textContent = "Um alerta simples"
+
+        // Inserindo o elemento na página
+        document.body.append(div)
+
+        /* 
+        Métodos de inserção:
+        
+        elem.append(nodes ou strings) -> Adiciona o node ou a string no final do elem
+        elem.prepend(nodes ou strings) -> Adiciona o node ou a string no começo do elem
+        elem.before(nodes ou strings) -> Adiciona o node ou a string antes do elem
+        elem.after(nodes ou strings) -> Adiciona o node ou a string depois do elem
+        elem.replaceWith(nodes ou string) -> Substitui elem pelo node ou string
+        */
+
+        let lista = document.querySelector("ul")
+
+        lista.before("Antes")
+        lista.after("Depois")
+
+        let primeiroLi = document.createElement("li")
+        primeiroLi.textContent = "prepend"
+        lista.prepend(primeiroLi)
+
+        let ultimoLi = document.createElement("li")
+        ultimoLi.textContent = "append"
+        lista.append(ultimoLi)
+
+        /* 
+        Inserir um trecho HTML (similar ao innerHTML):
+        elem.insertAdjacentHTML("beforebegin", <html>) -> Insere HTML antes do elemento
+        elem.insertAdjacentHTML("afterbegin", <html>) -> Insere HTML dentro do elemento (no começo)
+        elem.insertAdjacentHTML("beforeend", <html>) -> Insere HTML dentro do elemento (no final)
+        elem.insertAdjancentHTML("afterend", <html>) -> Insere HTML depois do elemento
+        
+        
+        */
+        lista.insertAdjacentHTML("afterend", "<h2>Inserido com insertAdjacent</h2>")
+
+        // Remover um node
+        // {
+            let lista2 = document.querySelector("ul")
+            lista2.remove()
+        // }
+
+        
+        // {
+        //     // Clonar um node
+        //     // cloneNode(true) -> Clona o node com todos os elementos filhos
+        //     // cloneNode(false) -> Clona o node sem os elementos filhos        
+                let div2 = div.cloneNode(true)
+                div2.textContent = "Outro alerta"
+                document.body.append(div2)
+        // }
+
+        /*
+        Exercício
+        1 - Crie uma função clear(elem) que remove todos os filhos de um elemento.
+
+        Utilize o seguinte HTML para testar:
+        <ol id="elem">
+            <li>Filho 1</li>
+            <li>Filho 2</li>
+        </ol>
+
+        2 - Insira <li>Item 2</li><li>Item 3</li> na seguinte lista:
+        <ul>
+            <li>Item 1</li>            
+            <li>Item 4</li>
+        </ul>
+
+        Insira os elementos na ordem correta.
+
+        3 - Escreva o script necessário para adicionar em cada <li> o número de descendentes (se houver).
+        <ul>
+            <li>Animais
+                <ul>
+                    <li>Mamíferos
+                        <ul>
+                            <li>Vacas</li>
+                            <li>Macacos</li>
+                            <li>Cachorros</li>
+                            <li>Tigres</li>
+                        </ul>
+                    </li>
+                    <li>Outros
+                        <ul>
+                            <li>Cobras</li>
+                            <li>Pássaros</li>
+                            <li>Lagartos</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        Resultado esperado:
+        <ul>
+            <li>Animais [9]
+                <ul>
+                    <li>Mamíferos [4]
+                        <ul>
+                            <li>Vacas</li>
+                            <li>Macacos</li>
+                            <li>Cachorros</li>
+                            <li>Tigres</li>
+                        </ul>
+                    </li>
+                    <li>Outros [3]
+                        <ul>
+                            <li>Cobras</li>
+                            <li>Pássaros</li>
+                            <li>Lagartos</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        1)
+        let lista = document.querySelector("#elem")
+
+        function clear(elem) {            
+            elem.innerHTML = ""            
+        }
+        
+        function clear2(elem) {
+            while(elem.firstElementChild) {
+                elem.firstElementChild.remove()
+            }
+        }
+
+
+        2)
+
+        let li = document.querySelector("ul li:first-child")
+        li.insertAdjacentHTML("afterend", "<li>Item 2</li><li>Item 3</li>")
+        
+        3)
+        let lis = document.querySelectorAll("li")
+
+        for (let li of lis) {              
+            let descendentes = li.querySelectorAll("li").length
+
+            if (descendentes) {
+                li.firstChild.data += ` [${descendentes}]`
+            }
+        }
+        */
+    </script>
+</body>
+</html>

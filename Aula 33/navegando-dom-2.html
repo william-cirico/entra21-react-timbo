@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegando pelo DOM</title>
+</head>
+<body>
+    <div>Exemplo</div>
+
+    <ul>
+        <li>
+            <strong>Teste</strong>
+        </li>
+    </ul>
+    <script>
+        {
+            // childNodes é uma coleção com todos os filhos do elemento selecionado.
+            console.log(document.body.childNodes)
+
+            // Primeiro filho
+            // console.log(document.body.firstChild)
+            // console.log(document.body.firstChild === document.body.childNodes[0])
+
+            // // Último filho
+            // console.log(document.body.lastChild)
+            // console.log(document.body.lastChild === document.body.childNodes[document.body.childNodes.length - 1])
+        }
+
+        // {
+        //     // Por ser uma coleção, podemos iterar sobre ela
+        //     for (let i = 0; i < document.body.childNodes.length; i++) {
+        //         console.log(document.body.childNodes[i])
+        //     }
+
+        //     // Ou
+        //     for (let node of document.body.childNodes) {
+        //         console.log(node)
+        //     }
+        // }
+
+        // {
+        //     // DOM collections se parecem com um array, porém são coleções
+        //     // (um objeto que se comporta como um array (Iterável))
+        //     // Portanto, para usar os métodos de array, precisamos converter:
+        //     console.log(Array.from(document.body.childNodes).filter(element => element.nodeName == "#text"))
+        // }
+
+        // {
+        //     // Acessar o node pai
+        //     console.log(document.body.parentNode)
+
+        //     // Acessar o node irmão
+        //     console.log(document.body.previousSibling)
+        //     console.log(document.head.nextSibling)
+        // }
+
+        // {
+        //     // Acessando somente elementos:
+        //     console.log(document.body.children)
+        //     console.log(document.body.firstElementChild)
+        //     console.log(document.body.lastElementChild)
+        //     console.log(document.body.parentElement)
+        //     console.log(document.body.previousElementSibling)
+        //     console.log(document.head.nextElementSibling)
+        // }
+
+        /*
+        Exercício:
+
+        Considerando o seguinte HTMl:
+        <html>
+        <body>
+            <div>Users:</div>
+            <ul>
+                <li>John</li>
+                <li>Pete</li>
+            </ul>
+        </body>
+        </html>
+        
+        Para cada um dos seguintes elementos, ache uma forma de acessá-los:
+        <div> 
+        <ul>
+        <li> (*todas)
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos e Classes</title>
+    <style>
+        .container {
+            width: 90%;            
+            margin: auto;
+            text-align: center;            
+        }
+
+        .fs-big {
+            font-size: 5rem;
+        }
+
+        .blue {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="fs-big">Oi</p>
+    </div>
+
+    <script>
+        /* 
+            Existem dois jeitos de estilizar um elemento: 
+
+            1) Através dos seletores (classes, id, atributos, elementos, etc)
+            - className
+            - classList
+
+            2) Diretamente no elemento através do atributo style
+            elem.style
+            **
+            A segunda forma só deve ser usada se iremos calcular cordenadas de um
+            elemento dinamicamente através do JS.
+            **
+        */
+        let p = document.querySelector("p")
+
+        // Atribuir algo para className irá substituir todas as classes
+        p.className = "blue"        
+
+        // Para adicionar novas classes devemos utilizar classList:
+        p.classList.add("fs-big")
+
+        /*
+            Métodos classList:
+            elem.classList.add/remove("class") -> Adiciona/remove classes
+            elem.classList.toggle("class") -> Adiciona a classe se ela não existe, caso contrário a remove
+            elem.classList.contains("class") -> Checa se a classe existe no elemento
+        */
+        console.log(p.classList)
+
+        // Para obter os estilos aplicados a um elemento
+        let estiloP = getComputedStyle(p)
+        console.log(estiloP.margin)
+        console.log(estiloP.width)
+
+        /*
+        Exercício
+
+        Crie uma função que crie e mostre uma notificação na tela (<div class="notificacao">) quando for chamada.
+        Essa função deve receber um objeto com as seguintes propriedades:
+        {
+            top: 10px, // 10px será usado como valor default
+            right: 10px, // 10px será usado como valor default
+            html: "Olá", // "Olá" será usado como valor default            
+        }   
+
+        function mostraNotificacao({top = 10, right = 10, html = "Olá"}) {
+            let notificacao = document.createElement("div")
+            notificacao.className = "notificacao"
+            notificacao.innerHTML = html
+            notificacao.style.top = top + "px"
+            notificacao.style.right = right + "px"
+            document.body.append(notificacao)
+        }
+        */
+    </script>
+</body>
+</html>
