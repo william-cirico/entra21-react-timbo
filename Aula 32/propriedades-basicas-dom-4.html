@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedades básicas do DOM</title>
+</head>
+<body>
+    <h1>Titulo</h1>
+    <p><strong>Texto</strong></p>
+    <a href="#">Link</a>
+    <input type="text">
+
+    <script>
+        /* 
+        Diferentes nodes DOM possuem propriedades diferentes.
+        HTMLElement é a classe básica para todos os elementos HTML, porém,
+        cada tipo de elemento possui sua classe:
+        */
+        {
+            let title = document.querySelector("h1")
+            let paragraph = document.querySelector("p")
+            let input = document.querySelector("input")
+            let link = document.querySelector("a")
+
+            console.log(document.body.constructor.name)
+            console.log(paragraph.constructor.name)
+            console.log(title.constructor.name)
+            // https://developer.mozilla.org/pt-BR/docs/Web/API/HTMLInputElement
+            // https://html.spec.whatwg.org/multipage/input.html
+            console.log(input.constructor.name)
+            // https://developer.mozilla.org/en-US/docs/Web/API/HTMLAnchorElement
+            // https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element
+            console.log(link.constructor.name)        
+        }
+
+        // {
+        //     // tagName -> Nome da tag (Sempre maiúsculo)
+        //     console.log(document.body.tagName)
+        // }
+
+        // {
+        //     // innerHTML -> Conteúdo dentro do elemento selecionado
+        //     let title = document.querySelector("h1")
+        //     console.log(title.innerHTML)
+
+        //     let paragraph = document.querySelector("p")
+        //     console.log(paragraph.innerHTML)
+
+        //     paragraph.innerHTML = "<em>Texto</em>"
+
+        //     // Adicionando elementos ao body (Cuidado! Irá reescrever todo o body)
+        //     document.body.innerHTML += "<p>Fui adicionado através do JS</p>"
+        // }
+
+        // {
+        //     // data -> Nodes textuais não tem innerHTML
+        //     document.body.childNodes[0].data
+        // }
+
+        // {
+        //     // outerHTML -> Conteúdo do elemento (O próprio elemento1 está incluso)
+        //     let title = document.querySelector("h1")
+        //     console.log(title.outerHTML)
+
+        //     title.outerHTML = "<h2>Olá</h2>"
+        //     console.log(title.outerHTML)
+        // }
+
+        // {
+        //     // textContent -> Texto puro do elemento (sem as tags)
+        //     let paragraph = document.querySelector("p")
+            
+        //     console.log(paragraph.textContent)
+        // }
+
+
+        // {
+        //     // hidden -> Esconde o elemento quando true (mesma coisa que display: none no CSS)
+        //     let paragraph = document.querySelector("p")
+        //     paragraph.hidden = true   
+        // }
+
+        // {
+        //     // value -> Está presente em HTMLInputElement e HTMLSelectElement.
+        //     let input = document.querySelector("input")
+        //     input.value = "testando"
+        // }
+
+        // {
+        //     // href -> Está presente em HTMLAnchorElement
+        //     let link = document.querySelector("a")
+        //     link.href = "https://www.google.com.br"
+
+        //     // target
+        //     link.target = "_blank"
+        // }
+    </script>
+</body>
+</html>

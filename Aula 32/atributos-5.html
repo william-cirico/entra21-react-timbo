@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos e propriedades</title>
+    <style>
+        .pedido[data-estado-pedido="novo"] {
+            color: green;
+        }
+
+        .pedido[data-estado-pedido="pendente"] {
+            color: yellow;
+        }
+
+        .pedido[data-estado-pedido="cancelado"] {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <img src="teste.jpg" alt="Uma imagem que não existe" novo="teste">
+
+    <input type="checkbox" checked>
+
+    <!-- non-standard atributos podem ser usados para passar dados para o HTMl -->
+    <p data-info="nome"></p>
+    <p data-info="idade"></p>
+
+    <div class="pedido" data-estado-pedido="novo">Um pedido</div>
+    <script>
+        let img = document.querySelector("img")
+        /* 
+            No HTML as tags podem ter atributos. Se esses atributos são padrões
+            eles são adicionados como propriedades DOM:
+        */
+        console.log(img.src)
+        console.log(img.alt)
+
+        // Porém se esse atributo não é padrão, ele não aparece no DOM:
+        console.log(img.novo)
+
+        /* Podemos acessar esses atributos através dos métodos:
+        hasAttribute(nome) -> Checa pela existência
+        getAttribute(nome) -> Obtém o valor
+        setAttribute(nome, valor) -> Define o valor
+        removeAttribute(nome) -> Remove o atributo
+        attributes -> Coleção de objetos com todos os atributos do elemento
+        */        
+        console.log(img.hasAttribute("novo"))
+        console.log(img.getAttribute("novo"))
+        img.setAttribute("outro-atributo", "teste2")
+        img.removeAttribute("alt")
+        
+        for (let attr of img.attributes) {
+            console.log(`${attr.name} = ${attr.value}`)
+        }
+
+        // Alguns atributos não são strings:
+        let input = (document.querySelector("input"))
+        console.log(input.getAttribute("checked"))
+        console.log(input.checked)    
+
+        // Atributos non-standard
+        let usuario = {
+            nome: "William",
+            idade: 25
+        }
+
+        let paragraphs = document.querySelectorAll('[data-info]')        
+        console.log(paragraphs[0].dataset.info)
+        console.log(paragraphs[1].dataset.info)
+
+        for (let paragraph of paragraphs) {
+            let campo = paragraph.getAttribute('data-info') 
+            paragraph.innerHTML = usuario[campo]
+        }
+
+        // Utilizando dataset para estilizar um elemento
+        let pedido = document.querySelector(".pedido")
+        pedido.dataset.estadoPedido = "pendente"
+
+        /*
+        Exercício
+
+        Dado o seguinte HTML:
+        
+        <a name="list">the list</a>
+        <ul>
+            <li><a href="http://google.com">http://google.com</a></li>
+            <li><a href="/tutorial">/tutorial.html</a></li>
+            <li><a href="local/path">local/path</a></li>
+            <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+            <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+            <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+        </ul>
+
+        Torne a cor dos links externos em laranja.
+        Um link é considerado externo quando:
+        1. O atributo href tem ://
+        2. Não começa com http://internal.com
+
+        // Selecionando um link
+        let link = document.querySelector('a');
+
+        // Aplicando a cor laranja
+        link.style.color = 'orange';
+        */
+    </script>
+</body>
+</html>
