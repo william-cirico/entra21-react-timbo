@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbling</title>
+    <style>
+        div {
+            padding: 10px;            
+        }
+
+        [id^="externa"] {
+            background-color: blue;
+            width: 300px;
+            height: 300px;
+            margin-bottom: 100px;
+        }
+
+        [id^="interna"] {
+            background-color: red;
+            height: 200px;
+        }
+
+        p {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="externa1">
+        Div Externa
+        <div id="interna1">
+            Div Interna
+            <p id="p1">P</p>
+        </div>
+    </div>
+
+    <div id="externa2">
+        Div Externa
+        <div id="interna2">
+            Div Interna
+            <p id="p2">P</p>
+        </div>
+    </div>
+
+    <script>
+        let divExterna1 = document.querySelector("#externa1"),
+            divInterna1 = document.querySelector("#interna1"),
+            p1 = document.querySelector("#p1")
+
+        divExterna1.addEventListener("click", () => alert("Clique na div externa 1"))
+        divInterna1.addEventListener("click", () => alert("Clique na div interna 1"))
+        p1.addEventListener("click", () => alert("Clique no p 1"))
+
+        // event.stopPropagation() -> Para o event bubbling a partir daquele elemento
+        let divExterna2 = document.querySelector("#externa2"),
+            divInterna2 = document.querySelector("#interna2"),
+            p2 = document.querySelector("#p2")
+
+        divExterna2.addEventListener("click", () => alert("Clique na div externa 2"))
+        divInterna2.addEventListener("click", () => {
+            event.stopPropagation()
+            alert("Clique na div interna 2")
+        })
+        p2.addEventListener("click", (event) => {       
+            event.stopPropagation()
+            alert("Clique no p 2")
+        })
+    </script>
+</body>
+</html>
