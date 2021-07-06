@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos no Scroll</title>
+    <style>
+        div {
+            position: fixed;            
+            top: 10px;
+        }
+
+        p {
+            margin-top: 1500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mostrar-scroll">0px</div>
+    <p>Escondido</p>
+    <script>
+        window.addEventListener("scroll", () => {
+            document.querySelector(".mostrar-scroll").textContent = window.pageYOffset + "px"
+        })
+
+        /*
+        Exercício
+
+        Crie um botão "para o topo"
+
+        Deve funcionar da seguinte maneira:
+
+        Enquanto a página não estiver sido rolada para pelo menos o tamanho da janela, é invisível.
+        Quando a página tiver rolado mais que o tamanho da janela, irá aparecer o botão. Se a página for rolada para o topo, ele some.        
+        Quando o botão for clicado a página é rolada para o topo.                
+        
+
+        // Resolução:
+        let botaoVoltar = document.querySelector("#voltar")
+        botaoVoltar.addEventListener("click", () => {
+            window.scrollTo(pageXOffset, 0)
+        })        
+
+        window.addEventListener('scroll', function() {
+            botaoVoltar.hidden = (pageYOffset < document.documentElement.clientHeight)
+        })
+        */
+    </script>
+</body>
+</html>

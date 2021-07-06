@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Keyboard</title>
+</head>
+<body>
+    <input type="tel" placeholder="Digite o número de telefone">
+    <script>
+        /*
+        keydown -> Tecla pressionada
+        keyup -> Tecla solta
+        */
+
+        document.addEventListener("keydown", (event) => {
+            console.log(event.key)  // O caractere digitado
+            console.log(event.code)  // Código do caractere (Não muda quando mudamos a linguagem do teclado)
+        })
+
+        let telefone = document.querySelector("input")
+
+        telefone.addEventListener("keydown", (event) => {
+            const key = event.key
+
+            if  (key >= "0" && key <= "9" || ['+','(',')','-','ArrowLeft','ArrowRight','Delete','Backspace'].includes(key)) return
+
+            event.preventDefault()
+        })
+
+        /*
+        Exercício
+
+        Crie a função rodaNasTeclas(func, code1, code2, ...codeN) que chame a função passada como primeiro parâmetro quando as 
+        teclas com os códigos code1, code2, ...codeN forem pressionadas juntas.
+
+        Exemplo:
+        rodaNasTeclas(
+            () => alert("Olá!"),
+            "KeyQ",
+            "KeyW"
+        )
+
+        A mensagem Olá! vai aparecer na tela quando as teclas Q e W forem pressionadas simultaneamente
+
+        // Resolução:
+        function rodaNasTeclas(func, ...codes) {
+            let teclasPressionadas = new Set()
+
+            document.addEventListener('keydown', function(event) {
+                teclasPressionadas.add(event.code)
+
+                for (let code of codes) {
+                    if (!teclasPressionadas.has(code)) {
+                        return
+                    }
+                }
+
+                teclasPressionadas.clear()
+
+                func()
+            })
+
+            document.addEventListener('keyup', function(event) {
+                teclasPressionadas.delete(event.code)
+            })
+        }
+
+        rodaNasTeclas(
+            () => alert("Hello!"),
+            "KeyQ",
+            "KeyW"
+        )
+        */
+    </script>
+</body>
+</html>
