@@ -147,6 +147,7 @@
         
         Utilize event delegation para fazer os botões de remoção funcionar
         
+
         2) Considerando a seguinte lista:
         <ul class="tree" id="tree">
             <li>Animals
@@ -187,6 +188,24 @@
         
         Utilizando event delegation:
         Faça a lista mostrar/esconder os nodes filhos no clique.
+        let lista = document.querySelector("#tree")
+        
+        for (let li of lista.querySelectorAll('li')) {
+          let span = document.createElement('span');
+          li.prepend(span);
+          span.append(span.nextSibling);
+        }
+            
+        lista.addEventListener("click", () => {
+            if (event.target.tagName != 'SPAN') {
+            return;
+          }
+    
+          let childrenContainer = event.target.parentNode.querySelector('ul');
+          if (!childrenContainer) return;
+    
+          childrenContainer.hidden = !childrenContainer.hidden;
+        })
         */
     </script>
 </body>

@@ -84,6 +84,51 @@
         <body>            
             <div id="div-legenda">Adicione uma legenda nesse elemento</div>
         </body>
+        
+        let div = document.querySelector("#div-legenda")
+
+        function criaLegenda(elemento, posicao, texto) {
+            let legenda = document.createElement("div")
+            legenda.className = "legenda"
+            legenda.textContent = texto
+            
+            document.body.append(legenda)
+            posicionaLegenda(elemento, posicao, legenda)
+        }
+
+        function posicionaLegenda(elemento, posicao, legenda) {                
+            const coords = obterCoordenadas(elemento)
+            
+            switch (posicao) {
+                case "abaixo":
+                    legenda.style.top = coords.bottom + "px"
+                    legenda.style.left = (coords.left + coords.offsetWidth / 2) + "px"
+                    break
+                case "acima":
+                    legenda.style.top = coords.top - legenda.offsetHeight + "px"
+                    legenda.style.left = (coords.left + coords.offsetWidth / 2) + "px"
+                    break
+                case "esquerda":
+                    legenda.style.top = (coords.top + elemento.offsetHeight / 2) - legenda.offsetHeight / 2 + "px"
+                    legenda.style.left = coords.left - legenda.offsetWidth + "px"
+                    break
+                case "direita":                        
+                    legenda.style.top = (coords.top + elemento.offsetHeight / 2) - legenda.offsetHeight / 2 + "px"
+                    legenda.style.left = coords.left + elemento.offsetWidth + "px"
+                    break
+            }                
+        }
+        
+        function obterCoordenadas(elemento) {
+            const coords = elemento.getBoundingClientRect()
+
+            return {
+                top: coords.top + window.pageYOffset,
+                right: coords.right + window.pageXOffset,
+                bottom: coords.bottom + window.pageYOffset,
+                left: coords.left + window.pageXOffset
+            }
+        }
         */
     </script>
 </body>
