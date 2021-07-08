@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Form validation: Tarefa 1</title>
+        <style>
+            body {                
+                color: #333;
+                font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+                padding: 1em;
+                margin: 0;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+        </style>
+    </head>
+
+    <body>
+    <h2>Envie seu comentário</h2>
+    <form>        
+        <ul>
+            <li>
+                <label for="uname">Nome de usuário</label>
+                <input type="text" name="uname" id="uname">
+            </li>
+            <li>
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email">
+            </li>
+            <li>
+                <label for="phone">Telefone:</label>
+                <input type="text" name="phone" id="phone">
+            </li>
+            <li>
+                <label for="comment">Comentário:</label>
+                <textarea name="comment" id="comment">
+                </textarea>
+            </li>
+            <li>
+                <button>Enviar comentário</button>
+            </li>
+        </ul>
+    </form>
+
+    <script>
+        /*
+        Adicione alguns recursos de validação ao formulário:
+
+        * Faça com que todos os campos de entrada sejam obrigatórios para preencher antes que o 
+        formulário possa ser enviado.
+        
+        * Altere o tipo dos campos "Endereço de e-mail" e "Número de telefone" para que o navegador 
+        aplique uma validação mais específica adequada aos dados solicitados.
+        Alterar a mensagem de email: "E-mail inválido"
+
+        * Atribua ao campo "Nome de usuário" um comprimento obrigatório de 5 a 20 caracteres, ao campo
+        "Número de telefone" um comprimento máximo de 15 caracteres e ao campo "Comentário" um 
+        comprimento máximo de 200 caracteres.
+        
+        * Tente enviar seu formulário - ele deve se recusar a enviar até que as restrições acima sejam 
+        seguidas e fornecer mensagens de erro adequadas. Para ajudar, você pode querer adicionar alguns 
+        estilos CSS simples para mostrar quando um campo de formulário é válido ou inválido.
+        */
+    </script>
+  </body>
+</html>

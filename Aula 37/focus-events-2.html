@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus/Blur eventos</title>
+    <style>
+        .invalido { border-color: red; }
+        .erro { background-color: red;}
+        #erro { color: red; }
+    </style>
+</head>
+<body>
+    <label for="email">
+        Digite seu email:
+        <input type="email" name="email" id="email">
+    </label>    
+    <div id="erro"></div>
+    <label for="email2">
+        Digite um email inválido e tente sair:
+        <input type="email" name="email2" id="email2">
+    </label>
+    <div id="selecionavel">Clique na DIV</div>
+    <script>
+        /*
+        focus é disparado quando o elemento é selecionado
+        blur é disparado quando a seleção sai do elemento
+        */
+        let email = document.querySelector("#email"),
+            erro = document.querySelector("#erro")
+
+        email.addEventListener("blur", () => {
+            if (!email.value.includes("@")) {
+                email.classList.add("invalido")
+                erro.textContent = "Por favor digite um email válido"
+            }
+        })
+
+        email.addEventListener("focus", (event) => {            
+            if (email.classList.contains("invalido")) {
+                email.classList.remove("invalido")
+                erro.innerHTML = ""
+            }
+        })
+
+        // Não deixar o usuário preencher outro input
+        let email2 = document.querySelector("#email2")
+
+        email2.addEventListener("blur", () => {
+            if (!email2.value.includes("@")) {
+                email2.classList.add("erro")
+                email2.focus()
+            } else {
+                email2.classList.remove("erro")
+            }
+        })
+
+        // Para tornar um elemento selecionável
+        let div = document.querySelector("#selecionavel")
+        div.tabIndex = 0
+        div.focus()
+        /*
+        Exercícios
+
+        1) Crie uma <div> que se torne em uma <textarea> quando clicada.
+           A <textarea> permite editar o HTML da <div>
+           Quando o usuário pressionar Enter ou sair da <textarea>, ela
+           volta a ser uma <div> com o conteúdo alterado na <textarea>/
+
+        2) Crie um elemento <pre> que tenha o seguinte conteúdo:
+         _   _
+        (q\_/p)
+         /. .\
+        =\_t_/=   __
+         /   \   (
+        ((   ))   )
+        /\) (/\  /
+        \  Y  /-'
+         nn^nn
+
+        Quando você clicar na div torne ela selecionável e faça ela se mover de acordo com o
+        as setas do teclado.
+        */
+    </script>
+</body>
+</html>

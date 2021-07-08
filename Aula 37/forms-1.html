@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedades e Métodos dos Forms</title>
+</head>
+<body>
+    <form>
+        <label for="nome">
+            Nome:
+            <input type="text" name="nome" id="nome">
+        </label>
+        <br>
+        <label for="sexoM">
+            <input type="radio" name="sexo" id="sexoM">
+            Masculino
+        </label>
+        <label for="sexoF">
+            <input type="radio" name="sexo" id="sexoF">
+            Feminino
+        </label>
+
+        <select name="estadoCivil">
+            <option value="solteiro">Solteiro</option>
+            <option value="casado">Casado</option>
+            <option value="separado">Separado</option>
+            <option value="divorciado">Divorciado</option>
+            <option value="viuvo">Viúvo</option>
+        </select>
+    </form>
+    <script>
+        let form = document.querySelector("form")
+
+        // Podemos acessar os elementos dentro de um form através do atributo name         
+        console.log(form.nome)
+        console.log(form.sexo)
+
+        let input = form.nome,
+            radio = form.sexo,
+            select = form.estadoCivil
+        
+        // Input e textarea
+        input.value = "Valor que aparece no input"
+
+        // radio e checkbox
+        radio[0].checked = true
+
+        // select
+        console.log(select.options) // Coleção de opções
+        console.log(select.value) // Valor da opção selecionada
+        console.log(select.selectedIndex) // Índice da opção selecionada
+        
+        select.options[1].selected = true // 1. Forma de setar a option
+        select.selectedIndex = 2 // 2. Forma de setar a option
+        select.value = "solteiro" // 3. Forma de setar a option
+
+        // options possuem 3 propriedades
+        // select.options[1].selected -> (true ou false) indica se aquela option está selecionada
+        // option.index -> O índice daquela option no select
+        // option.text -> O conteúdo textual (visível pelo usuário)
+
+        /* 
+        Para criar uma option podemos utilizar new Option(text, value, defaultSelected, selected)
+        defaultSelected -> Se verdadeiro cria o atributo selected no html        
+        selected -> Se verdadeiro a opção será selecionada.
+        */
+        let novaOption = new Option("Teste", "teste", true, true)
+        select.append(novaOption)
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Change e Input</title>
+</head>
+<body>
+    <select>
+        <option value="">Selecione alguma coisa</option>
+        <option value="1">Opção 1</option>
+        <option value="2">Opção 2</option>
+        <option value="2">Opção 3</option>
+    </select>
+    <br>
+    <input type="text">
+    <p></p>
+    <script>
+        /*
+        O evento change dispara quando terminamos de fazer uma mudança
+        ele é utilizado quando precisamos saber quando um select ou um
+        input do tipo checkbox/radio é alterado.
+        */
+        let select = document.querySelector("select")
+        select.addEventListener("change", (e) => alert(select[select.selectedIndex].text))
+
+        /*
+        Input dispara quando o atribute value é modificado pelo usuário.        
+        */
+        let input = document.querySelector("input"),
+            p = document.querySelector("p")
+
+        input.addEventListener("input", () => {
+            p.textContent = input.value
+        })
+
+        /*
+        Exercício
+
+        Crie um página da web que permita receber um valor inicial
+        de depósito, a quantidade de meses que esse dinheiro ficará
+        depositado e a porcentagem de juros ao ano.
+        Mostre quanto o dinheiro rendeu nesse período.
+
+        O resultado deve ser atualizado conforme os campos forem preenchidos,
+        utilizando o evento input.
+
+        Fórmula:
+        resultado = Math.round(inicial * (1 + juros * anos))
+        
+        Onde:
+            inicial - valor inicial.
+            juros - porcentagem de juros. Ex.: 10%.
+            anos - tempo que o valor ficará depositado.
+        
+        */
+    </script>
+</body>
+</html>
