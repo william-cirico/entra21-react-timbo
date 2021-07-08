@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de Mouse</title>
+</head>
+<body>
+    <button>Alt+Shift+Ctrl+Click</button>
+
+    <div>Tente copiar esse texto :D</div>
+    <script>
+        /*
+        mousedown/mouseup -> Mouse clicado/liberto de um elemento.
+        mouseover/mouseout -> Mouse entrando/saindo do elemento.
+        mousemove -> Movimento do mouse sobre o elemento.
+        click -> Click no elemento.
+        dblclick -> Click duplo no elemento.
+        contextmenu -> Click com o botão direito.
+        */
+
+        /* 
+        Modificadores 
+            * Shift -> shiftKey
+            * Alt -> altKey
+            * Ctrl -> ctrlKey
+            * Cmd -> metaKey
+        */
+        let botao = document.querySelector("button")
+        botao.addEventListener("click", (event) => {
+            if (event.altKey && event.shiftKey && event.ctrlKey) {
+                alert("Deu certo!")
+            }
+        })
+
+        // Prevenir a cópia
+        let div = document.querySelector("div")
+        div.addEventListener("copy", (event) => {
+            event.clipboardData.setData("text/plain", "Não é possível copiar esse texto!")
+            event.preventDefault()
+        })        
+
+        /*
+        Exercícios
+
+        1)
+        <ul>
+            <li>Primeiro Item</li>
+            <li>Segundo Item</li>
+            <li>Terceiro Item</li>
+            <li>Quarto Item</li>
+            <li>Quinto Item</li>
+        </ul>
+
+        Crie uma lista selecionável (quando clicar em uma li a cor muda)
+        Se segurar a tecla Ctrl o elemento é selecionado em conjunto com os elementos já selecionados
+
+        // Resolução:
+        <style>
+            .selecionada {
+                background: yellow;
+            }
+        </style>
+
+        <script>
+            let ul = document.querySelector("ul")        
+
+            ul.addEventListener("click", (event) => {
+                if (event.target.tagName != "LI") return
+
+                if (event.ctrlKey) {
+                    alternarSelecao(event.target)
+                } else {
+                    selecaoUnica(event.target)
+                }
+            })                
+
+            function alternarSelecao(li) {
+                li.classList.toggle("selecionada");
+            }
+
+            function selecaoUnica(li) {
+                let liSelecionadas = ul.querySelectorAll(".selecionada");
+                for (let elem of liSelecionadas) {
+                    elem.classList.remove("selecionada");
+                }
+                li.classList.add("selecionada");
+            }
+
+        2) https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamanho tela</title>
+    <style>
+        #escondido {
+            margin-top: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <a href="#escondido">Clique aqui!</a>    
+    <div id="escondido">Texto escondido</div>    
+    <script>
+        // Tamanho do monitor
+        console.log(screen.height)
+        console.log(screen.width)
+
+        // Altura da tela
+        console.log(document.documentElement.scrollHeight)        
+
+        // Scroll atual da tela
+        console.log(window.pageYOffset)
+        console.log(window.pageXOffset)
+
+        // scrollBy (x, y) -> Scroll relativo a posição 
+        window.scrollBy(0, 1000)
+        
+        // scrollTo(x, y) -> Scroll para a posição informada
+        window.scrollTo(0, 100)
+
+        // scrollIntoView -> Scroll na página para tornar o elemento visível
+        let div = document.querySelector("div")
+        div.scrollIntoView()
+
+        // Parar o scroll
+        document.body.style.overflow = "hidden"
+        // Voltar ao normal
+        document.body.style.overflow = ""
+    </script>
+</body>
+</html>

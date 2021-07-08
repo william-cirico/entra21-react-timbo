@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamanho elemento</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #example {
+            width: 300px;
+            height: 200px;
+            border: 25px solid green;
+            padding: 20px;
+            overflow: auto;
+        }        
+    </style>
+</head>
+<body>
+    <div id="example">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae hic quia asperiores error aspernatur, rem delectus sit minus aliquam nam quasi, dolore at? Labore nihil totam ex unde deleniti aliquam.
+        Commodi nostrum asperiores provident qui reprehenderit beatae expedita modi magni eaque sint culpa, laboriosam minima ex adipisci non tempore pariatur quis alias natus tenetur quae. Non doloremque repellat sint placeat.
+        Doloribus dolore illo natus quia voluptate, beatae libero accusamus non, error nemo vero omnis veritatis numquam alias expedita voluptatibus nesciunt officiis voluptatum quam tempora voluptatem delectus ab totam maxime! Possimus.
+        A molestias mollitia vel nam eos veniam totam nulla officiis laboriosam laborum quisquam praesentium, explicabo voluptas culpa labore. Nemo porro sequi eveniet inventore, fugit illum expedita quidem aspernatur fugiat veniam!
+        Nesciunt quis nisi veritatis minus soluta maiores in, accusamus impedit repudiandae explicabo quod corporis ab voluptates voluptatibus quaerat, sed magni voluptas odio omnis modi cupiditate est quisquam dolorem. Dolores, quia.
+        Et consequuntur quibusdam voluptates delectus quaerat veritatis, cumque ab asperiores ducimus itaque alias totam excepturi. Aperiam dolorem expedita voluptates rerum at voluptatum, veniam quos architecto sit doloribus. Quae, ipsum veritatis.
+        Officiis praesentium pariatur, iusto illo ab sapiente, veritatis impedit, necessitatibus dolor est magni? Minus facilis dolore cupiditate vel! Delectus nulla perspiciatis ipsam fugit magni! Et quo mollitia optio ipsa illo?
+        Voluptatem quae dignissimos natus labore sed similique ratione excepturi laborum inventore necessitatibus possimus unde eius dolorem, fugiat assumenda numquam fugit qui provident. Illo culpa, explicabo facere magnam amet fugit eveniet.
+        Error voluptatibus et quibusdam, harum nam laboriosam corporis maiores commodi ab dignissimos placeat optio. Suscipit, reiciendis. Dolor, asperiores tempora possimus deleniti ab impedit laboriosam? Quaerat consequuntur ipsam ducimus qui quam!
+        Fugit autem aliquam vel enim aspernatur illum, quos consectetur optio magni repellendus reprehenderit quo vero dignissimos omnis ex illo dolore doloremque odit impedit cupiditate voluptatem ipsum? Libero reprehenderit maxime unde.
+        Eum aliquid, perferendis fuga corrupti magnam minima dolores excepturi dolore amet necessitatibus quisquam, obcaecati cumque nemo et doloribus mollitia, possimus facilis. Sapiente voluptatum laborum maiores, fugiat quo et tempore dolor?
+        Ab, quam! Vero vel ullam dolores maxime reiciendis! Dolorem excepturi, doloribus quas voluptatibus laboriosam iste! Beatae aliquid dolor facere ipsum cupiditate deleniti, ipsa, necessitatibus eum nesciunt illum labore. Voluptate, alias.
+        Unde alias aliquam libero? Suscipit obcaecati blanditiis fugiat nihil laborum animi magni reprehenderit rerum, quibusdam temporibus non odit et aspernatur veritatis illo dicta qui repudiandae inventore praesentium cupiditate enim. Facilis.
+        Aliquam voluptatem assumenda, aperiam temporibus alias, optio numquam laboriosam quam sed fugit, inventore saepe vel et quidem pariatur animi doloribus at. Quae illum temporibus facere nihil, cumque iste non ad.
+        Illum molestiae qui suscipit, tenetur blanditiis sunt consectetur earum a enim provident delectus saepe neque obcaecati accusantium tempore debitis inventore ipsum ratione maiores corrupti cumque voluptatibus, ea architecto dignissimos. Minima.
+        Possimus id consectetur quod facilis cumque aliquid atque eveniet vero quibusdam placeat culpa nulla doloremque tenetur deserunt, illo voluptatum ipsum maiores, distinctio labore deleniti aspernatur aliquam ea sunt! Omnis, impedit!
+        Quas illo tenetur, tempora cum itaque eveniet quidem dolorem id facere mollitia minima delectus laborum reprehenderit sed fuga nihil earum praesentium porro quis consectetur eius aperiam fugit aliquam. Atque, reprehenderit!
+        Sunt doloribus ullam nobis iure distinctio non harum accusamus praesentium amet, neque cum ipsa exercitationem vel maiores! Ad eligendi ut maiores dicta magni suscipit sequi, tempora voluptas culpa esse amet!
+        Dolorum inventore, repellendus et nesciunt eveniet deserunt delectus id culpa! Architecto, blanditiis magnam neque quae sit veritatis cumque perspiciatis fugiat culpa quam inventore sed, molestias molestiae cum repellat quaerat optio!
+        Explicabo, consectetur minus. Et aut consequatur voluptate corrupti reiciendis ducimus quas, minus commodi quis sit fugiat rerum non, quidem unde temporibus perferendis adipisci? Enim rerum minima officiis recusandae eius ipsum!
+    </div>        
+    <script>
+        div = document.getElementById("example")
+
+        // Tamanho total incluindo bordas e scrollbar(16 px)
+        console.log(div.offsetWidth)
+        console.log(div.offsetHeight)                
+
+        // Tamanho do conteúdo (com padding, porém sem as scrollbars)
+        console.log(div.clientWidth)  
+        console.log(div.clientHeight)         
+                           
+        // Tamanho total do conteúdo sem scroll
+        console.log(div.scrollWidth)
+        console.log(div.scrollHeight)
+
+
+        // Quantidade de rolagem do elemento
+        div.scrollTop = 500
+
+        /*
+        Exercício
+
+        Dado o seguinte HTML:
+        <head>
+            <style>
+                .campo {
+                    position: relative;
+                    width: 600px;
+                    height: 300px;
+                    background-color: green;
+                    border: 10px solid black;
+                }
+
+                .bola {
+                    position: absolute;
+                    width: 40px;
+                    height: 40px;
+                    background-color: white;
+                    border-radius: 100%;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="campo">
+                <div class="bola"></div>
+            </div>
+        </body>
+
+        Posicione a bola no centro do campo
+
+        
+        "use strict"
+        let campo = document.querySelector(".campo"),
+            bola = document.querySelector(".bola")
+
+        bola.style.left = Math.round(campo.clientWidth / 2 - bola.offsetWidth / 2) + "px"
+        bola.style.top = Math.round(campo.clientHeight / 2 - bola.offsetHeight / 2) + "px"        
+        */
+    </script>
+</body>
+</html>

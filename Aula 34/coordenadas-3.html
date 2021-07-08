@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordenadas</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content:  center;
+            align-items: center;
+        }
+
+        .quadrado {
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quadrado">Centralizada</div>
+
+    <script>
+        // Obter coordenadas
+        div = document.querySelector(".quadrado")
+
+        console.log(div.getBoundingClientRect())
+
+        function criarMensagemAbaixo(elemento, html) {
+            let mensagem = document.createElement("div")
+            mensagem.style.cssText = "position: absolute; color: red;"
+
+            let coords = obterCoordenadas(elemento)
+
+            mensagem.style.left = coords.left + "px"
+            mensagem.style.top = coords.bottom + "px"
+
+            mensagem.innerHTML = html
+
+            return mensagem
+        }  
+
+        // Obtendo as coordenadas do elemento (levando em consideração o Scroll da tela)
+        function obterCoordenadas(elemento) {
+            let coords = elemento.getBoundingClientRect()
+
+            return {
+                top: coords.top + window.pageYOffset,
+                right: coords.right + window.pageXOffset,
+                bottom: coords.bottom + window.pageYOffset,
+                left: coords.left + window.pageXOffset
+            }
+        }
+        
+        let mensagem = criarMensagemAbaixo(div, "Abaixo da div")
+        document.body.append(mensagem)
+
+        /*
+        Exercício
+
+        Crie uma função mostraLegenda(elemento, posicao, texto) que posiciona uma div em 
+        relação ao elemento informado com o texto informado.
+
+        Utilize o seguinte HTML para testar
+        <head>
+            <style>
+                body {
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                #div-legenda {
+                    width: 300px;
+                    height: 300px;
+                    background-color: blue;
+                }
+            </style>
+        </head>
+        <body>            
+            <div id="div-legenda">Adicione uma legenda nesse elemento</div>
+        </body>
+        
+        let div = document.querySelector("#div-legenda")
+
+        function criaLegenda(elemento, posicao, texto) {
+            let legenda = document.createElement("div")
+            legenda.className = "legenda"
+            legenda.textContent = texto
+            
+            document.body.append(legenda)
+            posicionaLegenda(elemento, posicao, legenda)
+        }
+
+        function posicionaLegenda(elemento, posicao, legenda) {                
+            const coords = obterCoordenadas(elemento)
+            
+            switch (posicao) {
+                case "abaixo":
+                    legenda.style.top = coords.bottom + "px"
+                    legenda.style.left = (coords.left + coords.offsetWidth / 2) + "px"
+                    break
+                case "acima":
+                    legenda.style.top = coords.top - legenda.offsetHeight + "px"
+                    legenda.style.left = (coords.left + coords.offsetWidth / 2) + "px"
+                    break
+                case "esquerda":
+                    legenda.style.top = (coords.top + elemento.offsetHeight / 2) - legenda.offsetHeight / 2 + "px"
+                    legenda.style.left = coords.left - legenda.offsetWidth + "px"
+                    break
+                case "direita":                        
+                    legenda.style.top = (coords.top + elemento.offsetHeight / 2) - legenda.offsetHeight / 2 + "px"
+                    legenda.style.left = coords.left + elemento.offsetWidth + "px"
+                    break
+            }                
+        }
+        
+        function obterCoordenadas(elemento) {
+            const coords = elemento.getBoundingClientRect()
+
+            return {
+                top: coords.top + window.pageYOffset,
+                right: coords.right + window.pageXOffset,
+                bottom: coords.bottom + window.pageYOffset,
+                left: coords.left + window.pageXOffset
+            }
+        }
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ações padrões dos navegadores</title>
+</head>
+<body>
+    <a href="https://www.google.com.br" target="_blank">Google</a>    
+
+    <script>
+        /* 
+            Existem alguns comportamentos padrões que acontecem em 
+            determinados eventos:
+            * clique em um link inicia a navegação
+            * clique em um botão submit envia o formulário
+            * pressionar um botão e mover ele sobre o texto seleciona ele
+            * clicar com o botão direito abre a janela de opções            
+            
+            Se quisermos cancelar esse comportamento padrão podemos utilizar
+            o método event.preventDefault()
+        */
+
+        let a = document.querySelector("a")
+
+        a.addEventListener("click", (event) => event.preventDefault())
+        a.addEventListener("contextmenu", (event) => event.preventDefault())
+    </script>
+</body>
+</html>

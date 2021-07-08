@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag'n'Drop</title>
+    <style>
+        .bola {
+            background-color: black;
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+<body>
+    <img src="ball.svg" class="bola">
+    <script>
+        let bola = document.querySelector(".bola")
+        
+        // Evitar comportamento padrão do navegador
+        bola.addEventListener("dragstart", (event) => event.preventDefault())
+
+        bola.addEventListener("mousedown", (event) => {
+            // (1) Preparar para mover:
+            bola.style.position = 'absolute';
+            bola.style.zIndex = 1000;
+        
+            // Mover ela para fora de qualquer elemento pai
+            // Fazer ela ficar posicionada relativamente ao body            
+            document.body.append(bola);
+        
+            // Centralizar a bola nas coordenadas (pageX, pageY)
+            function moverPara(pageX, pageY) {
+                bola.style.left = pageX - bola.offsetWidth / 2 + 'px';
+                bola.style.top = pageY - bola.offsetHeight / 2 + 'px';
+            }
+
+            // Mover a bola para a posição do ponteiro
+            moverPara(event.pageX, event.pageY)
+            
+            function onMouseMove(event) {
+                moverPara(event.pageX, event.pageY) 
+            }
+
+            // Mover a bola no evento mousemove
+            document.addEventListener("mousemove", onMouseMove)
+
+            // Removendo os eventos quando soltar o clique
+            bola.onmouseup = () => {
+                document.removeEventListener("mousemove", onMouseMove)
+                bola.onmouseup = null
+            }
+        })                                                
+    </script>
+</body>
+</html>

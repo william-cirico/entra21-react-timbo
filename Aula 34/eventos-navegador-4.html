@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Navegador</title>
+</head>
+<body>
+    <button id="botao1">Botão 01</button>
+    <button id="botao2">Botão 02</button>
+    <button id="botao3">Botão 03</button>
+    <script>
+        let botao1 = document.querySelector("#botao1"),
+            botao2 = document.querySelector("#botao2"),
+            botao3 = document.querySelector("#botao3")
+
+        // Para adicionar eventos
+        function handlerClick() {
+            alert("Você clicou no botão!")
+        }
+
+        botao1.addEventListener("click", handlerClick)
+        botao1.addEventListener("click", () => alert("Segunda função de clique"))
+
+        // Para remover eventos
+        botao1.removeEventListener("click", handlerClick)
+
+        // Objeto event
+        botao2.addEventListener("click", (event) => {
+            console.log(event)
+            console.log(event.type) // Tipo do evento "click"
+            console.log(event.currentTarget) // O elemento em que o evento está atribuido
+            console.log(event.clientX) // Coordenadas da janela relativas ao ponto em que o clique aconteceu 
+        })
+
+        // Object Handlers
+        let handlerButton = {
+            handleEvent(event) {
+                switch (event.type) {
+                    case 'mousedown':
+                        event.target.textContent = "Mouse pressionado"
+                        break
+                    case 'mouseup':
+                        event.target.textContent = "...solto"
+                        break
+                }
+            }
+        }
+
+        // Quando o evento acontecer o método handleEvent é chamado
+        botao3.addEventListener("mousedown", handlerButton)
+        botao3.addEventListener("mouseup", handlerButton)
+
+        /*
+        Exercícios
+
+        1) Dado o seguinte HTML:
+        <body>
+            <input type="button" id="esconder" value="Click para esconder/mostrar o texto" />            
+            <div id="text">Texto</div>
+        </body>
+        Faça a div sumir quando clicar no botão de esconder ou aparecer quando clicar no botão.
+
+        let botao = document.querySelector("#esconder"),
+            texto = document.querySelector("#text")
+
+        botao.addEventListener("click", () => {
+            texto.hidden = !texto.hidden
+        })
+
+        2) Considerando o seguinte HTML:
+            <head>
+                <style>
+                    .campo {
+                        position: relative;
+                        width: 600px;
+                        height: 300px;
+                        background-color: green;
+                        border: 10px solid black;
+                    }
+
+                    .bola {
+                        position: absolute;
+                        width: 40px;
+                        height: 40px;
+                        background-color: white;
+                        border-radius: 100%;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="campo">
+                    <div class="bola"></div>
+                </div>
+            </body>
+
+        Faça a bola se mover para a posição em que você clicar no campo.
+
+        let campo = document.querySelector(".campo"),
+            bola = document.querySelector(".bola")
+
+        campo.addEventListener("click", (event) => {
+            let coordsCampo = event.currentTarget.getBoundingClientRect();
+                            
+            let coordsBola = {
+                top: event.clientY - coordsCampo.top - campo.clientTop - bola.clientHeight / 2,
+                left: event.clientX - coordsCampo.left - campo.clientLeft - bola.clientWidth / 2
+            };
+
+            // Prevenir passar da borda superior
+            if (coordsBola.top < 0) coordsBola.top = 0;
+
+            // Prevenir passar da borda esquerda
+            if (coordsBola.left < 0) coordsBola.left = 0;
+
+            // Prevenir passar da borda direita
+            if (coordsBola.left + bola.clientWidth > campo.clientWidth) {
+                coordsBola.left = campo.clientWidth - bola.clientWidth;
+            }
+
+            // Prevenir passar da borda inferior
+            if (coordsBola.top + bola.clientHeight > campo.clientHeight) {
+                coordsBola.top = campo.clientHeight - bola.clientHeight;
+            }
+
+            bola.style.left = coordsBola.left + 'px';
+            bola.style.top = coordsBola.top + 'px';
+        })
+        */
+    </script>
+</body>
+</html>
