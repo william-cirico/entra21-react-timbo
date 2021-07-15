@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de Load</title>
+</head>
+<body>    
+    <a href="date-time.html">Link externo</a>
+    <script>
+        /* 
+        O ciclo de vida de um arquivo HTML tem 3 eventos
+        importantes:
+        
+        * DOMContentLoaded -> DOM está pronto para ser utilizado
+        * load -> arquivos externos estão disponíveis (CSS, imagens)
+        * beforeunload -> antes de sair da página (pedir ao usuário se ele quer salvar alterações)        
+        */
+
+        document.addEventListener("DOMContentLoaded", () => {            
+            console.log("O DOM está carregado!")
+            /* 
+            O loading state:
+            loading - Documento está carregando
+            interactive - O DOM foi carregado
+            complete - Todas as imagens, arquivos externos foram carregados
+            */
+            console.log(document.readyState)
+        })
+
+        window.addEventListener("load", () => {
+            console.log("Os arquivos externos estão carregados :D")
+            console.log(document.readyState)
+        })
+
+        window.addEventListener("beforeunload", (e) => {
+            /*
+            Quando uma string é atribuída na propriedade returnValue 
+            do Event, uma caixa de díalogo aparecerá solicitando ao 
+            usuário uma confirmação para sair da página.
+            */
+            let confirmationMessage = "xd";
+
+            e.returnValue = confirmationMessage;     
+            return confirmationMessage;              
+        });
+    </script>
+</body>
+</html>

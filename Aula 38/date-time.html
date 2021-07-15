@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Built-in Date</title>
+</head>
+<body>
+    <script>
+        /*
+        O objeto do time Date armazena a data e provê métodos para
+        manipular data/tempo.
+        */
+
+        // Criar um objeto do tipo Date
+        let agora = new Date()
+        console.log(agora)
+
+        // Criar uma data a partir de uma string        
+        let dataString = new Date("2017-01-26")
+        console.log(dataString)
+
+        // Outra forma de especificar a data
+        // new Date(ano, mes, dia, hora, minuto, segundo, ms)
+        let dataParametros = new Date(2010, 1, 1, 0, 0, 0)
+        console.log(dataParametros)
+
+        // Acessando os componentes da data
+        console.log(`Ano: ${dataParametros.getFullYear()}`)
+        // Mês vai de 0 (Janeiro) a 11 (Dezembro)
+        console.log(`Mês: ${dataParametros.getMonth()}`)
+        console.log(`Dia do Mês: ${dataParametros.getDate()}`)
+        // 0 (Domingo) até 6 (Sábado)
+        console.log(`Dia da semana: ${dataParametros.getDay()}`)
+        console.log(`Horas: ${dataParametros.getHours()}`)
+        console.log(`Minutos: ${dataParametros.getMinutes()}`)
+        console.log(`Segundos: ${dataParametros.getSeconds()}`)
+
+        /*
+        É possível alterar a data com os métodos:
+        setFullYear()
+        setMonth()
+        setDate()
+        setHours()
+        setMinutes()
+        setSeconds()
+        setMilliseconds()
+        */
+
+        let dataAtual = new Date()
+        dataAtual.setHours(20)
+        console.log(dataAtual)
+
+        /*
+        Quando queremos cronometrar tempo, podemos utilizar Date.now().
+        Esse método retorna o timestamp atual:
+        https://hkotsubo.github.io/blog/2019-05-02/o-que-e-timestamp
+        */
+       let comeco = Date.now()
+
+       for (let i = 0; i < 10000000; i++) {
+           let umCalculoQualquer = i ** 3
+       }
+
+       let final = Date.now()
+
+       console.log(`O loop durou: ${final - comeco}ms`)
+
+       /*
+       Exercícios
+       
+       1) Crie um objeto Date para a data: Feb 20, 2012, 3:12am
+
+       2) Crie uma função obtemDiaSemana(data) para mostrar o dia da semana
+       no formato: 
+        "Segunda-Feira", 
+        "Terça-Feira", 
+        "Quarta-Feira", 
+        "Quinta-Feira",
+        "Sexta-Feira",
+        "Sábado",
+        "Domingo"
+
+       3) Crie uma função obtemUltimoDiaMes(ano, mes) que retorna o último dia do mês.
+
+       Parâmetros: 
+       ano -> 2012
+       mes -> de 0 a 11
+
+       Exemplo: obtemUltimoDiaMes(2012, 1) = 29
+
+       4) Escreva uma função obtemSegundos() que retorna o número de segundos
+       do dia atual.
+
+       Exemplo: 10:00 am -> obtemSegundos() == 36000
+
+
+       5) Crie uma função segundosParaAmanha() que retorna o número de segundos
+       até o próximo dia.
+
+       Exemplo: 23:00 -> segundosParaAmanha() == 3600
+
+
+       6) Escreva a função formataData(data). Ela deve formatar a data
+       da seguinte maneira:
+
+       * Se desde a data passou menos de 1 segundo -> "agora"
+       * Se desde a data passou menos de 1 minuto -> "n segundos atrás" onde n é a quantidade de segundos
+       * Se desde a data passou menos de 1 hora -> "m minutos atrás" onde m é a quantidade de minutos
+       * Nos outros casos a data deve ser apresentada no seguinte formato: "DD.MM.YY HH:mm" 
+         Ex.: 28.06.21 10:00
+
+         Testes:
+         formatDate(new Date(new Date - 1)) // agora
+         formatDate(new Date(new Date - 30 * 1000)) // 30 segundos atras
+         formatDate(new Date(new Date - 5 * 60 * 1000)) // 5 minutos atrás
+       */
+    </script>
+</body>
+</html>

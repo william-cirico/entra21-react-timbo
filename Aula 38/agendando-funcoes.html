@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendando a chamada de funções</title>
+</head>
+<body>
+    <script>
+        /* 
+        Podemos executar uma função depois de um certo período
+        de tempo.
+
+        Para isso temos duas funções:
+        setTimeout -> Roda a função apenas uma vez depois do tempo especificado
+        setInterval -> Roda a função repetidamente, começando depois do intervalo
+        de tempo, e então repetindo continuamente naquele intervalo.        
+        */
+
+        // setTimeout(funcao, [delay], [arg1], [arg2])
+        function dizOi() {
+            alert("Oi!")
+        }
+
+        setTimeout(dizOi, 1000) // Vai executar a função dizOi depois de 1 segundo
+
+        // Os argumentos (arg1, arg2, argN...) Serão passados para dentro da callback function
+        function dizOiComArgs(frase, quem) {
+            alert(`${frase}, ${quem}`)
+        }
+        
+        let idTimer = setTimeout(dizOiComArgs, 3000, "Olá", "Pedro")
+
+        // Para cancelar a execução
+        clearTimeout(idTimer)
+
+
+        // setInterval(funcao, delay, [arg1], [arg2])
+        let idInterval = setInterval(() => console.log("setInterval"), 1000)
+
+        // Cancelando o setInterval
+        setTimeout(() => clearInterval(idInterval), 5000)
+
+
+        /*
+        Exercícios
+
+        1) Escreva a função imprimeNumeros(comeco, fim) que mostre um número a cada segundo, começando
+        do comeco até o fim.
+
+        Faça duas variantes da solução:
+        1. Usando setInterval
+        2. Usando setTimeout
+
+        2) Utilizando setInterval faça um relógio que obtenha o horário atual
+        e faça ele aparecer na tela no formato: 
+        hh:mm:ss
+
+        3) Faça uma timer através da função criaTimer(tempo, callback) que receba o valor inicial através de um <input type="time"> 
+        e dispare uma função callback quando o tempo acabar.
+        */
+    </script>
+</body>
+</html>
