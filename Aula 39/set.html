@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set</title>
+</head>
+<body>
+    <script>
+        /* 
+        Set é um tipo de coleção especial onde cada valor pode acontecer uma vez.
+
+        Métodos:
+        * new Set(iterable) -> Cria o set
+        * set.add(valor) -> Adiciona o valor
+        * set.delete(valor) -> Remove o valor
+        * set.has(valor) -> Retorna true se o valor existe, false em caso contrário
+        * set.clear() -> limpa o set
+        * set.size() -> quantidade de set.
+        */
+
+        {
+            let conjunto = new Set(["🐷", "🐢", "🐷", "🐨", "🐑", "🐶"])
+            console.log(conjunto)
+
+            // Iterando sobre um Set
+            for (let item of conjunto) {
+                console.log(item)
+            }
+        }        
+
+        {
+            // Implementando operações básicas entre Conjuntos
+            function uniao(setA, setB) {
+                let uniao = new Set(setA)
+                for (let valor of setB) {
+                    uniao.add(valor)
+                }
+                
+                return uniao
+            }
+
+            function interseccao(setA, setB) {
+                let interseccao = new Set()
+                for (valor of setA) {
+                    if (setB.has(valor)) {
+                        interseccao.add(valor)
+                    }
+                }
+
+                return interseccao
+            }
+
+            function diferenca(setA, setB) {
+                let diferenca = new Set(setA)
+                for (valor of setB) {
+                    diferenca.delete(valor)
+                }
+
+                return diferenca
+            }
+
+            let setA = new Set([1, 2, 3, 4]),
+                setB = new Set([2, 3])
+
+            console.log(uniao(setA, setB))
+            console.log(interseccao(setA, setB))
+            console.log(diferenca(setA, setB))
+        }
+
+        /*
+        https://medium.com/@bretcameron/how-to-make-your-code-faster-using-javascript-sets-b432457a4a77
+
+        Exercícios
+
+        1. Crie uma função unicos(vetor) que retorna um vetor com elementos únicos.
+        Ex.: unicos([1, 2, 2, 3, 3, 4, 5]) -> 1, 2, 3, 4, 5
+        */
+    </script>
+</body>
+</html>
