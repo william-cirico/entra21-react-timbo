@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Functions</title>
+</head>
+<body>
+    <script>
+        /*
+        Antes do ECMAScript 2015 as classes eram criadas através de funções:
+        */
+
+        function Pessoa(nome, idade) {
+            this.nome = nome
+            this.idade = idade                        
+        }
+
+        /*
+        A propriedade prototype é utilizada como modelo do qual o objeto herda métodos e propriedades.
+        Com o uso do prototype os métodos são definidos no prototype, não nas próprias instâncias de 
+        objeto.
+
+        No nosso exemplo isso significa que a função apresentar só vai ser criada uma vez no prototype 
+        da classe Pessoa e não para cada instância da classe.
+        */
+        Pessoa.prototype.apresentar = function() {
+            return `Olá meu nome é ${this.nome}, eu tenho ${this.idade} anos`
+        }
+
+        let joao = new Pessoa("João", 22)
+        console.log(joao.apresentar())        
+    </script>
+</body>
+</html>

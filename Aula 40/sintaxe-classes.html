@@ -48,6 +48,35 @@
         Essa classe deve ter 2 métodos:
         - media: calcula a média final do aluno (cada prova tem peso 3 e o trabalho tem peso 2)
         - final: calcula quanto o aluno precisa para a prova final (retorna zero se ele não for para a final)
+
+        Resposta:
+        class Aluno {
+            constructor(matricula, nome, prova1, prova2, trabalho) {
+                this.matricula = matricula;
+                this.nome = nome;
+                this.prova1 = prova1;
+                this.prova2 = prova2;
+                this.trabalho = trabalho;
+            }
+
+            media() {                
+                return ((this.prova1 * 3) + (this.prova2 * 3) + (this.trabalho * 2)) / 8;
+            }
+
+            final() {
+                const media = this.media();
+
+                if (media >= 6) {
+                    console.log(`O aluno foi aprovado com a média ${media.toFixed(2)}`);
+                } else {
+                    console.log(`O aluno foi reprovao com a média ${media.toFixed(2)}`);
+                }
+            }
+        }
+
+        const aluno1 = new Aluno(123, "João", 5, 10, 10);
+        console.log(aluno1.media());
+        aluno1.final();
         
 
         2) Crie uma classe Agenda que pode armazenar 10 pessoas e que seja capaz de realizar as 
