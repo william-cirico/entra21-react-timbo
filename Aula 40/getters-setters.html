@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos Getters/Setters</title>
+</head>
+<body>
+    <script>
+        /* 
+        Para definir propriedades privadas devemos utilizar o #. 
+        Uma propriedade privada só deve ser acessada internamente na classe.
+
+        Os métodos getters e setters são utilizados para acessar esses valores privados.
+
+        As vantagens de utilizar getters e setters são que você pode fazer validações ou algum tipo
+        de processamento antes de devolver o valor.
+        */
+
+        class Usuario {     
+            // Definindo propriedade privada
+            #nome
+            
+            constructor(nome) {
+                if (this.#validaNome(nome)) {
+                    // Lançando uma exceção 
+                    throw "Nome inválido"
+                }
+                this.#nome = nome
+            }
+
+            // Obtém o nome
+            get nome() {
+                return this.#nome
+            }
+
+            // Altera o nome 
+            set nome(valor) {
+                if (this.#validaNome(valor)) {                    
+                    throw "Nome inválido"
+                }                
+                this.#nome = valor
+            }
+
+            // Definindo método privado
+            #validaNome(nome) {                
+                return nome.length < 4
+            }
+        }
+
+        let usuario = new Usuario("Pedro")
+        console.log(usuario.nome)        
+        usuario.nome = "D"
+        let usuario2 = new Usuario("A")
+        console.log(usuario2)
+        
+        /*
+        Exercício
+
+        Seguindo os princípios de encapsulamento crie a classe Funcionario:        
+        - Atributos: matricula, nome e salario.
+        
+        Regras para validações dos atributos:
+        - matrícula: Deve ser um número inteiro positivo.
+        - nome: deve conter de 4 a 50 caracteres.
+        - salario: deve ser um valor não inferior a R$ 465,00.
+
+        Testes:
+        let funcionario = new Funcionario("12.5", "Pedro", 700) // Uncaught Matrícula inválida
+        
+        let funcionario = new Funcionario(12, "Pedro", 700)
+        funcionario.salario = 400 // Uncaught Salário inválido
+
+        let funcionario = new Funcionario(12, "Pedro", 700)
+        funcionario.nome = "A" // Uncaught Nome inválido
+        */
+    </script>
+</body>
+</html>

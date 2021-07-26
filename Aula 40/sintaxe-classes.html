@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sintaxe de Classes</title>
+</head>
+<body>
+    <script>
+        class MinhaClasse {
+            // métodos da classe
+            constructor() {}
+            metodo1() {}
+            metodo2() {}
+            metodo3() {}            
+        }
+
+        // Exemplo - Usuario
+        class Usuario {
+            idade = 20 // Atributo de classe -> Todas as instâncias terão esse atributo
+
+            constructor(nome, sobrenome) { // Método constructor -> Será chamado quando criarmos uma instância da classe
+                this.nome = nome // Atributo do objeto
+                this.sobrenome = sobrenome // Atributo do objeto
+            }
+
+            dizOi() { // Método
+                alert(`Olá o meu nome é: ${this.nome}`)
+            }
+        }
+
+        // Para instanciar um usuário (Criar um objeto do tipo Usuario)
+        let usuario1 = new Usuario("William", "Círico"),
+            usuario2 = new Usuario("Pedro", "da Silva")
+        usuario1.dizOi()
+        usuario2.dizOi()      
+        
+        /*
+        Exercícios
+
+        1) Escreva a classe Aluno. Cada objeto dessa classe deve guardar os seguintes dados:
+        - matrícula,
+        - nome
+        - 2 notas de prova
+        - 1 nota de trabalho
+
+        Essa classe deve ter 2 métodos:
+        - media: calcula a média final do aluno (cada prova tem peso 3 e o trabalho tem peso 2)
+        - final: calcula quanto o aluno precisa para a prova final (retorna zero se ele não for para a final)
+        
+
+        2) Crie uma classe Agenda que pode armazenar 10 pessoas e que seja capaz de realizar as 
+        seguintes operações:
+        - armazenaPessoa(nome, telefone)
+        - removePessoa(nome)
+        - buscaPessoa(nome) -> Informa o número de telefone da pessoa
+        - imprimeAgenda() -> Imprime os dados de todas as pessoas da agenda
+        - imprimePessoa(indice) -> Imprime os dados da pessoa que está na posição "i" da agenda
+
+        3) Escreva um classe Voo. Cada vôo possui no máximo 100 passageiros, e a classe permite controlar a 
+        ocupação das vagas. A classe deve ter os seguintes métodos:
+
+        - constructor: número do vôo, data
+        - proximoLivre: retorna o número da próxima cadeira livre
+        - verifica: verifica se o número da cadeira recebido como parâmetro está ocupada
+        - ocupa: ocupa determinada cadeira do vôo, cujo número é recebido como parâmetro,
+        retorna verdadeiro se a cadeira ainda não estiver ocupada e falso caso contrário.
+        - vagas: retorna o número de cadeiras vagas (não ocupadas) disponíveis no vôo.
+        - getVoo: retorna o número do vôo
+        */
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução Orientação a Objetos</title>
+</head>
+<body>
+    <script>
+        // Procedural - Funções que manipulavam os dados
+        function dizOi(nome, sobrenome) {
+            alert(`Olá, meu nome é ${nome} ${sobrenome}`)
+        }
+
+        // Orientação a Objetos - Dados possuem seus atributos e os seus
+        // métodos (comportamento)
+        let pessoa = {
+            nome: "Pedro",
+            sobrenome: "José",
+            diz() {
+                alert(`Olá, meu nome é ${this.nome} ${this.sobrenome}`)
+            }
+        }
+
+        /*
+        A ideia básica da POO é que usamos objetos para modelar coisas do
+        mundo real que queremos representar dentro dos nossos programas.
+
+        Classe -> Representação de um conjunto de objetos (modelo). Definição
+        do comportamento dos objetos (métodos) e as suas características
+        (atributos).
+
+        Objeto -> Objeto do mundo real. Ex.: carro, pessoa, cachorro, etc.
+        Instância da classe.                
+
+        Princípios da POO:        
+        // 1 - Abstração: Extrair somente as informações (características e ações) pertinentes ao 
+        seu problema do objeto do mundo real considerado.
+
+        Ex.:
+        Objeto Pessoa -> Existe várias informações relativas a uma pessoa:
+        endereço, altura, tamanho do sapato, perfil de DNA, número do passaporte, personalidade, etc.
+        Porém, devemos considerar somente as informações que são importantes para o funcionamento
+        do nosso sistema, como por exemplo:
+        nome, idade, sexo, telefone.
+
+        // 2 - Encapsulamento: Capacidade de esconder detalhes da implementação do objeto, deixando
+        exposto somente o que deve ser acessado publicamente.
+        
+        // 3 - Herança: A herança é uma maneira de reutilizar código a media que podemos aproveitar
+        os atributos e métodos de classes já existentes para gerar novas classes mais específicas.
+
+        // 4 - Polimorfismo: O polimorfismo é a capacidade de uma subclasse sobrescrever os métodos
+        da superclasse.
+        */
+        
+    </script>
+</body>
+</html>
