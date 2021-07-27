@@ -74,6 +74,72 @@
 
         let funcionario = new Funcionario(12, "Pedro", 700)
         funcionario.nome = "A" // Uncaught Nome inválido
+
+        class Funcionario {
+            #matricula;
+            #nome;
+            #salario;
+
+            constructor(matricula, nome, salario) {
+                // Validar a matrícula
+                if (!Number.isInteger(matricula) || matricula < 0) {
+                    throw "Matrícula inválida";
+                }
+
+                // Validar o nome
+                if (nome.length < 4 || nome.length > 50) {
+                    throw "Nome inválido";
+                }
+
+                // Validar o salário
+                if (salario < 465) {
+                    throw "Salário inválido";
+                }
+
+                this.#matricula = matricula;
+                this.#nome = nome;
+                this.#salario = salario;
+            }
+
+            get matricula() {
+                return this.#matricula;
+            }
+
+            get nome() {
+                return this.#nome;
+            }
+
+            get salario() {
+                return this.#salario;
+            }
+
+            set matricula(valor) {
+                if (!Number.isInteger(valor) || valor < 0) {
+                    throw "Matrícula inválida";
+                }
+
+                this.#matricula = valor;
+            }
+
+            set nome(valor) {
+                if (valor.length < 4 || valor.length > 50) {
+                    throw "Nome inválido";
+                }
+
+                this.#nome = valor;
+            }
+
+            set salario(valor) {
+                if (valor < 465) {
+                    throw "Salário inválido";
+                }
+
+                this.#salario = valor;
+            }
+        }
+
+        const funcionario = new Funcionario(123, "Pedro", 700);
+        funcionario.matricula = 12;
         */
     </script>
 </body>

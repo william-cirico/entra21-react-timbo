@@ -171,6 +171,61 @@
         retorna verdadeiro se a cadeira ainda não estiver ocupada e falso caso contrário.
         - vagas: retorna o número de cadeiras vagas (não ocupadas) disponíveis no vôo.
         - getVoo: retorna o número do vôo
+
+        class Voo {
+            #numeroVoo;
+            #cadeirasDisponiveis;
+
+            constructor(numeroVoo, data) {
+                this.#numeroVoo = numeroVoo;
+                this.data = data;
+                this.#cadeirasDisponiveis = Array.from(Array(100).keys());
+            }
+
+            get numeroVoo() {
+                return this.#numeroVoo;
+            }
+
+            proximoLivre() {
+                return this.#cadeirasDisponiveis[0];
+            }
+
+            verifica(numeroCadeira) {
+                if (numeroCadeira < 0 || numeroCadeira > 99) {
+                    return "Número da cadeira é inválido";
+                }
+
+                const cadeira = this.#cadeirasDisponiveis.find(cadeira => cadeira === numeroCadeira);
+
+                if (cadeira >= 0) {
+                    return "Cadeira está disponível";
+                }
+
+                return "Cadeira está indisponível";
+            }
+
+            ocupa(numeroCadeira) {
+                if (numeroCadeira < 0 || numeroCadeira > 99) {
+                    return "Número da cadeira é inválido";
+                }
+
+                this.#cadeirasDisponiveis = this.#cadeirasDisponiveis.filter(cadeira => cadeira !== numeroCadeira);
+                return "Cadeira ocupada";
+            }
+
+            vagas() {
+                return this.#cadeirasDisponiveis.length;
+            }
+            
+        }
+
+        const voo = new Voo(123, new Date());
+        
+        console.log(voo.verifica(0));
+        console.log(voo.ocupa(0));        
+        console.log(voo.proximoLivre());
+        console.log(voo.verifica(0));
+        console.log(voo.vagas());
         */
 
     </script>
