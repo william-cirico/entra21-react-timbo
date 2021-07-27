@@ -69,6 +69,7 @@
         /*
         Exercícios
 
+
         1) Corrija o script a seguir para que ele funcione
         class Animal {
             constructor(nome) {
@@ -79,6 +80,22 @@
         class Coelho extends Animal {
             constructor(nome) {
                 this.nome = nome
+                this.criadoEm = Date.now()
+            }
+        }
+
+        let coelho = new Coelho("Coelho Branco")
+        alert(coelho.nome)
+
+        class Animal {
+            constructor(nome) {
+                this.nome = nome
+            }            
+        }
+
+        class Coelho extends Animal {
+            constructor(nome) {
+                super(nome)                
                 this.criadoEm = Date.now()
             }
         }
@@ -124,6 +141,56 @@
         }
 
         let timer1 = new Relogio("h:m:s")
+        timer1.comecar()
+
+        class Relogio {
+            constructor(formato) {
+                this.formato = formato
+            }
+
+            renderizar() {
+                let data = new Date()
+
+                let horas = data.getHours()
+                if (horas < 10) horas = "0" + horas
+
+                let minutos = data.getMinutes()
+                if (minutos < 10) minutos = "0" + minutos
+
+                let segundos = data.getSeconds()
+                if (segundos < 10) segundos = "0" + segundos
+
+                let resultado = this.formato
+                    .replace("h", horas)
+                    .replace("m", minutos)
+                    .replace("s", segundos)
+                
+                console.log(resultado)
+            }
+
+            parar() {
+                clearInterval(this.timer)
+            }
+
+            comecar() {
+                this.renderizar()
+                this.timer = setInterval(() => this.renderizar(), 1000)
+            }
+        }
+
+        class RelogioComTick extends Relogio {
+            constructor(formato, tick) {
+                super(formato);
+                this.tick = tick;
+            }
+
+            comecar() {
+                super.renderizar();
+                this.timer = setInterval(() => super.renderizar(), this.tick);
+            }
+        }
+
+        let timer1 = new RelogioComTick("h:m:s", 3000)
         timer1.comecar()
 
         3) Crie a classe Imovel, que possui um endereço e um preço.
