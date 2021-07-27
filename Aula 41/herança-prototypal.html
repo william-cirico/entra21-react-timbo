@@ -34,13 +34,13 @@
             set nomeCompleto(valor) {
                 [this.nome, this.sobrenome] = valor.split(" ")
             },
-            get nomeCompleto(valor) {
+            get nomeCompleto() {
                 return `${this.nome} ${this.sobrenome}`
             }
         }
 
         let admin = {
-            __proto__: user,
+            __proto__: usuario,
             ehAdmin: true
         }
 
