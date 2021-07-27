@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herança</title>
+</head>
+<body>
+    <script>
+        /* 
+        Herança é um princípio da POO que permite criar uma nova classe
+        a partir de uma já existente. A principal vantagem é a capacidade
+        de definir novos atributos e métodos para a classe filha (subclasse).
+        */
+
+        class Animal {
+            constructor(nome) {
+                this.velocidade = 0;
+                this.nome = nome;
+            }
+
+            correr(velocidade) {
+                this.velocidade = velocidade;
+                alert(`${this.nome} corre com a velocidade ${this.velocidade}`)
+            }
+
+            parar() {
+                this.velocidade = 0
+                alert(`${this.nome} está parado`)
+            }
+        }
+
+        let animal = new Animal("Um animal qualquer")
+
+        animal.correr(10)
+        animal.parar()
+
+
+        // Subclasse
+        class Coelho extends Animal {
+            // Sobrescrevendo o constructor
+            constructor(nome, tamanhoOrelha) {
+                // DEVE SER CHAMADO O SUPER ANTES DE USAR O THIS
+                super(nome)
+                this.tamanhoOrelha = tamanhoOrelha
+            }
+            
+            esconder() {
+                alert(`${this.nome} se escondeu!`)
+            }
+            
+            // Sobrescrevendo o método parar
+            parar() {
+                /* 
+                Geralmente não queremos sobrescrever completamente o método, mas sim, adicionar
+                novas funcionalidades. Para isso podemos utilizar a palavra chave "super"
+                */                
+                super.parar() // Vai executar o método parar que vem da classe Pai
+                this.esconder()
+            }
+        }
+
+        /* A subclasse possui todos os atributos e métodos da classe pai */
+        let coelho = new Coelho("Perna longa")
+        coelho.correr(70) // Método herdado        
+        coelho.parar()
+
+        /*
+        Exercícios
+
+        1) Corrija o script a seguir para que ele funcione
+        class Animal {
+            constructor(nome) {
+                this.nome = nome
+            }            
+        }
+
+        class Coelho extends Animal {
+            constructor(nome) {
+                this.nome = nome
+                this.criadoEm = Date.now()
+            }
+        }
+
+        let coelho = new Coelho("Coelho Branco")
+        alert(coelho.nome)
+
+        2) Crie uma subclasse de Relogio que adiciona o parametro de precisao 
+        (O numero em ms entre os ticks). 
+        class Relogio {
+            constructor(formato) {
+                this.formato = formato
+            }
+
+            renderizar() {
+                let data = new Date()
+
+                let horas = data.getHours()
+                if (horas < 10) horas = "0" + horas
+
+                let minutos = data.getMinutes()
+                if (minutos < 10) minutos = "0" + minutos
+
+                let segundos = data.getSeconds()
+                if (segundos < 10) segundos = "0" + segundos
+
+                let resultado = this.formato
+                    .replace("h", horas)
+                    .replace("m", minutos)
+                    .replace("s", segundos)
+                
+                console.log(resultado)
+            }
+
+            parar() {
+                clearInterval(this.timer)
+            }
+
+            comecar() {
+                this.renderizar()
+                this.timer = setInterval(() => this.renderizar(), 1000)
+            }
+        }
+
+        let timer1 = new Relogio("h:m:s")
+        timer1.comecar()
+
+        3) Crie a classe Imovel, que possui um endereço e um preço.
+        a. crie uma classe Novo, que herda Imovel e possui um adicional no preço. Crie
+        métodos de acesso e impressão deste valor adicional.        
+        b. crie uma classe Velho, que herda Imovel e possui um desconto no preço. Crie
+        métodos de acesso e impressão para este desconto.
+        
+        Ambas as classes Novo e Velho devem implementar um método calculaTotal() que informa
+        o valor com o adicional ou com o desconto.
+        
+        4) Crie uma classe Animal que possua os seguintes atributos:
+            - nome
+            - comprimento
+            - numeroPatas
+            - cor
+            - ambiente
+            - velocidadeMedia
+
+        Essa classe deve possuir o método mostrarDados()
+        que mostra um relatório contendo as informações do Animal.
+
+        Crie uma classe Peixe que herda de animal e possua o atributo
+        caracteristica. Essa classe deve implementar o método mostrarDadoPeixe()
+        que mostra um relatório contendo as informações do Peixe.
+
+        Crie uma classe Mamifero que herda de animal e possua o atributo
+        alimento. Essa classe deve implementer o método mostrarDadosMamifero()
+        que mostra um relatório contendo as informações do Mamífero.
+
+        Após isso crie um objeto de cada classe e teste os métodos.
+        */
+    </script>
+</body>
+</html>

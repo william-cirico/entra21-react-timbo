@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polimorfismo</title>
+</head>
+<body>
+    <script>
+        // O principal conceito do polimorfismo é a capacidade de duas ou mais classes
+        // derivadas de uma mesma superclasse responderem ao mesmo método, cada uma de 
+        // uma forma diferente.
+        class Animal {
+            constructor(nome) {
+                this.nome = nome
+            }
+
+            locomover() {
+                console.log("O animal está se locomovendo")
+            }
+        }
+
+        class Cobra extends Animal{
+            locomover() {
+                console.log("A cobra está rastejando")
+            }
+        }
+
+        class Baleia extends Animal {
+            locomover() {
+                console.log("A baleia está nadando")
+            }
+        }
+
+        let cobra = new Cobra("Naja")
+        cobra.locomover()
+
+        let baleia = new Baleia("Moby Dick")
+        baleia.locomover()
+
+        /*
+        Exercício
+
+        1) Crie uma classe "Produto" que possua os atributos "nomeLoja" e "preco". 
+        Crie também o atributo "descrição" e seu método chamado "getDescrição" que 
+        retorna uma string com o simples conteúdo "Produto de informática". 
+
+        Crie duas classes filhas de "Produto", que serão "Mouse" com o atributo
+        "tipo" e "Livro" com o atributo "autor", no método construtor de cada uma
+        dessas classes passe como argumento a descrição desse produto, por exemplo,
+        Mouse("Kabum", 50, "Mouse ótico, Saída USB. 1.600 dpi", "Gamer"); 
+        Crie o método "getDescrição" que retorna a descrição que foi passada no argumento do construtor
+        concatenada com o atributo que a classe tiver, "autor" no caso de livro e
+        "tipo" no caso de mouse, esse método deve ter a mesma assinatura do método
+        "getDescrição" da classe pai "Produto". 
+
+        Após isso crie um vetor chamado carrinho e adicione 5 produtos (que podem ser Mouse ou Livro) dentro. 
+        E depois chame a descrição de cada um dos produtos.
+        */
+    </script>
+</body>
+</html>

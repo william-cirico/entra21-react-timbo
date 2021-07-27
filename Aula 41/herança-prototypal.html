@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herança Prototypal</title>
+</head>
+<body>
+    <script>
+        /* 
+        A herança no JavaScript é feita através de uma propriedade escondida chamada [[Prototype]].
+
+        Quando lemos uma propriedade de um objeto e ela não existe, o JavaScript irá tentar ler ela
+        através do seu prototype.
+
+        Exemplo:
+        */
+        let animal = {
+            come: true
+        }
+
+        let coelho = {
+            pula: true
+        }
+
+        // Defindo o Prototype de coelho como animal (Coelho herda os atributos e métodos de animal):
+        coelho.__proto__ = animal
+        console.log(coelho.come)
+
+        let usuario = {
+            nome: "João",
+            sobrenome: "da Silva",
+            set nomeCompleto(valor) {
+                [this.nome, this.sobrenome] = valor.split(" ")
+            },
+            get nomeCompleto(valor) {
+                return `${this.nome} ${this.sobrenome}`
+            }
+        }
+
+        let admin = {
+            __proto__: user,
+            ehAdmin: true
+        }
+
+        console.log(admin.nomeCompleto)
+
+        /* 
+        Exercícios
+        
+        1) Analise o código abaixo e informe quais valores serão apresentados no processo
+
+        let animal = {
+            pula: null
+        }
+
+        let coelho = {
+            __proto__: animal,
+            pula: true
+        }
+
+        console.log(coelho.pula) // ?
+
+        delete coelho.pula
+
+        console.log(coelho.pula) // ?
+
+        delete animal.pula
+
+        console.log(coelho.pula) // ?
+
+
+        2) Dado os seguintes objetos:
+
+        let cabeca = {
+            oculos: 1
+        }
+
+        let mesa = {
+            caneta: 3
+        }
+
+        let cama = {
+            lenco: 1,
+            travesseiro: 2
+        }
+
+        let bolso = {
+            dinheiro: 200
+        }
+
+        - Use __proto__ para atribuir prototypes na seguinte ordem: bolso -> cama -> mesa -> cabeca.
+        Testes:
+        console.log(bolso.caneta) // 3
+        console.log(cama.oculos) // 1
+        console.log(mesa.dinheiro) // undefined
+
+
+        3) Nesse problema temos dois hamster: Hamtaro e Fofuxo. Os dois herdam do objeto hamster.
+        Quando alimentamos um deles, o outro também fica cheio. Por que? Como consertar isso?
+        let hamster = {
+            estomago = [],
+
+            comer(comida) {
+                this.estomago.push(comida)
+            }
+        }
+
+        let hamtaro = {
+            __proto__ = hamster
+        }
+
+        let fofuxo = {
+            __proto__ = hamster
+        }
+
+        hamtaro.comer("Maçã")
+        console.log(hamtaro.estomago) // Maçã
+
+        console.log(fofuxo.estomago) // Maçã
+        */
+
+        
+    </script>
+</body>
+</html>
