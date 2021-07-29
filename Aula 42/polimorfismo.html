@@ -57,6 +57,54 @@
 
         Após isso crie um vetor chamado carrinho e adicione 5 produtos (que podem ser Mouse ou Livro) dentro. 
         E depois chame a descrição de cada um dos produtos.
+
+        class Produto {
+            #descricao
+            constructor(nomeLoja, preco, descricao) {
+                this.nomeLoja = nomeLoja;
+                this.preco = preco;
+                this.#descricao = descricao;
+            }
+
+            get descricao() {
+                return this.#descricao;
+            }
+
+            getDescricao() {
+                return "Produto de informática";
+            }
+        }
+
+        const produto = new Produto("Havan", 99.99, "");
+        console.log(produto.getDescricao());   
+        
+        class Mouse extends Produto {
+            constructor(nomeLoja, preco, descricao, tipo) {
+                super(nomeLoja, preco, descricao);
+                this.tipo = tipo;
+            }
+
+            getDescricao() {
+                return `${this.descricao} ${this.tipo}`;
+            }
+        }
+
+        const mouse = new Mouse("Havan", 99.99, "Mouse ótico, Saída USB. 1.600 dpi", "Gamer");
+        console.log(mouse.getDescricao());
+
+        class Livro extends Produto {
+            constructor(nomeLoja, preco, descricao, autor) {
+                super(nomeLoja, preco, descricao);
+                this.autor = autor;
+            }
+
+            getDescricao() {
+                return `${this.descricao} ${this.autor}`;
+            }
+        }
+
+        const livro = new Livro("Havan", 99.99, "Harry Potter - Cálice de fogo", "J.K. Rowling");
+        console.log(livro.getDescricao());
         */
     </script>
 </body>

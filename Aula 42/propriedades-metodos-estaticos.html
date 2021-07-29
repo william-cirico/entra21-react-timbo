@@ -58,10 +58,31 @@
         1) Crie uma classe Ponto2D para representar um ponto no espaço cartesiano. Essa classe
         deve ter os atributos: x e y.
         Essa classe deve ter o método estático temEixoComum(pontoA, pontoB) que retorna true
-        se as duas classes tiverem as mesmas coordenadas para algum dos eixos.
+        se os dois objetos tiverem as mesmas coordenadas para algum dos eixos.
         Exemplo:
+        const pontoA = new Ponto2D(2, 1),
+              pontoB = new Ponto2D(2, 2)
+        
+        Ponto2D.temEixoComum(pontoA, pontoB) -> False
+
         (1, 2) e (1, -17) -> True
         (13, -8) e (8, -22) -> False
+
+        class Ponto2D {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+
+            static temEixoComum(pontoA, pontoB) {
+                return pontoA.x === pontoB.x || pontoA.y === pontoB.y;
+            }
+        }
+
+        const pontoA = new Ponto2D(13, -8),
+              pontoB = new Ponto2D(8, -22);
+
+        console.log(Ponto2D.temEixoComum(pontoA, pontoB));
 
         2) Crie uma classe Calc que implemente os seguintes métodos estáticos:
             - soma(n1, n2): Retorna a soma de n1+n2
@@ -74,6 +95,32 @@
             Calc.subtracao(2, 3) // -1
             Calc.multiplicacao(5, 2) // 10
             Calc.divisao(3, 3) // 1
+
+        class Calc {
+            static soma(n1, n2) {
+                return n1 + n2;
+            }
+
+            static subtracao(n1, n2) {
+                return n1 - n2;
+            }
+
+            static multiplicacao(n1, n2) {
+                return n1 * n2;
+            }
+
+            static divisao(n1, n2) {
+                if (n2 === 0) {
+                    throw new Error("O n2 não pode ser 0");
+                }
+                return n1 / n2;
+            }
+        }
+
+        console.log(Calc.soma(1, 2)) // 3
+        console.log(Calc.subtracao(2, 3)) // -1
+        console.log(Calc.multiplicacao(5, 2)) // 10
+        console.log(Calc.divisao(1, 0)) // 1
         */
     </script>
 </body>
