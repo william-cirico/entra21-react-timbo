@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratando erros com Try Catch</title>
+</head>
+<body>
+    <script>
+        /* 
+        Quando um erro acontece o script para de rodar. Mas existe uma forma
+        de lidar com erros que permite que o nosso script continue funcionando.
+        */
+
+        // Sintaxe do try...catch
+        try {
+            // código...
+        } catch (erro) {
+            // lidar com o erro...
+        }
+
+        /* Como funciona:
+        1. O código que está dentro do bloco try é executado.
+        2. Se não acontecer nenhum erro o bloco catch é ignorado.
+        3. Se um erro acontecer, a execução do try para e o controle vai
+        para o bloco do catch(err). A variável err vai conter um objeto de erro
+        com detalhes do que aconteceu.
+        */
+
+        // Quando não há erros:
+        // try {
+        //     alert("Começo do bloco try")
+        //     alert("Fim do bloco try")
+        // } catch (err) {
+        //     alert("Erro não aconteceu")
+        // }
+
+        // Quando há erros
+        // try {
+        //     alert("Começo do bloco try")
+        //     alert(variavelQueNãoExiste) // Erro
+        //     alert("Fim do bloco try")
+        // } catch (err) {
+        //     alert("Erro aconteceu")
+        // }
+
+        /*
+        Sempre que uma exceção acontece dentro do bloco try, o JavaScript cria um objeto
+        do tipo Error e envia como argumento para o catch.
+        */
+        // try {
+        //     alert("Começo do bloco try")
+        //     alert(variavelQueNãoExiste)
+        //     alert("Fim do bloco try")
+        // } catch (err) {
+        //     alert(`err name: ${err.name}`)
+        //     alert(`err message: ${err.message}`)
+        //     // Sequência de chamadas que geraram aquele erro
+        //     alert(`err stack: ${err.stack}`)
+        // }
+
+        /*
+        Existem dois tipos principais de erros
+        1. Sintaxe: Ocorre quando o analisador Javascript interpreta o código. 
+        Ex.: Esquecer de fechar parênteses ou colchete.
+        */
+        // if (true) {
+        //     console.log("Não fechou as chaves")
+
+
+        /*
+        2. Erros de tempo de execução:
+        Ocorre quando o código está sendo executado.
+        Ex.: Chamar um método que não existe        
+        */        
+        // metodoQueNaoExiste()
+
+        /*        
+        Existem alguns tipos nativos de erros:
+
+        ReferenceError: Ocorre quando uma referência a uma variável ou função inexistente é detectada.
+        TypeError: Lançado quando um operador ou argumento passado para a função é de um tipo diferente do esperado.
+        SyntaxError: Algum erro de sintaxe ao interpretar o código. Ex.: parse de um JSON.
+        URIError: Lançado quando ocorre algum erro no tratamento de URI. Ex.: enviar parâmetros
+        inválidos no decodeURI() ou encodeURI().
+        RangeError: Quando um valor não está dentro do intervalo permitido.
+        */
+
+        // Exemplos de uso:
+        // function checar(numero) {
+        //     if (!(numero >= 10 && numero <= 50)) {            
+        //         // Utiliza-se o throw para lançar erros
+        //         throw new RangeError("O número precisa estar entre 10 e 50")
+        //     }
+        // }
+
+        // try {
+        //     checar(9)
+        // } catch (err) {
+        //     // Verificando se o erro é do tipo RangeError
+        //     if (err instanceof RangeError) {
+        //         alert(err.message)
+        //     } else {
+        //         throw err
+        //     }
+        // }
+
+        // function checarNumeroInteiro(numero) {
+        //     if (!Number.isInteger(numero)) {
+        //         throw new TypeError("O número precisa ser inteiro")
+        //     }
+        //     console.log("O número é inteiro!")
+        // }
+
+        // try {
+        //     checarNumeroInteiro(10.5)
+        // } catch (err) {
+        //     // Verificando se o erro é do tipo TypeError
+        //     if (err instanceof TypeError) {
+        //         alert(err.message)
+        //     } else {
+        //         alert(`Erro inesperado: ${err}`)
+        //     }
+        // }
+
+        /* O bloco try..catch também permite a execução de coisas no fim da execução do bloco.
+        Isso é feito através do finally. O finally será executado independente do sucesso ou 
+        do erro do bloco try..catch.
+
+        É geralmente utilizado para fechar conexões com o banco de dados.
+        */
+        // function fibonnaci(numero) {
+        //     if (numero < 0 || !Number.isInteger(numero)) {
+        //         throw new Error("Tem que ser um inteiro positivo.")
+        //     }
+        //     return numero <= 1 ? numero : fibonnaci(numero - 1) + fibonnaci(numero - 2)
+        // }
+
+        // let resultado = 0,
+        //     comeco = Date.now(),
+        //     tempo
+
+        // try {
+        //     resultado = fibonnaci(35)
+        // } catch (err) {                    
+        //     alert(err.message)
+        // } finally {
+        //     tempo = Date.now() - comeco
+        // }
+
+        // alert(resultado || "Erro aconteceu")
+        // alert(`A execução do script demorou: ${tempo}ms`)
+
+        // Os benefícios do finally podem ser observados quando fazemos o try..catch dentro de uma função
+        function exemploFinally() {
+            try {
+                return 1
+            } catch {
+                // Nada
+            } finally {
+                alert("Vou executar mesmo que o return seja chamado")
+            }
+        }
+
+        exemploFinally()                
+    </script>
+</body>
+</html>

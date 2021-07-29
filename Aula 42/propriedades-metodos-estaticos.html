@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriedades e Métodos Estáticos</title>
+</head>
+<body>
+    <script>
+        // Modemos adicionar métodos e propriedades para a classe em si:
+        class Usuario {
+            static metodoEstatico() {
+                console.log("Não preciso de uma instância de usuário!")
+            }
+        }
+
+        Usuario.metodoEstatico()
+
+        // Normalmente métodos estáticos são utilizados para implementar funções que pertencem a classe,
+        // mas não pertencem a nenhum objeto em si:
+        class Artigo {
+            // Propriedade estática
+            static editor = "João da Silva"
+
+            constructor(titulo, data) {
+                this.titulo = titulo
+                this.data = data
+            }
+
+            static comparar(artigoA, artigoB) {
+                return artigoA.data - artigoB.data
+            }
+
+            static criarArtigoDiario() {
+                return new this("Artigo diário", new Date())
+            }
+
+            static remove(idArtigo) {
+                // remover o artigo com id fornecido do banco de dados.
+            }
+        }
+
+        let artigos = [
+            new Artigo("HTML", new Date(2021, 3, 1)),
+            new Artigo("CSS", new Date(2021, 2, 1)),
+            new Artigo("JavaScript", new Date(2021, 11, 1))
+        ]
+
+
+        artigos.sort(Artigo.comparar())
+        console.log(Artigo.editor)
+        let artigoHoje = Artigo.criarArtigoDiario()
+        console.log(artigos[0].titulo)                     
+        /*
+        Exercícios
+
+        1) Crie uma classe Ponto2D para representar um ponto no espaço cartesiano. Essa classe
+        deve ter os atributos: x e y.
+        Essa classe deve ter o método estático temEixoComum(pontoA, pontoB) que retorna true
+        se as duas classes tiverem as mesmas coordenadas para algum dos eixos.
+        Exemplo:
+        (1, 2) e (1, -17) -> True
+        (13, -8) e (8, -22) -> False
+
+        2) Crie uma classe Calc que implemente os seguintes métodos estáticos:
+            - soma(n1, n2): Retorna a soma de n1+n2
+            - subtracao(n1, n2): Retorna a subtração de n1-n2
+            - multiplicacao(n1, n2): Retorna a multiplicação de n1*n2
+            - divisao(n1, n2): Retorna a divisão de n1/n2
+
+            Testes:
+            Calc.soma(1, 2) // 3
+            Calc.subtracao(2, 3) // -1
+            Calc.multiplicacao(5, 2) // 10
+            Calc.divisao(3, 3) // 1
+        */
+    </script>
+</body>
+</html>

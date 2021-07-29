@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erros customizados</title>
+</head>
+<body>
+    <script>
+        // Podemos criar os nossos próprios erros:
+        class UserTypeError extends Error {
+            constructor(message) {
+                super(message)
+                this.name = "UserTypeError"
+            }
+        }
+
+        function validaPessoa(pessoa) {
+            if (pessoa.tipo === "PF" || pessoa.tipo === "PJ") {
+                alert("Usuário válido")
+            } else {
+                throw new UserTypeError("Tipo de usuário inválido")
+            }
+        }
+        
+        let pessoaValida = {
+            nome: "Pedro",
+            tipo: "PJ"
+        }
+
+        let pessoaInvalida = {
+            nome: "Jéssica",
+            tipo: "AB"
+        }
+
+        try {
+            validaPessoa(pessoaValida)
+            validaPessoa(pessoaInvalida)
+        } catch (err) {
+            if (err instanceof UserTypeError) {
+                alert(`Error name: ${err.name}\nError message: ${err.message}`)
+            } else {
+                console.log(err)
+            }
+        }                
+    </script>
+</body>
+</html>

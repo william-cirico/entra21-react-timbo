@@ -1,0 +1,1 @@
+import { Pessoa } from "./exportando.js"
