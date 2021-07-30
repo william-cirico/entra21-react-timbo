@@ -51,10 +51,57 @@
         1) Crie uma função somar(n1, n2) que some dois números caso o resultado seja ímpar a função deve lançar um erro OddNumberError que
         tem a mensagem "O número é ímpar". O script deve chamar a função e mostrar o resultado ou o erro. Após a execução da função
         deve ser mostrado uma mensagem "Finalizando o programa...".
+        class OddNumberError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = "OddNumberError";
+            }
+        }
+
+        function somar(n1, n2) {
+            const resultado = n1 + n2;
+
+            if (resultado % 2 !== 0) {
+                throw new OddNumberError("O número é ímpar");
+            }
+
+            return resultado;
+        }
+
+        try {
+            const n1 = 3,
+                  n2 = 2;
+            
+            const resultado = somar(n1, n2);
+            console.log(`${n1} + ${n2} = ${resultado}`);
+        } catch (err) {
+            console.log(`Ocorreu um erro: ${err.message}`);
+        }
+
+        console.log("Finalizando programa...");
 
         2) Crie uma função dobrar(numero) que dobre o valor de um número. Se o parâmetro recebido não for um número a função deve lançar
         um TypeError com a mensagem "O valor deve ser numérico". O script deve chamar a função e mostrar o resultado ou o erro. Após a execução da função
         deve ser mostrado uma mensagem "Finalizando o programa...".
+
+        function dobrar(numero) {
+            if (isNaN(numero)) {
+                throw new TypeError("O valor deve ser numérico");
+            }
+
+            return numero * 2;
+        }
+
+        try {
+            const numero = "a";
+
+            const resultado = dobrar(numero);
+            console.log(`O dobro de ${numero} é ${resultado}`);
+        } catch (error) {
+            console.log(error.message);
+        }
+
+        console.log("Finalizando programa...");
 
         3) Crie uma função validaUsuario(usuario) que recebe um usuário e retorna true se ele for um usuário válido ou
         um erro se ele for inválido.
@@ -72,6 +119,63 @@
 
            O script deve chamar a função e mostrar o resultado ou o erro. Após a execução da função
             deve ser mostrado uma mensagem "Finalizando o programa...".
+        
+            class NameLengthError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = "NameLengthError";
+            }
+        }
+
+        class EmailError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = "EmailError";
+            }
+        }
+
+        class WageError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = "WageError";
+            }
+        }
+
+        function validaUsuario(usuario) {
+            if (usuario.nome.length < 4) {
+                throw new NameLengthError("O nome deve ter no mínimo 4 caracteres");
+            }
+
+            const regExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+            if (!regExp.test(usuario.email)) {
+                throw new EmailError("O email precisa ser válido");
+            }
+
+            if (usuario.salario < 465) {
+                throw new WageError("O salário precisa ser no mínimo R$ 465,00");
+            }
+
+            return true;
+        }
+
+        try {
+            const usuario = {
+                nome: "Pedro",
+                email: "pedro@email.com",
+                salario: 10
+            }
+
+            validaUsuario(usuario);
+            console.log("O usuário é válido");
+        } catch (err) {
+            if (err.name === "NameLengthError" || err.name === "EmailError" || err.name === "WageError") {
+                console.log(`Ocorreu um erro na validação: ${err.message}`)
+            } else {
+                console.log(`Ocorreu um erro inesperado: ${err}`);
+            }            
+        }
+        console.log("Finalizando o programa...")
         */
     </script>
 </body>
