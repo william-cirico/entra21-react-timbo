@@ -128,7 +128,26 @@
         callback(error, result) => Se um erro for passado irá mostrar a mensagem: "A operação falhou! [mensagem do erro]".
         Senão, irá mostrar a mensagem: "A operação foi bem sucedida! O resultado é [result]".
 
-        3) Crie uma função obtemUsuarioPeloNome(nome, cb) e verifica após 3 segundos se o nome faz parte do vetor:
+        function dobrarEm5Segundos(numero, cb) {
+            setTimeout(() => {
+                if (isNaN(numero)) {
+                    cb(new TypeError("O valor precisa ser numérico"));
+                } else {
+                    const dobro = numero * 2;
+                    cb(null, dobro);
+                }
+            }, 5000);
+        }
+
+        dobrarEm5Segundos("a", (error, resultado) => {
+            if (error) {
+                console.log(`A operação falhou! ${error.message}.`);
+            } else {
+                console.log(`A operação foi bem sucedida! O resultado é ${resultado}.`);
+            }
+        });
+
+        3) Crie uma função obtemUsuarioPeloNome(nome, cb) quee verifica após 3 segundos se o nome faz parte do vetor:
         [
             {
                 nome: "João",
@@ -155,6 +174,51 @@
                        nome: [nome do usuário]
                        idade: [idade do usuário]
                        email: [email do usuário]
+        
+        const listaPessoas = [
+            {
+                nome: "João",
+                idade: 25,
+                email: "joao@email.com"
+            },
+            {
+                nome: "Pedro",
+                idade: 33,
+                email: "pedro@email.com"
+            },
+            {
+                nome: "Marcos",
+                idade: 16,
+                email: "marcos@email.com"
+            }
+        ];
+
+        class UserNotFoundError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = "UserNotFoundError";
+            }
+        }
+
+        function obtemUsuarioPeloNome(nome, cb) {
+            setTimeout(() => {
+                const usuario = listaPessoas.find(pessoa => pessoa.nome === nome);
+
+                if (!usuario) {
+                    cb(new UserNotFoundError("Usuário não está cadastrado"));
+                } else {
+                    cb(null, usuario);
+                }
+            }, 3000);            
+        }
+
+        obtemUsuarioPeloNome("Pedro", (error, pessoa) => {
+            if (error) {
+                console.log(`Ocorreu um erro! ${error.message}.`);
+            } else {
+                console.log(`Usuário encontrado:\nnome: ${pessoa.nome}\nidade: ${pessoa.idade}\nemail: ${pessoa.email}.`);
+            }
+        });
         */
     </script>
 </body>
