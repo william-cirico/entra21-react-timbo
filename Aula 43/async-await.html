@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Await</title>
+</head>
+<body>
+    <script>
+        /*
+        Existe uma sintaxe mais moderna para trabalhar com Promises:
+        Async/Await
+
+        Vamos começar com a palavra-chave async. Ela pode ser colocada antes de funções:        
+
+        
+        */
+
+        async function teste() {
+            // return Promise.resolve(1) 
+            return 1;
+        }
+
+        // Isso faz com que essa função passe a retornar uma Promise.
+        teste().then((resultado) => console.log(resultado))
+
+        /* 
+        Existe outra palavra-chave, await, que só funciona dentro de funções async.
+        O await faz o JavaScript esperar até que a promise termine e retornar o seu resultado:
+        */
+
+        // Definindo uma promise
+        function criaPromise() {
+            return new Promise(resolve => {
+                setTimeout(() => resolve("Pronto!"), 3000)
+            })
+        }
+
+
+        async function esperando() {
+            // Irá aguardar a promise terminar para executar a próxima ação
+            let resultado = await criaPromise()
+
+            console.log(resultado)
+        }
+
+        esperando()
+
+
+        // Tratando erros com Async/Await
+
+
+        // Promise que gera um erro
+        function promiseErro() {            
+            return Promise.reject(new Error("Essa Promise sempre retorna erro :D"))
+        }
+
+        // Para tratar os erros que podem acontecer podemos utilizar o bloco try..catch
+        async function tratandoErros() {
+            try {
+                let response = await promiseErro()                                
+            } catch (err) {                
+                console.log(err.message)
+            }
+        }
+
+        tratandoErros()
+
+        /*
+        Exercício
+
+        1) Transforme o seguinte trecho de código utilizando async/await:
+
+        
+        const delay = () => new Promise(resolve => setTimeout(resolve, 1000));
+
+        function umPorSegundo() {
+            delay().then(() => {
+                console.log('1s');
+                delay().then(() => {
+                    console.log('2s');
+                    delay().then(() => {
+                        console.log('3s');
+                    });
+                });
+            });
+        }
+        umPorSegundo();
+        */
+    </script>
+</body>
+</html>

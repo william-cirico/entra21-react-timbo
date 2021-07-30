@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encadeando promises</title>
+</head>
+<body>
+    <script>
+        /*
+        Podemos encadear promises, isso significa que podemos utilizar o retorno 
+        da promise em uma outra função e utilizar o retorno dessa função em outra
+        */
+
+        function criaPromise(numero) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve(numero)
+                }, 3000)
+            })
+        }
+
+        // Consumindo a Promise
+        criaPromise(10)
+            .then(resultado => {
+                console.log(resultado)
+                return resultado * 2
+            })
+            .then(resultado => {
+                console.log(resultado)
+                return resultado * 3
+            })
+
+
+        // Se tiver um erro na cadeia de promises é necessário apenas um catch
+        criaPromise(9)
+            .then(resultado => {
+                console.log(resultado)
+                return resultado * 2
+            })
+            .then(resultado => {
+                if (resultado < 20) {
+                    throw new RangeError("O resultado não está dentro do intervalo esperado (>=20)")
+                }
+                console.log(resultado)
+                return resultado * 3
+            })
+            .then(resultado => {
+                if (resultado !== 60) {
+                    throw new RangeError("O resultado não está dentro do intervalo esperado (==60)")
+                }
+                console.log(resultado)
+                return resultado * 4
+            })
+            .catch(error => console.log(error.message))
+    </script>
+</body>
+</html>

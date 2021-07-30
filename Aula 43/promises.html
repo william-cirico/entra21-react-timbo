@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promises</title>
+    <style>
+        .lds-roller {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        .lds-roller div {
+            animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            transform-origin: 40px 40px;
+        }
+        .lds-roller div:after {
+            content: " ";
+            display: block;
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgb(0, 0, 0);
+            margin: -4px 0 0 -4px;
+        }
+        .lds-roller div:nth-child(1) {
+            animation-delay: -0.036s;
+        }
+        .lds-roller div:nth-child(1):after {
+            top: 63px;
+            left: 63px;
+        }
+        .lds-roller div:nth-child(2) {
+            animation-delay: -0.072s;
+        }
+        .lds-roller div:nth-child(2):after {
+            top: 68px;
+            left: 56px;
+        }
+        .lds-roller div:nth-child(3) {
+            animation-delay: -0.108s;
+        }
+        .lds-roller div:nth-child(3):after {
+            top: 71px;
+            left: 48px;
+        }
+        .lds-roller div:nth-child(4) {
+            animation-delay: -0.144s;
+        }
+        .lds-roller div:nth-child(4):after {
+            top: 72px;
+            left: 40px;
+        }
+        .lds-roller div:nth-child(5) {
+            animation-delay: -0.18s;
+        }
+        .lds-roller div:nth-child(5):after {
+            top: 71px;
+            left: 32px;
+        }
+        .lds-roller div:nth-child(6) {
+            animation-delay: -0.216s;
+        }
+        .lds-roller div:nth-child(6):after {
+            top: 68px;
+            left: 24px;
+        }
+        .lds-roller div:nth-child(7) {
+            animation-delay: -0.252s;
+        }
+        .lds-roller div:nth-child(7):after {
+            top: 63px;
+            left: 17px;
+        }
+        .lds-roller div:nth-child(8) {
+            animation-delay: -0.288s;
+        }
+        .lds-roller div:nth-child(8):after {
+            top: 56px;
+            left: 12px;
+        }
+        @keyframes lds-roller {
+            0% {
+            transform: rotate(0deg);
+            }
+            100% {
+            transform: rotate(360deg);
+            }
+        }
+    </style>
+  </head>
+  <body>
+        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <script>
+            /*
+            Uma Promise é um objeto usado para processamento assíncrono. Utilizando Promises podemos
+            associar métodos de tratamento para falha ou sucesso do processamento assíncrono.
+
+            As promises possuem três estados:
+                - pending (pendente)
+                - fulfilled (realizada)
+                - rejected (rejeitado)
+            
+            Sintaxe de declaração de uma promise:
+            let promise = new Promise((resolve, reject) => {
+                // Código assíncrono que pode gerar um erro
+            })
+
+            - resolve(valor) -> Função callback chamada quando tudo ocorreu bem
+            - reject(error) -> Função callback chamada quando ocorre um erro 
+            */
+
+            let promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("Promise bem-sucedida");
+                }, 2000);
+            });
+
+            let promiseError = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    // Quando uma promise falha é recomendável retornar objetos de erro
+                    reject(new Error("A promise falhou"));
+                }, 5000);
+            });
+
+            /* 
+                Consumindo uma promise:
+                .then -> Uma função que será executada quando a promise for bem-sucedida (resolve for chamado).
+                .catch -> Uma função que será executada quando a promise falhar (reject for chamado).
+                .finally -> Uma função que será executada após o then ou o catch (sempre será executada).
+                */
+
+            // .then recebe o valor de resolve
+            promise.then((valor) => {
+                console.log(valor);
+            });
+
+            console.log("Não vou esperar as promises");
+
+            // .catch recebe o valor de reject
+            promiseError.catch((error) => {
+                console.log(error.message);
+            });
+
+            // parando o loading
+            promise.finally(() => {                
+                document.querySelector(".lds-roller").style.display = "none"
+            })
+
+            
+            // Reescrevendo a função loadScript com Promise
+            function loadScript(src) {                
+                return new Promise((resolve, reject) => {
+                    const script = document.createElement("script")
+                    script.src = src
+
+                    script.onload = () => resolve(script)
+                    script.onerror = () => reject(new Error(`Falha ao carregar o script ${src}`))
+
+                    document.head.append(script)
+                })
+            }
+
+            loadScript("./callbacks.js")
+                .then(script => {
+                    console.log(`O script ${script.src} foi carregado`) 
+                    dizOi()
+                })
+                .catch(error => console.log(error.message))
+
+
+            // Exemplo simulando o uso de banco de dados
+            function obtemUsuarioPeloNome(nome) {
+                /* 
+                Em um exemplo real seria necessário fazer uma consulta no banco
+                de dados. Essa consulta seria um processamento assíncrono.
+
+                No nosso caso vamos simular isso:
+                */
+                return new Promise((resolve, reject) => {
+                    const regexTestaNumeros = /[0-9]/ // Regex utilizada para testar se existe números (0 - 9) em uma string                  
+                    if (regexTestaNumeros.test(nome)) { // O método test verifica se exite a expressão regula na string informada.
+                        reject(new TypeError("O nome não pode conter números"))
+                    } else {
+                        // Simulando o tempo de uma consulta no banco de dados
+                        setTimeout(() => resolve({
+                            // Esse objeto seria obtido através de uma consulta no banco de dados.
+                            id: 1,
+                            nome: nome,
+                            idade: 23
+                        }), 125)
+                    }                                
+                })
+            }
+
+            obtemUsuarioPeloNome("12")
+                .then(usuario => console.log(`Idade do usuário: ${usuario.idade}`))
+                .catch(error => console.log(`Erro: ${error.message}`))
+
+            /*
+            Exercícios
+
+            Refaça os exercícios do arquivo callbacks.html utilizando Promises.
+            */
+        </script>
+  </body>
+</html>
