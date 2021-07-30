@@ -31,14 +31,14 @@
         */
 
         // Função callback em um código síncrono:
-        function cumprimentar(nome) {
-            alert(`Olá ${nome}`)
-        }
+        // function cumprimentar(nome) {
+        //     alert(`Olá ${nome}`)
+        // }
 
-        function processaInputUsuario(callback) {
-            let nome = prompt("Digite seu nome")
-            callback(nome)
-        }
+        // function processaInputUsuario(callback) {
+        //     let nome = prompt("Digite seu nome")
+        //     callback(nome)
+        // }
 
         // processaInputUsuario(cumprimentar)
 
@@ -58,7 +58,7 @@
         //     document.head.append(script)
         // }
 
-        // // Chamando a função
+        // // // Chamando a função
         // loadScript("./callbacks.js", (script) => {
         //     console.log(`O script ${script.src} foi carregado`)
         //     // Chamando a função dizOi que está dentro do script
@@ -94,6 +94,33 @@
 
         callback(error, result) => Se um erro for passado irá mostrar a mensagem: "A operação falhou! [mensagem do erro]".
         Senão, irá mostrar a mensagem: "A operação foi bem sucedida! O número [result] é par".
+
+        class OddNumberError extends Error {
+            constructor(message) {
+                super(message);
+                this.name = "OddNumberError";
+            }
+        }
+        
+        function somar(n1, n2, cb) {
+            setTimeout(() => {
+                const resultado = n1 + n2;
+
+                if (resultado % 2 !== 0) {
+                    cb(new OddNumberError("O valor é ímpar"));
+                } else {
+                    cb(null, resultado);
+                }
+            }, 2000);
+        }
+
+        somar(2, 3, (error, resultado) => {
+            if (error) {
+                console.log(`A operação falhou! ${error.message}`);
+            } else {
+                console.log(`A operação foi bem sucedida! O número ${resultado} é par`);
+            }
+        });
 
         2) Crie uma função dobrarEm5Segundos(numero, cb) que dobre o valor de um número após 5 segundos. Se o valor recebido não for um número
         ele irá chamar a cb passando um erro. 
