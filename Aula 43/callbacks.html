@@ -127,6 +127,34 @@
 
         callback(error, result) => Se um erro for passado irá mostrar a mensagem: "A operação falhou! [mensagem do erro]".
         Senão, irá mostrar a mensagem: "A operação foi bem sucedida! O resultado é [result]".
+
+        3) Crie uma função obtemUsuarioPeloNome(nome, cb) e verifica após 3 segundos se o nome faz parte do vetor:
+        [
+            {
+                nome: "João",
+                idade: 25,
+                email: "joao@email.com"
+            },
+            {
+                nome: "Pedro",
+                idade: 33,
+                email: "pedro@email.com"
+            },
+            {
+                nome: "Marcos",
+                idade: 16,
+                email: "marcos@email.com"
+            }
+        ]
+        
+        Se o nome informado não estiver no vetor a função deverá chamar a callback passando um UserNotFoundError com a mensagem "Usuário não está cadastrado".
+        Caso o nome informado esteja cadastrado na lista a callback deve ser chamada passando as informações do usuário com aquele nome.
+
+        cb(error) -> Ocorreu um erro! [mensagem do erro]
+        cb(success) -> Usuário encontrado: 
+                       nome: [nome do usuário]
+                       idade: [idade do usuário]
+                       email: [email do usuário]
         */
     </script>
 </body>
