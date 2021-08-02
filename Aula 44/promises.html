@@ -223,6 +223,26 @@
             somar(1, 2)
                 .then(resultado => console.log(`A operação foi bem sucedida! O número ${resultado} é par`))
                 .catch(error => console.log(`A operação falhou! ${error.message}`));
+            
+            (async () => {
+                try {
+                    const resultado = await somar(2, 1);
+                    console.log(`A operação foi bem sucedida! O número ${resultado} é par`);
+                } catch (error) {
+                    console.log(`A operação falhou! ${error.message}`)
+                }   
+            })();
+
+            async function consomeSomar() {
+                try {
+                    const resultado = await somar(1, 1);
+                    console.log(`A operação foi bem sucedida! O número ${resultado} é par`);
+                } catch (error) {
+                    console.log(`A operação falhou! ${error.message}`)
+                }            
+            }
+
+            consomeSomar();
 
             2) 
             function dobrarEm5Segundos(numero) {
