@@ -204,6 +204,25 @@
             Exercícios
 
             Refaça os exercícios do arquivo callbacks.html utilizando Promises.
+
+            1) 
+            function somar(n1, n2) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        const resultado = n1 + n2;
+
+                        if (resultado % 2 !== 0) {
+                            reject(new Error("O valor é ímpar"));
+                        } else {
+                            resolve(resultado);
+                        }
+                    }, 2000);
+                })
+            }
+
+            somar(1, 2)
+                .then(resultado => console.log(`A operação foi bem sucedida! O número ${resultado} é par`))
+                .catch(error => console.log(`A operação falhou! ${error.message}`));
             */
         </script>
   </body>
