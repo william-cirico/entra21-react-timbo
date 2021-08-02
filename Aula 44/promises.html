@@ -261,6 +261,28 @@
             dobrarEm5Segundos(2)
                 .then(resultado => console.log(`A operação foi bem sucedida! O resultado é ${resultado}`))
                 .catch(error => console.log(`A operação falhou! ${error.message}`));
+
+            (async () => {
+                try {
+                    const resultado = await dobrarEm5Segundos("a");
+                    console.log(`A operação foi bem sucedida! O resultado é ${resultado}`);
+                } catch (error) {
+                    console.log(`A operação falhou! ${error.message}`);
+                }
+            })();
+
+            function dobrarEm5Segundos(numero) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        if (isNaN(numero)) {
+                            reject(new TypeError("O valor deve ser numérico!"))
+                        } else {
+                            const dobro = numero * 2;
+                            resolve(dobro);
+                        }
+                    }, 5000)
+                });
+            }
             
             3)
             const listaPessoas = [
@@ -305,6 +327,27 @@
             obtemUsuarioPeloNome("Pedr")
                 .then(usuario => console.log(`Usuário encontrado:\nnome: ${usuario.nome}\nidade: ${usuario.idade}\nemail: ${usuario.email}.`))
                 .catch(error => console.log(`Ocorreu um erro! ${error.message}.`));
+
+            async function consomeObtemUsuarioPeloNome() {
+                try {
+                    const usuario = await obtemUsuarioPeloNome("Pedro");
+                    console.log(`Usuário encontrado:\nnome: ${usuario.nome}\nidade: ${usuario.idade}\nemail: ${usuario.email}.`);
+                } catch (error) {
+                    console.log(`Ocorreu um erro! ${error.message}.`)   
+                }
+            }  
+
+            consomeObtemUsuarioPeloNome();                 
+
+
+            (async () => {
+                try {
+                    const usuario = await obtemUsuarioPeloNome("Pedro");
+                    console.log(`Usuário encontrado:\nnome: ${usuario.nome}\nidade: ${usuario.idade}\nemail: ${usuario.email}.`);
+                } catch (error) {
+                    console.log(`Ocorreu um erro! ${error.message}.`)   
+                }
+            })();
             */
         </script>
   </body>
