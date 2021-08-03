@@ -87,79 +87,11 @@ Exercício
 e retorne um vetor com todos os arquivos presentes naquele diretório.
 
 Obs.: Diretórios não devem ser incluídos.
-const fsPromises = require("fs/promises");
-const fs = require("fs");
-const path = require("path");
-
-async function obterArquivos(folderPath) {
-    try {
-        const data = await fsPromises.readdir(folderPath);
-        
-        const files = data.filter(file => fs.statSync(path.resolve(folderPath, file)).isFile());
-
-        console.log(files);
-    } catch (err) {
-        console.log(err);
-    }
-}
-
-obterArquivos(__dirname);
 
 2) Crie uma função moveFiles(oldFolderPath, newFolderPath) que move os arquivos da pasta original
 para a nova pasta.
 
-const fsPromises = require("fs/promises");
-const path = require("path");
-
-async function moveFiles(oldFolderPath, newFolderPath) {                    
-    try {
-        const files = await fsPromises.readdir(oldFolderPath);
-        
-        // Criando a pasta se ela não existir
-        await fsPromises.mkdir(newFolderPath, { recursive: true }); 
-
-        // Movendo os arquivos
-        for (file of files) {
-            await fsPromises.rename(path.resolve(oldFolderPath, file), path.resolve(newFolderPath, file));
-            console.log(`O arquivo ${file} foi movido`);
-        }         
-    } catch (err) {
-        console.log(err.message);
-    } 
-}
-
-const oldFolderPath = "C:\\Users\\william.cirico\\Desktop\\projetoPesado",
-      newFolderPath = "C:\\Users\\william.cirico\\Desktop\\novaPasta";
-
-moveFiles(newFolderPath, oldFolderPath);
-
 3) Crie uma função moveEspecificFiles(oldFolderPath, newFolderPath, extension) que move os arquivos
 com a extensão informada para a nova pasta.
 
-const fsPromises = require("fs/promises");
-const path = require("path");
-
-async function moveEspecificFiles(oldFolderPath, newFolderPath, extension) {            
-    // Criando a pasta se ela não existir
-    try {
-        const files = await fsPromises.readdir(oldFolderPath);
-        
-        await fsPromises.mkdir(newFolderPath, { recursive: true });  
-
-        // Filtrando os arquivos com a mesma extensão    
-        const especificFiles = files.filter(file => path.extname(path.resolve(oldFolderPath, file)) === extension);    
-        // Movendo os arquivos
-        for (file of especificFiles) {
-            await fsPromises.rename(path.resolve(oldFolderPath, file), path.resolve(newFolderPath, file));
-            console.log(`O arquivo ${file} foi movido`);
-        }
-    } catch (err) {
-        console.log(err.message);
-    } 
-}
-
-const oldFolderPath = "C:\\Users\\william.cirico\\Desktop\\projetoPesado",
-      newFolderPath = "C:\\Users\\william.cirico\\Desktop\\novaPasta";
-
-moveEspecificFiles(oldFolderPath, newFolderPath, ".txt");
 */
