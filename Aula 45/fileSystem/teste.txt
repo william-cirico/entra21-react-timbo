@@ -1,0 +1,2 @@
+Esse é um arquivo de testes
+Essa é uma nova linha com um texto qualquer
