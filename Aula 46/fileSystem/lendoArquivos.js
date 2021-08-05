@@ -1,6 +1,7 @@
 const fs = require("fs");
 const fsPromises = require("fs/promises");
 const path = require("path");
+const { EOL } = require("os");
 
 // Lendo as informações de um arquivo (Callback)
 fs.readFile(path.resolve(__dirname, "teste.txt"), (err, data) => {
@@ -17,8 +18,9 @@ fs.readFile(path.resolve(__dirname, "teste.txt"), (err, data) => {
 (async () => {
     try {
         const data = await fsPromises.readFile(path.resolve(__dirname, "teste.txt"));
-
-        console.log(data.toString("utf-8"))
+        console.log(data);
+        const dataString = data.toString("utf-8");
+        console.log(dataString.split(EOL))        
     } catch (err) {
         console.log(err.message);
     }
@@ -31,6 +33,22 @@ Exercício
 presentes no arquivo.
 
 Obs.: Nome e sobrenome.
+
+const fsp = require("fs/promises");
+const path = require("path");
+const { EOL } = require("os");
+
+(async () => {
+    try {
+        const data = await fsp.readFile(path.resolve(__dirname, "exercicioNomes.txt"));
+        
+        const nomes = data.toString("utf-8").split(EOL);
+
+        console.log(nomes.filter(nome => nome[0].toUpperCase() === "A"));        
+    } catch (err) {
+        console.log(err.message);
+    }
+})();
 
 2) Crie uma função getUserByName(name) que retorne o usuário obtido através do arquivo "users.json". Caso o usuário
 não exista a função deve retornar undefined.
