@@ -61,6 +61,34 @@ email: [email do usuário]
 
 Caso o usuário não existir mostrar a mensagem: "Usuário não foi encontrado."
 
+async function getUserByName(name) {
+    // 1) Ler o arquivo
+    const data = (await fsp.readFile(path.resolve("users.json"))).toString("utf-8");    
+    
+    // 2) Converter o JSON recebido para objeto
+    const users = JSON.parse(data);    
+    
+    // 3) Usar o método find dos vetores para procurar o nome
+   const user = users.find(user => user.nome === name);
+
+   // 4) Retornar o que foi encontrado
+   return user;
+}
+
+(async () => {
+   // 5) Chamar a função
+   const user = await getUserByName("Pedr");
+   
+   // 6) Verificar se o usuário foi encontrado 
+   //      * Se foi encontrado mostrar os dados dele
+   //      * Se não foi encontrado mostrar "Usuário não encontrado"
+   if (user) {
+       console.log(`Usuário encontrado:\nnome: ${user.nome}\nidade: ${user.idade}\nemail: ${user.email}`);
+   } else {
+       console.log("Usuário não encontrado");
+   }
+})();
+
 3) Faça um script que leia o arquivo exercioNomes.txt e utilize a biblioteca chalk (https://www.npmjs.com/package/chalk) para
 mostrar os nomes que começam com a letra A em vermelho, os nomes que começam com a letra C em azul e os
 nomes que começam com a letra D em magenta.
