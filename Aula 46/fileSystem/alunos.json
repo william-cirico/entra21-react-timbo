@@ -1,0 +1,26 @@
+[
+    {
+        "matricula": 111,
+        "nome": "João",
+        "email": "joao@email.com",
+        "notas": [10, 10, 10]
+    },
+    {
+        "matricula": 112,
+        "nome": "Pedro",
+        "email": "pedro@email.com",
+        "notas": [5, 4, 3]
+    },
+    {
+        "matricula": 113,
+        "nome": "Marcos",
+        "email": "marcos@email.com",
+        "notas": [9, 8, 7]
+    },
+    {
+        "matricula": 114,
+        "nome": "José",
+        "email": "jose@email.com",
+        "notas": [6, 4, 3]
+    }
+]

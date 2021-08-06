@@ -61,4 +61,22 @@ Onde:
     * total_memory: Quantidade total de memória.
     * free_memory: Quantidade de memória livre.
     * usage: Porcentagem de uso da memória.
+
+2. Crie um script que leia o arquivo alunos.json e escreva um arquivo aprovados.json com os alunos que foram 
+aprovados. Para um aluno ser aprovado a média tem que ser maior ou igual à 6.
+
+O aluno deve ser salvo no formato:
+[
+    {
+        "matricula": 111,
+        "nome": "João",
+        "email": "joao@email.com",
+        "notas": [10, 10, 10],
+        "media": 10
+    },
+    {...}
+]
+
+3. Crie um script que leia o arquivo cpfs.txt e utilizando a biblioteca validator.js (https://github.com/validatorjs/validator.js/)
+salve os cpfs válidos em um arquivo cpfsvalidos.txt e os cpfs inválidos em um arquivo cpfsinvalidos.txt.
 */
