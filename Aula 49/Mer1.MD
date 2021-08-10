@@ -1,8 +1,8 @@
 <h2>1º Identificando as entidades:</h2>
-<strong>Imóveis</strong><br/>
-<strong>Proprietários</strong><br/>
-<strong>Contratos (Entidade Associativa)</strong><br/>
-<strong>Locatários</strong><br/>
+Imóveis<br/>
+Proprietários<br/>
+Contratos (Entidade Associativa)<br/>
+Locatários
 
 <h2>2º Identificando as relações:</h2>
 <strong>Proprietários x Imóveis</strong><br/>
