@@ -36,21 +36,27 @@
 </ul>
 
 <strong>Proprietários</strong>
-<li>id</li>
-<li>nome</li>
-<li>cpf</li>
-<li>telefone</li>
-<li>endereço (rua, número, cidade, estado)</li>
+<ul>
+     <li>id</li>
+     <li>nome</li>
+     <li>cpf</li>
+     <li>telefone</li>
+     <li>endereço (rua, número, cidade, estado)</li>
+</ul>
 
 <strong>Contratos</strong>
-<li>id</li>
-<li>data_início</li>
-<li>data_término</li>
-<li>dia_vencimento</li>
-<li>valor</li>
-<li>observações</li>
+<ul>
+     <li>id</li>
+     <li>data_início</li>
+     <li>data_término</li>
+     <li>dia_vencimento</li>
+     <li>valor</li>
+     <li>observações</li>
+</ul>
 
 <strong>Locatários</strong>
-<li>id</li>
-<li>nome</li>
-<li>cpf</li>
+<ul>
+     <li>id</li>
+     <li>nome</li>
+     <li>cpf</li>
+</ul>
