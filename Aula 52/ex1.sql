@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS contratos (
 	id_imovel integer REFERENCES imoveis,
 	data_inicio date,
 	data_termino date NOT NULL,
+	dia_vencimento integer NOT NULL,
 	valor numeric NOT NULL,
 	observacoes text,
 	id_proprietario integer NOT NULL REFERENCES proprietarios,
@@ -60,9 +61,9 @@ CREATE TABLE IF NOT EXISTS contratos (
 INSERT INTO 
 	contratos
 VALUES
-	(1, 1, DATE(NOW()), DATE(NOW()) +  7, 900, null, 1),
-	(2, 2, DATE(NOW()), '2021-09-05', 1500, null, 1),
-	(3, 3, DATE(NOW()), '2021-09-05', 700, null, 1);
+	(1, 1, DATE(NOW()), DATE(NOW()) +  7, 15, 900, null, 1),
+	(2, 2, DATE(NOW()), '2021-09-05', 10, 1500, null, 1),
+	(3, 3, DATE(NOW()), '2021-09-05', 1, 700, null, 1);
 
 
 
