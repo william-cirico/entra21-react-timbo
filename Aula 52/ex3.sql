@@ -17,7 +17,7 @@ VALUES
 	(DATE(NOW()), DATE(NOW()) + 7, 'Projeto 01'),
 	(DATE(NOW()), DATE(NOW()) + 14, 'Projeto 02'),
 	(DATE(NOW()), DATE(NOW()) + 30, 'Projeto 03');
-	
+
 CREATE TABLE IF NOT EXISTS departamentos (
 	id SERIAL PRIMARY KEY,
 	nome text NOT NULL
