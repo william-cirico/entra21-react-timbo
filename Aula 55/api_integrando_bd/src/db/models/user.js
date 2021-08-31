@@ -5,7 +5,15 @@ const {
 const bcrypt = require("bcrypt");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {    
-    static associate(models) {}
+    static associate(models) {
+      this.hasMany(models.Post, {
+        foreignKey: {
+          name: "user_id",
+          type: DataTypes.UUID
+        },
+        as: "post"
+      });
+    }
   
     isPasswordValid(password) {
       return bcrypt.compareSync(password, this.password);
