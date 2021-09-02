@@ -111,7 +111,13 @@ async function createPost(req, res, next) {
         image = `${process.env.APP_URL}/static/${file.filename}`;
     }
     
-    try {        
+    try {       
+        const user = await User.findOne({ where: {id: userId }});
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found!" });
+        }
+        
         const post = await Post.create({
             title,
             content,
