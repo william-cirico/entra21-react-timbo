@@ -120,7 +120,7 @@ async function createPost(req, res, next) {
         });
 
         res.status(201).json(post);
-    } catch (error) {
+    } catch (err) {
         console.log(err);
         res.status(500).json({ message: "Server error" });
     }
