@@ -1,4 +1,4 @@
-const { User } = require("../db/models");
+const { User, Post } = require("../db/models");
 
 async function getAllUsers(req, res, next) {
     try {
@@ -104,10 +104,22 @@ async function deleteUser(req, res, next) {
 async function createPost(req, res, next) {
     const userId = req.params.id;
     const { title, content } = req.body;
-    const file = req.file
-    try {
-        console.log(file);
-        res.end();
+    const file = req.file;
+
+    let image;
+    if (file) {
+        image = `${process.env.APP_URL}/static/${file.filename}`;
+    }
+    
+    try {        
+        const post = await Post.create({
+            title,
+            content,
+            image,
+            user_id: userId
+        });
+
+        res.status(201).json(post);
     } catch (error) {
         console.log(err);
         res.status(500).json({ message: "Server error" });
