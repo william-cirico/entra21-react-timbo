@@ -1,8 +1,11 @@
 const router = require("express").Router();
 
-const todosControllers = require("../controllers/")
+const todosControllers = require("../controllers/todosControllers");
+const authentication = require("../middlewares/authMiddleware");
 
-router.get("/")
-router.post("/", require("../controllers/authControllers").login);
+router.get("/", authentication, todosControllers.getTodos);
+router.post("/", authentication, todosControllers.createTodo);
+router.put("/:id", authentication, todosControllers.editTodo);
+router.delete("/:id", authentication, todosControllers.removeTodo);
 
 module.exports = router;
