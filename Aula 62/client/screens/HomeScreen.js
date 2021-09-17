@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Button } from "../components/Button";
 import { useAuth } from "../contexts/AuthContext";

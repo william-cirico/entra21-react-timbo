@@ -21,7 +21,7 @@ const initialState = {
 export function SignInScreen({ navigation }) {
     const { memoContext } = useAuth();    
     const [state, setState] = useState(initialState);
-
+    
     useEffect(() => {        
         setState(prevState => ({
             ...prevState, 
@@ -44,6 +44,11 @@ export function SignInScreen({ navigation }) {
         }        
     }
 
+    function handleNavigateSignUpScreen() {
+        setState(initialState);
+        navigation.push("SignUp")
+    }
+
     return (            
         <KeyboardAvoidingView behavior="height" style={styles.container}>
             <Loader isVisible={state.isLoading} />
@@ -63,7 +68,7 @@ export function SignInScreen({ navigation }) {
                 labelText="Senha"
                 secureTextEntry={true}
                 isValid={state.isPasswordValid} />
-            <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+            <TouchableOpacity onPress={handleNavigateSignUpScreen}>
                 <Text>Não tem conta ainda? Cadastre-se</Text>
             </TouchableOpacity>        
             <Button 
