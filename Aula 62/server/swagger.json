@@ -1,0 +1,125 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0", 
+      "title": "Todo APP",
+      "description": "REST API para um TODO APP"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3001/api",
+            "description": "Servidor de desenvolvimento"
+        }
+    ],
+    "tags": [
+      {
+        "name": "Users",
+        "description": "Endpoints de Usuários"
+      },
+      {
+          "name": "Todos",
+          "description": "Endpoints de Todos"
+      },
+      {
+          "name": "Auth",
+          "description": "Endpoints de Autenticação"
+      }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }            
+    },
+    "paths": {
+        "/users": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "Cria um usuário",
+                "requestBody": {
+                    "description": "Usuário a ser criado",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {                            
+                            "schema": {
+                                "required": ["name", "email", "password"],
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "Nome do usuário"                                        
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "description": "Email do usuário"                                            
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "description": "Senha do usuário"
+                                    },
+                                    "avatar": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "example": {                                                                        
+                                    "name": "teste",
+                                    "email": "teste@email.com",
+                                    "password": "123456",
+                                    "avatar": "https://images-na.ssl-images-amazon.com/images/I/71%2BmDoHG4mL.png"                                    
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "description": "ID do usuário"                                            
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "description": "Nome do usuário"                                            
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "description": "Email do usuário"                                            
+                                        },
+                                        "avatar": {
+                                            "type": "string",
+                                            "description": "Url do avatar do usuário"
+                                        },
+                                        "createdAt": {
+                                            "type": "string",
+                                            "description": "Data de criação"                                            
+                                        },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "description": "Data de atualização"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "E-mail já cadastrado!"                    
+                    }
+                }
+            }
+        },
+        "/todos": {
+
+        }
+    }
+}

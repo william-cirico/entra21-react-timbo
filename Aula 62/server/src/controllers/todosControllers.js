@@ -35,6 +35,7 @@ async function editTodo(req, res, next) {
             throw new createHttpError(404, "Todo not found");
         }
 
+        // Atualizando o Todo
         Object.assign(todo, { task, completed, expirationDate });
 
         await todo.save();

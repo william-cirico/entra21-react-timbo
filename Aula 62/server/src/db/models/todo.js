@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    completed: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
     expirationDate: {
       type: DataTypes.DATE,
       allowNull: false

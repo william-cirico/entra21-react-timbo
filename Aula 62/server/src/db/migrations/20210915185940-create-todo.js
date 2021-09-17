@@ -12,6 +12,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      completed: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
       expiration_date: {
         type: Sequelize.DATE,
         allowNull: false

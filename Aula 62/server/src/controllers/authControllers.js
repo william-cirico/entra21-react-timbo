@@ -31,7 +31,7 @@ async function login(req, res, next) {
         }
 
         // Criando o access-token
-        const accessToken = createAccessToken(registeredUser.id, registeredUser.role);        
+        const accessToken = createAccessToken(registeredUser.id);        
         
         res.json(accessToken);
     } catch (error) {
