@@ -1,8 +1,6 @@
 import React from "react";
 import { api } from "../services/api";
 import * as SecureStore from "expo-secure-store";
-import { showErrorMessage } from "../utils/errorHandlers";
-import axios from "axios";
 
 const AuthContext = React.createContext();
 

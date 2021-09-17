@@ -31,7 +31,7 @@ export function SignInScreen({ navigation }) {
 
     async function handleSignIn() {
         setState(prevState => ({ ...prevState, isLoading: true }));
-        try {
+        try {            
             await memoContext.signIn(state.email, state.password);
         } catch (err) {
             setState(prevState => ({ 
@@ -46,7 +46,7 @@ export function SignInScreen({ navigation }) {
 
     function handleNavigateSignUpScreen() {
         setState(initialState);
-        navigation.push("SignUp")
+        navigation.push("SignUp");
     }
 
     return (            

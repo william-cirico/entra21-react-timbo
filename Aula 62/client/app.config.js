@@ -29,6 +29,6 @@ export default {
       favicon: "./assets/favicon.png"
     },
     extra: {
-        apiURL: "https://hard-bobcat-39.loca.lt/api"
+        apiURL: "https://59c0-177-200-213-98.ngrok.io/api"
     },
 };
