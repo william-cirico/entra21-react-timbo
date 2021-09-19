@@ -2,7 +2,7 @@ const createHttpError = require("http-errors");
 const { Todo } = require("../db/models");
 
 async function getTodos(req, res, next) {
-    const { userId } = res.locals
+    const { userId } = res.locals;
     try {
         const todos = await Todo.findAll({ where: { user_id: userId } });
         
@@ -14,7 +14,8 @@ async function getTodos(req, res, next) {
 }
 
 async function createTodo(req, res, next) {
-    const { task, expirationDate, userId } = req.body;
+    const { task, expirationDate } = req.body;
+    const { userId } = res.locals;
     try {
         const todo = await Todo.create({ task, expirationDate, user_id: userId });
 

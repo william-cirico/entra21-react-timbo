@@ -14,7 +14,7 @@ async function createUser(req, res, next) {
     
     try {
         const [user, created] = await User.findOrCreate({
-            where: { email },
+            where: { email: email.toLowerCase() },
             defaults: { name, password, avatar }
         });
 
