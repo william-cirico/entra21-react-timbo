@@ -18,9 +18,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    completed: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+    completedAt: {
+      type: DataTypes.DATE
     },
     expirationDate: {
       type: DataTypes.DATE,

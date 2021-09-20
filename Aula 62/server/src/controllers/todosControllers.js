@@ -28,7 +28,7 @@ async function createTodo(req, res, next) {
 
 async function editTodo(req, res, next) {
     const todoId = req.params.id;    
-    const { task, completed, expirationDate } = req.body;
+    const { task, completedAt } = req.body;
     try {
         const todo = await Todo.findOne({ where: { id: todoId }});
 
@@ -37,7 +37,7 @@ async function editTodo(req, res, next) {
         }
 
         // Atualizando o Todo
-        Object.assign(todo, { task, completed, expirationDate });
+        Object.assign(todo, { task, completedAt });
 
         await todo.save();
 

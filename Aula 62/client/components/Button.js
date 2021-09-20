@@ -16,12 +16,10 @@ export function Button({text, ...rest}) {
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: colors.primary,
-        width: "100%",        
+        backgroundColor: colors.primary,                
         color: "white",
         padding: 15,
-        borderRadius: 4,
-        marginVertical: 20
+        borderRadius: 4,        
     },
     buttonText: {
         color: "white",

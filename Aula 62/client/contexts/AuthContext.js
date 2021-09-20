@@ -41,11 +41,13 @@ export function AuthProvider({ children }) {
 
             try {
                 accessToken = await SecureStore.getItemAsync("access-token");
+
+                api.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
             } catch (err) { 
                 console.log(err);
             }
 
-            setTimeout(() => dispatch({ type: "RESTORE_TOKEN", token: accessToken }), 2000);            
+            dispatch({ type: "RESTORE_TOKEN", token: accessToken });            
         }
 
         restoreToken();
@@ -62,6 +64,7 @@ export function AuthProvider({ children }) {
 
                 dispatch({ type: "SIGN_IN", token: accessToken });
             } catch (err) {
+                console.log(err);
                 throw err;                           
             }            
         },
@@ -69,6 +72,7 @@ export function AuthProvider({ children }) {
             try {                                                        
                 await api.post("/users", { ...user });                                                                                
             } catch (err) {
+                console.log(err);
                 throw err;                           
             }         
         },
