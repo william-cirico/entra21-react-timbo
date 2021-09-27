@@ -9,22 +9,22 @@ async function createUser(req, res, next) {
 
     let avatar;
     if (file) {
-        avatar = `${process.env.APP_URL}/images/${file.filename}`
+        avatar = file.location ? file.location : `${process.env.APP_URL}/api/images/${file.filename}`;
     }
     
     try {
         const [user, created] = await User.findOrCreate({
-            where: { email },
+            where: { email: email?.toLowerCase() },
             defaults: { name, password, avatar }
         });
 
         if (!created) {
             // Remover a imagem caso o usuário já exista
-            if (file) {
+            if (file?.filename) {
                 fs.unlinkSync(path.resolve(__dirname, "..", "..", "uploads", file.filename));
             }            
 
-            throw new createHttpError(409, "E-mail já cadastrado.");
+            throw new createHttpError(409, "E-mail já cadastrado");
         }
 
         return res.status(201).json(user);
@@ -34,6 +34,24 @@ async function createUser(req, res, next) {
     }
 }
 
+async function getUser(req, res, next) {
+    const userId = res.locals.userId;
+
+    try {
+        const user = await User.findOne({ where: { id: userId }});
+
+        if (!user) {
+            throw new createHttpError(404, "Usuário não encontrado");
+        }
+
+        return res .json(user);
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
 module.exports = {
-    createUser
+    createUser,
+    getUser
 }

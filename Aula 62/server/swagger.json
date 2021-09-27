@@ -27,12 +27,39 @@
     ],
     "components": {
         "securitySchemes": {
-            "bearerAuth": {
+            "BearerAuth": {
                 "type": "http",
                 "scheme": "bearer",
                 "bearerFormat": "JWT"
             }
-        }            
+        },
+        "schemas": {
+            "Todo": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "ID do Todo"                                            
+                    },
+                    "task": {
+                        "type": "string",
+                        "description": "Tarefa a ser cumprida"                                            
+                    },
+                    "completed": {
+                        "type": "boolean",
+                        "description": "Estado de andamento da tarefa"                                            
+                    },                                
+                    "createdAt": {
+                        "type": "string",
+                        "description": "Data de criação"                                            
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "description": "Data de atualização"
+                    }
+                }
+            }
+        }           
     },
     "paths": {
         "/users": {
@@ -62,14 +89,9 @@
                                     },
                                     "avatar": {
                                         "type": "string",
-                                        "format": "binary"
+                                        "format": "binary",
+                                        "description": "Fotinha do usuário"
                                     }
-                                },
-                                "example": {                                                                        
-                                    "name": "teste",
-                                    "email": "teste@email.com",
-                                    "password": "123456",
-                                    "avatar": "https://images-na.ssl-images-amazon.com/images/I/71%2BmDoHG4mL.png"                                    
                                 }
                             }
                         }
@@ -113,13 +135,257 @@
                         }
                     },
                     "409": {
-                        "description": "E-mail já cadastrado!"                    
+                        "description": "E-mail já cadastrado."                    
+                    },
+                    "500": {
+                        "description": "Erro inesperado"
                     }
                 }
             }
         },
         "/todos": {
-
+            "get": {
+                "tags": ["Todos"],
+                "security": [{"BearerAuth": []}],
+                "summary": "Obtem todos os todos de um usuário",                
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Todo"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Authorization information is missing or invalid"                    
+                    }
+                }
+            },
+            "post": {
+                "tags": ["Todos"],
+                "security": [{"BearerAuth": []}],
+                "summary": "Cria um todo",
+                "requestBody": {
+                    "description": "Todo a ser criado",
+                    "required": true,
+                    "content": {
+                        "aplication/json": {                            
+                            "schema": {                                
+                                "type": "object",
+                                "properties": {
+                                    "task": {
+                                        "type": "string",
+                                        "description": "Tarefa a ser realizada"                                        
+                                    },                                    
+                                    "expirationDate": {
+                                        "type": "integer",
+                                        "description": "Timestamp correspondente a data de expiração"
+                                    }
+                                },
+                                "example": {                                                                        
+                                    "task": "Todo teste",
+                                    "expirationDate": 1631888720000
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "description": "ID do Todo"                                            
+                                        },
+                                        "task": {
+                                            "type": "string",
+                                            "description": "Tarefa a ser cumprida"                                            
+                                        },
+                                        "completed": {
+                                            "type": "boolean",
+                                            "description": "Estado de andamento da tarefa"                                            
+                                        },                                
+                                        "createdAt": {
+                                            "type": "string",
+                                            "description": "Data de criação"                                            
+                                        },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "description": "Data de atualização"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Authorization information is missing or invalid"                    
+                    }
+                }
+            }            
+        },
+        "/todos/{id}": {
+            "put": {
+                "tags": ["Todos"],
+                "security": [{"BearerAuth": []}],
+                "summary": "Atualiza um Todo",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "O id do todo a ser atualizado",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "minimum": 1
+                        }                        
+                    }
+                ],
+                "requestBody": {
+                    "description": "Informações de atualização do Todo",
+                    "required": true,
+                    "content": {
+                        "aplication/json": {                            
+                            "schema": {                                
+                                "type": "object",
+                                "properties": {
+                                    "task": {
+                                        "type": "string",
+                                        "description": "Tarefa a ser realizada"                                        
+                                    }, 
+                                    "completed": {
+                                        "type": "boolean",
+                                        "description": "Estado de andamento da tarefa"
+                                    },                
+                                    "expirationDate": {
+                                        "type": "integer",
+                                        "description": "Timestamp correspondente a data de expiração"
+                                    }
+                                },
+                                "example": {                                                                        
+                                    "task": "Todo teste",
+                                    "completed": "true",
+                                    "expirationDate": 1631888720000
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Ok"
+                    },
+                    "404": {
+                        "description": "Todo not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["Todos"],
+                "security": [{"BearerAuth": []}],
+                "summary": "Remove um Todo",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "O id do todo a ser removido",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "minimum": 1
+                        }                        
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Ok"
+                    },
+                    "404": {
+                        "description": "Todo not found"
+                    }
+                }
+            }          
+        },
+        "/auth/login": {
+            "post": {                
+                "tags": ["Auth"],
+                "summary": "Recebe o access-token do usuário",
+                "requestBody": {
+                    "description": "As informações de login do usuário",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {                                
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "description": "Email do usuário"                                            
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "description": "Senha do usuário"
+                                    }
+                                },
+                                "example": {
+                                    "email": "teste@email.com",
+                                    "password": "123456"
+                                }
+                            }
+                        }                                                          
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "description": "ID do usuário"                                            
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "description": "Nome do usuário"                                            
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "description": "Email do usuário"                                            
+                                        },
+                                        "avatar": {
+                                            "type": "string",
+                                            "description": "Url do avatar do usuário"
+                                        },
+                                        "createdAt": {
+                                            "type": "string",
+                                            "description": "Data de criação"                                            
+                                        },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "description": "Data de atualização"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "E-mail já cadastrado."                    
+                    }
+                }                
+            }
         }
     }
 }

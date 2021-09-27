@@ -1,13 +1,11 @@
 const createHttpError = require("http-errors");
 const jwt = require("jsonwebtoken");
 
-module.exports = (req, res, next) => { 
-    const authError = createHttpError(401, "Authorization information is missing or invalid.");
-    
+module.exports = (req, res, next) => {        
     const token = req.headers.authorization?.split(" ")[1];
 
     if (!token) {
-        next(authError);
+        next(createHttpError(401, "Token is missing"));
     }
     
     try {
@@ -18,6 +16,6 @@ module.exports = (req, res, next) => {
         next();
     } catch (error) {
         console.log(error);
-        next(authError);
+        next(createHttpError(401, "Invalid Token"));
     }       
 }
