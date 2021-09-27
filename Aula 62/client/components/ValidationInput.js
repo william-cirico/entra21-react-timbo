@@ -20,7 +20,8 @@ export function ValidationInput({labelText, isValid, ...rest}) {
 }
 
 const styles = StyleSheet.create({
-    containerInput: {        
+    containerInput: { 
+        width: "100%",       
         flexDirection: "row",
         alignItems: "center",        
         borderWidth: 1,
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     input: {        
         fontSize: size.input,
         flex: 1,        
-        padding: 10
+        padding: 10        
     },
     icon: {                
         paddingRight: 5

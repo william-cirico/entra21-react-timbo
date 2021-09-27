@@ -29,6 +29,6 @@ export default {
       favicon: "./assets/favicon.png"
     },
     extra: {
-        apiURL: "https://59c0-177-200-213-98.ngrok.io/api"
+        apiURL: "https://3a08-2804-d57-4e14-4c00-6066-c41-fbd8-1b96.ngrok.io/api"
     },
 };
